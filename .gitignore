@@ -1,19 +1,15 @@
-# Build and Release Folders
-bin/
-bin-debug/
-bin-release/
-[Oo]bj/ # FlashDevelop obj
-[Bb]in/ # FlashDevelop bin
+#以'#'开始的行，被视为注释
 
-# Other files and folders
-.settings/
+#忽略掉所有文件名是 foo.txt的文件
+#foo.txt
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+#忽略所有生成的 html文件
+#*.html
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+#foo.html是手工维护的，所以例外
+#!foo.html
+
+#忽略所有.o和 .a文件
+#*.[oa]
+
+#------------------------------------------
