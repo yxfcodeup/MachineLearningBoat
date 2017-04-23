@@ -7,3 +7,6 @@ version: r0.9
 
 
 ## Tutorials
+
+## References
+* [基于TensorFlow的端到端验证码识别](http://dataunion.org/27573.html)
