@@ -328,3 +328,14 @@ $ SPARK_HOME/sbin/start-slaves.sh
 3. 各节点间的jdk以及Python版本需保持一致,否则会导致错误
 4. 报错: mkdir: Cannot create directory /user/tk. Name node is in safe mode.  
 使用命令：./hadoop dfsadmin -safemode leave  
+5. 关于spark master web ui 端口8080被占用解决办法： 
+
+```
+1、cd SPARK_HOME/sbin
+2、vi start-master.sh
+3、定位到下面部分内容：
+if [ "$SPARK_MASTER_WEBUI_PORT" = "" ]; then
+  SPARK_MASTER_WEBUI_PORT=8080
+fi
+4、修改上面的端口为其它可用端口就行
+```
