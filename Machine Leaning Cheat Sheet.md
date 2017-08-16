@@ -72,7 +72,7 @@ Pytorch 					81%
 
 [http://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/](http://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/)  
 
-![]()
+![](ExternalFiles/MachineLearningAlgorithms.png)  
 
 
 
