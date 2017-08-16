@@ -1,0 +1,2570 @@
+<!DOCTYPE html>
+
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="http://www.asimovinstitute.org/xmlrpc.php">
+	
+	<title>The Neural Network Zoo - The Asimov Institute</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v5.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="http://www.asimovinstitute.org/neural-network-zoo/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The Neural Network Zoo - The Asimov Institute" />
+<meta property="og:description" content="With new neural network architectures popping up every now and then, it&#8217;s hard to keep track of them all. Knowing all the abbreviations being thrown around (DCIGN, BiLSTM, DCGAN, anyone?) can be a bit overwhelming at first. So I decided to compose a cheat sheet containing many of those architectures. Most of these are neural networks, some are completely &hellip;" />
+<meta property="og:url" content="http://www.asimovinstitute.org/neural-network-zoo/" />
+<meta property="og:site_name" content="The Asimov Institute" />
+<meta property="article:section" content="Deep learning" />
+<meta property="article:published_time" content="2016-09-14T10:31:14+00:00" />
+<meta property="article:modified_time" content="2016-10-28T14:32:46+00:00" />
+<meta property="og:updated_time" content="2016-10-28T14:32:46+00:00" />
+<meta property="og:image" content="http://www.asimovinstitute.org/wp-content/uploads/2016/09/building-922529_1920.jpg" />
+<meta property="og:image:width" content="1920" />
+<meta property="og:image:height" content="1281" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="With new neural network architectures popping up every now and then, it&#8217;s hard to keep track of them all. Knowing all the abbreviations being thrown around (DCIGN, BiLSTM, DCGAN, anyone?) can be a bit overwhelming at first. So I decided to compose a cheat sheet containing many of those architectures. Most of these are neural networks, some are completely [&hellip;]" />
+<meta name="twitter:title" content="The Neural Network Zoo - The Asimov Institute" />
+<meta name="twitter:image" content="http://www.asimovinstitute.org/wp-content/uploads/2016/09/building-922529_1920.jpg" />
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="The Asimov Institute &raquo; Feed" href="http://www.asimovinstitute.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="The Asimov Institute &raquo; Comments Feed" href="http://www.asimovinstitute.org/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="The Asimov Institute &raquo; The Neural Network Zoo Comments Feed" href="http://www.asimovinstitute.org/neural-network-zoo/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/www.asimovinstitute.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b===c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='tmm-css'  href='http://www.asimovinstitute.org/wp-content/plugins/team-members/css/tmm_custom_style.min.css?ver=4.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='yuuta-fonts-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A400%2C900italic%2C900%2C700italic%2C700%2C500italic%2C500%2C400italic%2C300italic%2C300%2C100italic%2C100%7CRoboto+Slab%3A400%2C100%2C300%2C700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='yuuta-elegant-icons-css'  href='http://www.asimovinstitute.org/wp-content/themes/yuuta/assets/fonts/elegant-icons/elegant-icons.min.css?ver=1' type='text/css' media='all' />
+<link rel='stylesheet' id='yuuta-style-css'  href='http://www.asimovinstitute.org/wp-content/themes/yuuta/style.css?ver=20160307' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-add-custom-css-css'  href='http://www.asimovinstitute.org?display_custom_css=css&#038;ver=4.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='A2A_SHARE_SAVE-css'  href='http://www.asimovinstitute.org/wp-content/plugins/add-to-any/addtoany.min.css?ver=1.14' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.asimovinstitute.org/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://www.asimovinstitute.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://www.asimovinstitute.org/wp-content/plugins/add-to-any/addtoany.min.js?ver=1.0'></script>
+<link rel='https://api.w.org/' href='http://www.asimovinstitute.org/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.asimovinstitute.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.asimovinstitute.org/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.8.1" />
+<link rel='shortlink' href='http://www.asimovinstitute.org/?p=197' />
+<link rel="alternate" type="application/json+oembed" href="http://www.asimovinstitute.org/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.asimovinstitute.org%2Fneural-network-zoo%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://www.asimovinstitute.org/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.asimovinstitute.org%2Fneural-network-zoo%2F&#038;format=xml" />
+
+<script type="text/javascript">
+var a2a_config=a2a_config||{};a2a_config.callbacks=a2a_config.callbacks||[];a2a_config.templates=a2a_config.templates||{};
+</script>
+<script type="text/javascript" src="https://static.addtoany.com/menu/page.js" async="async"></script>
+<link rel="icon" href="http://www.asimovinstitute.org/wp-content/uploads/2016/06/cropped-AsinSquare-32x32.png" sizes="32x32" />
+<link rel="icon" href="http://www.asimovinstitute.org/wp-content/uploads/2016/06/cropped-AsinSquare-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="http://www.asimovinstitute.org/wp-content/uploads/2016/06/cropped-AsinSquare-180x180.png" />
+<meta name="msapplication-TileImage" content="http://www.asimovinstitute.org/wp-content/uploads/2016/06/cropped-AsinSquare-270x270.png" />
+<!-- BEGIN GADWP v5.1.1.1 Universal Analytics - https://deconf.com/google-analytics-dashboard-wordpress/ -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-79443321-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- END GADWP Universal Analytics -->
+</head>
+
+<body class="post-template-default single single-post postid-197 single-format-standard group-blog">
+	
+	<div id="page" class="hfeed site">
+		
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>		
+
+		<header id="masthead" class="site-header" role="banner">
+			
+			<div class="site-branding">
+									<h1 class="site-title"><a href="http://www.asimovinstitute.org/" rel="home">The Asimov Institute</a></h1>
+							
+			</div>
+			
+			<form role="search" method="get" class="search-form" action="http://www.asimovinstitute.org/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit" value="Search" />
+			</form>	
+			
+			<a class="primary-nav-trigger" href="javascript:void(0)">
+				<span class="menu-icon"></span>
+			</a>
+			
+			<a class="search-trigger" href="javascript:void(0)"></a>
+			
+		</header>
+
+		<div class="site-navigation-wrapper">
+
+			<nav id="site-navigation" class="main-navigation" role="navigation">
+				<ul class="primary-nav">
+					<li id="menu-item-105" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-105"><a href="http://www.asimovinstitute.org/">Home</a></li>
+<li id="menu-item-78" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78"><a href="http://www.asimovinstitute.org/team/">Team</a></li>
+<li id="menu-item-75" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75"><a href="http://www.asimovinstitute.org/news/">News</a></li>
+	
+				</ul>
+			</nav>			
+
+		</div>
+
+		<div id="content" class="site-content">	
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-197" class="single-template post-197 post type-post status-publish format-standard has-post-thumbnail hentry category-deep-learning">
+
+			<div class="intro-image" style="background-image: url('http://www.asimovinstitute.org/wp-content/uploads/2016/09/building-922529_1920-1400x934.jpg')">
+	
+		<div class="intro-image__inside">
+			<header class="entry-header">
+							
+				<h1 class="entry-title"><a href="http://www.asimovinstitute.org/neural-network-zoo/" rel="bookmark">The Neural Network Zoo</a></h1>				<span class="posted-on">Posted on <a href="http://www.asimovinstitute.org/neural-network-zoo/" rel="bookmark"><time class="entry-date published" datetime="2016-09-14T10:31:14+00:00">September 14, 2016</time><time class="updated" datetime="2016-10-28T14:32:46+00:00">October 28, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="http://www.asimovinstitute.org/author/fjodorvanveen/">Fjodor van Veen</a></span></span>				<hr>
+			</header><!-- .entry-header -->
+		</div>	
+		
+		<div class="overlay light-dark is-single"></div>
+
+	</div>
+
+	<div class="hentry__inside">		
+
+		<div class="entry-content">
+			<p>With new neural network architectures popping up every now and then, it&#8217;s hard to keep track of them all. Knowing all the abbreviations being thrown around (DCIGN, BiLSTM, DCGAN, anyone?) can be a bit overwhelming at first.</p>
+<p>So I decided to compose a cheat sheet containing many of those architectures. Most of these are neural networks, some are completely different beasts. Though all of these architectures are presented as novel and unique, when I drew the node structures&#8230; their underlying relations started to make more sense.</p>
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/neuralnetworks.png" alt="neuralnetworks" width="2000" height="3000" /></p>
+<p>One problem with drawing them as node maps: it doesn&#8217;t really show how they&#8217;re used. For example, variational autoencoders (VAE) may look just like autoencoders (AE), but the training process is actually quite different. The use-cases for trained networks differ even more, because VAEs are generators, where you insert noise to get a new sample. AEs, simply map whatever they get as input to the closest training sample they &#8220;remember&#8221;. I should add that this overview is in no way clarifying how each of the different node types work internally (but that&#8217;s a topic for another day).</p>
+<p>It should be noted that while most of the abbreviations used are generally accepted, not all of them are. RNNs sometimes refer to recursive neural networks, but most of the time they refer to recurrent neural networks. That&#8217;s not the end of it though, in many places you&#8217;ll find RNN used as placeholder for any recurrent architecture, including LSTMs, GRUs and even the bidirectional variants. AEs suffer from a similar problem from time to time, where VAEs and DAEs and the like are called simply AEs. Many abbreviations also vary in the amount of &#8220;N&#8221;s to add at the end, because you could call it a convolutional neural network but also simply a convolutional network (resulting in CNN or CN).</p>
+<p>Composing a complete list is practically impossible, as new architectures are invented all the time. Even if published it can still be quite challenging to find them even if you&#8217;re looking for them, or sometimes you just overlook some. So while this list may provide you with some insights into the world of AI, please, by no means take this list for being comprehensive; especially if you read this post long after it was written.</p>
+<p>For each of the architectures depicted in the picture, I wrote a <em>very, very</em> brief description. You may find some of these to be useful if you&#8217;re quite familiar with some architectures, but you aren&#8217;t familiar with a particular one.</p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/ff.png" width="300" /></p>
+<p><strong>Feed forward neural networks (FF or FFNN) and perceptrons (P)</strong> are very straight forward, they feed information from the front to the back (input and output, respectively). Neural networks are often described as having layers, where each layer consists of either input, hidden or output cells in parallel. A layer alone never has connections and in general two adjacent layers are fully connected (every neuron form one layer to every neuron to another layer). The simplest somewhat practical network has two input cells and one output cell, which can be used to model logic gates. One usually trains FFNNs through back-propagation, giving the network paired datasets of &#8220;what goes in&#8221; and &#8220;what we want to have coming out&#8221;. This is called supervised learning, as opposed to unsupervised learning where we only give it input and let the network fill in the blanks. The error being back-propagated is often some variation of the difference between the input and the output (like MSE or just the linear difference). Given that the network has enough hidden neurons, it can theoretically always model the relationship between the input and output. Practically their use is a lot more limited but they are popularly combined with other networks to form new networks.</p>
+<p><i>Rosenblatt, Frank. &#8220;The perceptron: a probabilistic model for information storage and organization in the brain.&#8221; Psychological review 65.6 (1958): 386.</i><br />
+<a style="color:#06c" href="http://www.ling.upenn.edu/courses/cogs501/Rosenblatt1958.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/rbf.png" width="300" /></p>
+<p><strong>Radial basis function (RBF)</strong> networks are FFNNs with radial basis functions as activation functions. There&#8217;s nothing more to it. Doesn&#8217;t mean they don&#8217;t have their uses, but most FFNNs with other activation functions don&#8217;t get their own name. This mostly has to do with inventing them at the right time.</p>
+<p><i>Broomhead, David S., and David Lowe. Radial basis functions, multi-variable functional interpolation and adaptive networks. No. RSRE-MEMO-4148. ROYAL SIGNALS AND RADAR ESTABLISHMENT MALVERN (UNITED KINGDOM), 1988.</i><br />
+<a style="color:#06c" href="http://www.dtic.mil/cgi-bin/GetTRDoc?AD=ADA196234">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/hn.png" width="300" /></p>
+<p>A <strong>Hopfield network (HN)</strong> is a network where every neuron is connected to every other neuron; it is a completely entangled plate of spaghetti as even all the nodes function as everything. Each node is input before training, then hidden during training and output afterwards. The networks are trained by setting the value of the neurons to the desired pattern after which the weights can be computed. The weights do not change after this. Once trained for one or more patterns, the network will always converge to one of the learned patterns because the network is only stable in those states. Note that it does not always conform to the desired state (it&#8217;s not a magic black box sadly). It stabilises in part due to the total &#8220;energy&#8221; or &#8220;temperature&#8221; of the network being reduced incrementally during training. Each neuron has an activation threshold which scales to this temperature, which if surpassed by summing the input causes the neuron to take the form of one of two states (usually -1 or 1, sometimes 0 or 1). Updating the network can be done synchronously or more commonly one by one. If updated one by one, a fair random sequence is created to organise which cells update in what order (fair random being all options (n) occurring exactly once every n items). This is so you can tell when the network is stable (done converging), once every cell has been updated and none of them changed, the network is stable (annealed). These networks are often called associative memory because the converge to the most similar state as the input; if humans see half a table we can image the other half, this network will converge to a table if presented with half noise and half a table.</p>
+<p><i>Hopfield, John J. &#8220;Neural networks and physical systems with emergent collective computational abilities.&#8221; Proceedings of the national academy of sciences 79.8 (1982): 2554-2558.</i><br />
+<a style="color:#06c" href="https://bi.snu.ac.kr/Courses/g-ai09-2/hopfield82.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/mc.png" width="300" /></p>
+<p><strong>Markov chains (MC or discrete time Markov Chain, DTMC)</strong> are kind of the predecessors to BMs and HNs. They can be understood as follows: from this node where I am now, what are the odds of me going to any of my neighbouring nodes? They are memoryless (i.e. Markov Property) which means that every state you end up in depends completely on the previous state. While not really a neural network, they do resemble neural networks and form the theoretical basis for BMs and HNs. MC aren&#8217;t always considered neural networks, as goes for BMs, RBMs and HNs. Markov chains aren&#8217;t always fully connected either.</p>
+<p><i>Hayes, Brian. &#8220;First links in the Markov chain.&#8221; American Scientist 101.2 (2013): 252.</i><br />
+<a style="color:#06c" href="http://www.americanscientist.org/libraries/documents/201321152149545-2013-03Hayes.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/bm.png" width="300" /></p>
+<p><strong>Boltzmann machines (BM)</strong> are a lot like HNs, but: some neurons are marked as input neurons and others remain &#8220;hidden&#8221;. The input neurons become output neurons at the end of a full network update. It starts with random weights and learns through back-propagation, or more recently through contrastive divergence (a Markov chain is used to determine the gradients between two informational gains). Compared to a HN, the neurons mostly have binary activation patterns. As hinted by being trained by MCs, BMs are stochastic networks. The training and running process of a BM is fairly similar to a HN: one sets the input neurons to certain clamped values after which the network is set free (it doesn&#8217;t get a sock). While free the cells can get any value and we repetitively go back and forth between the input and hidden neurons. The activation is controlled by a global temperature value, which if lowered lowers the energy of the cells. This lower energy causes their activation patterns to stabilise. The network reaches an equilibrium given the right temperature.</p>
+<p><i>Hinton, Geoffrey E., and Terrence J. Sejnowski. &#8220;Learning and releaming in Boltzmann machines.&#8221; Parallel distributed processing: Explorations in the microstructure of cognition 1 (1986): 282-317.</i><br />
+<a style="color:#06c" href="https://www.researchgate.net/profile/Terrence_Sejnowski/publication/242509302_Learning_and_relearning_in_Boltzmann_machines/links/54a4b00f0cf256bf8bb327cc.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/rbm.png" width="300" /></p>
+<p><strong>Restricted Boltzmann machines (RBM)</strong> are remarkably similar to BMs (surprise) and therefore also similar to HNs. The biggest difference between BMs and RBMs is that RBMs are a better usable because they are more restricted. They don&#8217;t trigger-happily connect every neuron to every other neuron but only connect every different group of neurons to every other group, so no input neurons are directly connected to other input neurons and no hidden to hidden connections are made either. RBMs can be trained like FFNNs with a twist: instead of passing data forward and then back-propagating, you forward pass the data and then backward pass the data (back to the first layer). After that you train with forward-and-back-propagation.</p>
+<p><i>Smolensky, Paul. Information processing in dynamical systems: Foundations of harmony theory. No. CU-CS-321-86. COLORADO UNIV AT BOULDER DEPT OF COMPUTER SCIENCE, 1986.</i><br />
+<a style="color:#06c" href="http://www.dtic.mil/cgi-bin/GetTRDoc?Location=U2&#038;doc=GetTRDoc.pdf&#038;AD=ADA620727">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/ae.png" width="300" /></p>
+<p><strong>Autoencoders (AE)</strong> are somewhat similar to FFNNs as AEs are more like a different use of FFNNs than a fundamentally different architecture. The basic idea behind autoencoders is to encode information (as in compress, not encrypt) automatically, hence the name. The entire network always resembles an hourglass like shape, with smaller hidden layers than the input and output layers. AEs are also always symmetrical around the middle layer(s) (one or two depending on an even or odd amount of layers). The smallest layer(s) is|are almost always in the middle, the place where the information is most compressed (the chokepoint of the network). Everything up to the middle is called the encoding part, everything after the middle the decoding and the middle (surprise) the code. One can train them using backpropagation by feeding input and setting the error to be the difference between the input and what came out. AEs can be built symmetrically when it comes to weights as well, so the encoding weights are the same as the decoding weights.</p>
+<p><i>Bourlard, Hervé, and Yves Kamp. &#8220;Auto-association by multilayer perceptrons and singular value decomposition.&#8221; Biological cybernetics 59.4-5 (1988): 291-294.</i><br />
+<a style="color:#06c" href="https://pdfs.semanticscholar.org/f582/1548720901c89b3b7481f7500d7cd64e99bd.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/sae.png" width="300" /></p>
+<p><strong>Sparse autoencoders (SAE)</strong> are in a way the opposite of AEs. Instead of teaching a network to represent a bunch of information in less &#8220;space&#8221; or nodes, we try to encode information in more space. So instead of the network converging in the middle and then expanding back to the input size, we blow up the middle. These types of networks can be used to extract many small features from a dataset. If one were to train a SAE the same way as an AE, you would in almost all cases end up with a pretty useless identity network (as in what comes in is what comes out, without any transformation or decomposition). To prevent this, instead of feeding back the input, we feed back the input plus a sparsity driver. This sparsity driver can take the form of a threshold filter, where only a certain error is passed back and trained, the other error will be &#8220;irrelevant&#8221; for that pass and set to zero. In a way this resembles spiking neural networks, where not all neurons fire all the time (and points are scored for biological plausibility).</p>
+<p><i>Marc’Aurelio Ranzato, Christopher Poultney, Sumit Chopra, and Yann LeCun. &#8220;Efficient learning of sparse representations with an energy-based model.&#8221; Proceedings of NIPS. 2007.</i><br />
+<a style="color:#06c" href="https://papers.nips.cc/paper/3112-efficient-learning-of-sparse-representations-with-an-energy-based-model.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/vae.png" width="300" /></p>
+<p><strong>Variational autoencoders (VAE)</strong> have the same architecture as AEs but are &#8220;taught&#8221; something else: an approximated probability distribution of the input samples. It&#8217;s a bit back to the roots as they are bit more closely related to BMs and RBMs. They do however rely on Bayesian mathematics regarding probabilistic inference and independence, as well as a re-parametrisation trick to achieve this different representation. The inference and independence parts make sense intuitively, but they rely on somewhat complex mathematics. The basics come down to this: take influence into account. If one thing happens in one place and something else happens somewhere else, they are not necessarily related. If they are not related, then the error propagation should consider that. This is a useful approach because neural networks are large graphs (in a way), so it helps if you can rule out influence from some nodes to other nodes as you dive into deeper layers.</p>
+<p><i>Kingma, Diederik P., and Max Welling. &#8220;Auto-encoding variational bayes.&#8221; arXiv preprint arXiv:1312.6114 (2013).</i><br />
+<a style="color:#06c" href="https://arxiv.org/pdf/1312.6114v10.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/dae.png" width="300" /></p>
+<p><strong>Denoising autoencoders (DAE)</strong> are AEs where we don&#8217;t feed just the input data, but we feed the input data with noise (like making an image more grainy). We compute the error the same way though, so the output of the network is compared to the original input without noise. This encourages the network not to learn details but broader features, as learning smaller features often turns out to be &#8220;wrong&#8221; due to it constantly changing with noise.</p>
+<p><i>Vincent, Pascal, et al. &#8220;Extracting and composing robust features with denoising autoencoders.&#8221; Proceedings of the 25th international conference on Machine learning. ACM, 2008.</i><br />
+<a style="color:#06c" href="http://machinelearning.org/archive/icml2008/papers/592.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/dbn.png" width="300" /></p>
+<p><strong>Deep belief networks (DBN)</strong> is the name given to stacked architectures of mostly RBMs or VAEs. These networks have been shown to be effectively trainable stack by stack, where each AE or RBM only has to learn to encode the previous network. This technique is also known as greedy training, where greedy means making locally optimal solutions to get to a decent but possibly not optimal answer. DBNs can be trained through contrastive divergence or back-propagation and learn to represent the data as a probabilistic model, just like regular RBMs or VAEs. Once trained or converged to a (more) stable state through unsupervised learning, the model can be used to generate new data. If trained with contrastive divergence, it can even classify existing data because the neurons have been taught to look for different features.</p>
+<p><i>Bengio, Yoshua, et al. &#8220;Greedy layer-wise training of deep networks.&#8221; Advances in neural information processing systems 19 (2007): 153.</i><br />
+<a style="color:#06c" href="https://papers.nips.cc/paper/3048-greedy-layer-wise-training-of-deep-networks.pdf
+">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/cnn.png" width="300" /></p>
+<p><strong>Convolutional neural networks (CNN or deep convolutional neural networks, DCNN)</strong> are quite different from most other networks. They are primarily used for image processing but can also be used for other types of input such as as audio. A typical use case for CNNs is where you feed the network images and the network classifies the data, e.g. it outputs &#8220;cat&#8221; if you give it a cat picture and &#8220;dog&#8221; when you give it a dog picture. CNNs tend to start with an input &#8220;scanner&#8221; which is not intended to parse all the training data at once. For example, to input an image of 200 x 200 pixels, you wouldn&#8217;t want a layer with 40 000 nodes. Rather, you create a scanning input layer of say 20 x 20 which you feed the first 20 x 20 pixels of the image (usually starting in the upper left corner). Once you passed that input (and possibly use it for training) you feed it the next 20 x 20 pixels: you move the scanner one pixel to the right. Note that one wouldn&#8217;t move the input 20 pixels (or whatever scanner width) over, you&#8217;re not dissecting the image into blocks of 20 x 20, but rather you&#8217;re crawling over it. This input data is then fed through convolutional layers instead of normal layers, where not all nodes are connected to all nodes. Each node only concerns itself with close neighbouring cells (how close depends on the implementation, but usually not more than a few). These convolutional layers also tend to shrink as they become deeper, mostly by easily divisible factors of the input (so 20 would probably go to a layer of 10 followed by a layer of 5). Powers of two are very commonly used here, as they can be divided cleanly and completely by definition: 32, 16, 8, 4, 2, 1. Besides these convolutional layers, they also often feature pooling layers. Pooling is a way to filter out details: a commonly found pooling technique is max pooling, where we take say 2 x 2 pixels and pass on the pixel with the most amount of red. To apply CNNs for audio, you basically feed the input audio waves and inch over the length of the clip, segment by segment. Real world implementations of CNNs often glue an FFNN to the end to further process the data, which allows for highly non-linear abstractions. These networks are called DCNNs but the names and abbreviations between these two are often used interchangeably.</p>
+<p><i>LeCun, Yann, et al. &#8220;Gradient-based learning applied to document recognition.&#8221; Proceedings of the IEEE 86.11 (1998): 2278-2324.</i><br />
+<a style="color:#06c" href="http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/dn.png" width="300" /></p>
+<p><strong>Deconvolutional networks (DN)</strong>, also called inverse graphics networks (IGNs), are reversed convolutional neural networks. Imagine feeding a network the word &#8220;cat&#8221; and training it to produce cat-like pictures, by comparing what it generates to real pictures of cats. DNNs can be combined with FFNNs just like regular CNNs, but this is about the point where the line is drawn with coming up with new abbreviations. They may be referenced as deep deconvolutional neural networks, but you could argue that when you stick FFNNs to the back and the front of DNNs that you have yet another architecture which deserves a new name. Note that in most applications one wouldn&#8217;t actually feed text-like input to the network, more likely a binary classification input vector. Think &lt;0, 1&gt; being cat, &lt;1, 0&gt; being dog and &lt;1, 1&gt; being cat and dog. The pooling layers commonly found in CNNs are often replaced with similar inverse operations, mainly interpolation and extrapolation with biased assumptions (if a pooling layer uses max pooling, you can invent exclusively lower new data when reversing it).</p>
+<p><i>Zeiler, Matthew D., et al. &#8220;Deconvolutional networks.&#8221; Computer Vision and Pattern Recognition (CVPR), 2010 IEEE Conference on. IEEE, 2010.</i><br />
+<a style="color:#06c" href="http://www.matthewzeiler.com/pubs/cvpr2010/cvpr2010.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/dcign.png" width="300" /></p>
+<p><strong>Deep convolutional inverse graphics networks (DCIGN)</strong> have a somewhat misleading name, as they are actually VAEs but with CNNs and DNNs for the respective encoders and decoders. These networks attempt to model &#8220;features&#8221; in the encoding as probabilities, so that it can learn to produce a picture with a cat and a dog together, having only ever seen one of the two in separate pictures. Similarly, you could feed it a picture of a cat with your neighbours&#8217; annoying dog on it, and ask it to remove the dog, without ever having done such an operation. Demo&#8217;s have shown that these networks can also learn to model complex transformations on images, such as changing the source of light or the rotation of a 3D object. These networks tend to be trained with back-propagation.</p>
+<p><i>Kulkarni, Tejas D., et al. &#8220;Deep convolutional inverse graphics network.&#8221; Advances in Neural Information Processing Systems. 2015.</i><br />
+<a style="color:#06c" href="https://arxiv.org/pdf/1503.03167v4.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/gan.png" width="300" /></p>
+<p><strong>Generative adversarial networks (GAN)</strong> are from a different breed of networks, they are twins: two networks working together. GANs consist of any two networks (although often a combination of FFs and CNNs), with one tasked to generate content and the other has to judge content. The discriminating network receives either training data or generated content from the generative network. How well the discriminating network was able to correctly predict the data source is then used as part of the error for the generating network. This creates a form of competition where the discriminator is getting better at distinguishing real data from generated data and the generator is learning to become less predictable to the discriminator. This works well in part because even quite complex noise-like patterns are eventually predictable but generated content similar in features to the input data is harder to learn to distinguish. GANs can be quite difficult to train, as you don&#8217;t just have to train two networks (either of which can pose it&#8217;s own problems) but their dynamics need to be balanced as well. If prediction or generation becomes to good compared to the other, a GAN won&#8217;t converge as there is intrinsic divergence.</p>
+<p><i>Goodfellow, Ian, et al. &#8220;Generative adversarial nets.&#8221; Advances in Neural Information Processing Systems. 2014.</i><br />
+<a style="color:#06c" href="https://arxiv.org/pdf/1406.2661v1.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/rnn.png" width="300" /></p>
+<p><strong>Recurrent neural networks (RNN)</strong> are FFNNs with a time twist: they are not stateless; they have connections between passes, connections through time. Neurons are fed information not just from the previous layer but also from themselves from the previous pass. This means that the order in which you feed the input and train the network matters: feeding it &#8220;milk&#8221; and then &#8220;cookies&#8221; may yield different results compared to feeding it &#8220;cookies&#8221; and then &#8220;milk&#8221;. One big problem with RNNs is the vanishing (or exploding) gradient problem where, depending on the activation functions used, information rapidly gets lost over time, just like very deep FFNNs lose information in depth. Intuitively this wouldn&#8217;t be much of a problem because these are just weights and not neuron states, but the weights through time is actually where the information from the past is stored; if the weight reaches a value of 0 or 1 000 000, the previous state won&#8217;t be very informative. RNNs can in principle be used in many fields as most forms of data that don&#8217;t actually have a timeline (i.e. unlike sound or video) can be represented as a sequence. A picture or a string of text can be fed one pixel or character at a time, so the time dependent weights are used for what came before in the sequence, not actually from what happened x seconds before. In general, recurrent networks are a good choice for advancing or completing information, such as autocompletion.</p>
+<p><i>Elman, Jeffrey L. &#8220;Finding structure in time.&#8221; Cognitive science 14.2 (1990): 179-211.</i><br />
+<a style="color:#06c" href="https://crl.ucsd.edu/~elman/Papers/fsit.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/lstm.png" width="300" /></p>
+<p><strong>Long / short term memory (LSTM)</strong> networks try to combat the vanishing / exploding gradient problem by introducing gates and an explicitly defined memory cell. These are inspired mostly by circuitry, not so much biology. Each neuron has a memory cell and three gates: input, output and forget. The function of these gates is to safeguard the information by stopping or allowing the flow of it. The input gate determines how much of the information from the previous layer gets stored in the cell. The output layer takes the job on the other end and determines how much of the next layer gets to know about the state of this cell. The forget gate seems like an odd inclusion at first but sometimes it&#8217;s good to forget: if it&#8217;s learning a book and a new chapter begins, it may be necessary for the network to forget some characters from the previous chapter. LSTMs have been shown to be able to learn complex sequences, such as writing like Shakespeare or composing primitive music. Note that each of these gates has a weight to a cell in the previous neuron, so they typically require more resources to run.</p>
+<p><i>Hochreiter, Sepp, and Jürgen Schmidhuber. &#8220;Long short-term memory.&#8221; Neural computation 9.8 (1997): 1735-1780.</i><br />
+<a style="color:#06c" href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/gru.png" width="300" /></p>
+<p><strong>Gated recurrent units (GRU)</strong> are a slight variation on LSTMs. They have one less gate and are wired slightly differently: instead of an input, output and a forget gate, they have an update gate. This update gate determines both how much information to keep from the last state and how much information to let in from the previous layer. The reset gate functions much like the forget gate of an LSTM but it&#8217;s located slightly differently. They always send out their full state, they don&#8217;t have an output gate. In most cases, they function very similarly to LSTMs, with the biggest difference being that GRUs are slightly faster and easier to run (but also slightly less expressive). In practice these tend to cancel each other out, as you need a bigger network to regain some expressiveness which then in turn cancels out the performance benefits. In some cases where the extra expressiveness is not needed, GRUs can outperform LSTMs.</p>
+<p><i>Chung, Junyoung, et al. &#8220;Empirical evaluation of gated recurrent neural networks on sequence modeling.&#8221; arXiv preprint arXiv:1412.3555 (2014).</i><br />
+<a style="color:#06c" href="https://arxiv.org/pdf/1412.3555v1.pdf">Original Paper PDF</a></p>
+<hr />
+<p>&nbsp;</p>
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/ntm.png" width="300" /></p>
+<p><strong>Neural Turing machines (NTM)</strong> can be understood as an abstraction of LSTMs and an attempt to un-black-box neural networks (and give us some insight in what is going on in there). Instead of coding a memory cell directly into a neuron, the memory is separated. It&#8217;s an attempt to combine the efficiency and permanency of regular digital storage and the efficiency and expressive power of neural networks. The idea is to have a content-addressable memory bank and a neural network that can read and write from it. The &#8220;Turing&#8221; in Neural Turing Machines comes from them being Turing complete: the ability to read and write and change state based on what it reads means it can represent anything a Universal Turing Machine can represent.</p>
+<p><i>Graves, Alex, Greg Wayne, and Ivo Danihelka. &#8220;Neural turing machines.&#8221; arXiv preprint arXiv:1410.5401 (2014).</i><br />
+<a style="color:#06c" href="https://arxiv.org/pdf/1410.5401v2.pdf">Original Paper PDF</a></p>
+<hr />
+<p><strong>Bidirectional recurrent neural networks, bidirectional long / short term memory networks and bidirectional gated recurrent units (BiRNN, BiLSTM and BiGRU respectively)</strong> are not shown on the chart because they look exactly the same as their unidirectional counterparts. The difference is that these networks are not just connected to the past, but also to the future. As an example, unidirectional LSTMs might be trained to predict the word &#8220;fish&#8221; by being fed the letters one by one, where the recurrent connections through time remember the last value. A BiLSTM would also be fed the next letter in the sequence on the backward pass, giving it access to future information. This trains the network to fill in gaps instead of advancing information, so instead of expanding an image on the edge, it could fill a hole in the middle of an image.</p>
+<p><i>Schuster, Mike, and Kuldip K. Paliwal. &#8220;Bidirectional recurrent neural networks.&#8221; IEEE Transactions on Signal Processing 45.11 (1997): 2673-2681.</i><br />
+<a style="color:#06c" href="http://www.di.ufpe.br/~fnj/RNA/bibliografia/BRNN.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/drn.png" width="300" /></p>
+<p><strong>Deep residual networks (DRN)</strong> are very deep FFNNs with extra connections passing input from one layer to a later layer (often 2 to 5 layers) as well as the next layer. Instead of trying to find a solution for mapping some input to some output across say 5 layers, the network is enforced to learn to map some input to some output + some input. Basically, it adds an identity to the solution, carrying the older input over and serving it freshly to a later layer. It has been shown that these networks are very effective at learning patterns up to 150 layers deep, much more than the regular 2 to 5 layers one could expect to train. However, it has been proven that these networks are in essence just RNNs without the explicit time based construction and they&#8217;re often compared to LSTMs without gates.</p>
+<p><i>He, Kaiming, et al. &#8220;Deep residual learning for image recognition.&#8221; arXiv preprint arXiv:1512.03385 (2015).</i><br />
+<a style="color:#06c" href="https://arxiv.org/pdf/1512.03385v1.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/esn.png" width="300" /></p>
+<p><strong>Echo state networks (ESN)</strong> are yet another different type of (recurrent) network. This one sets itself apart from others by having random connections between the neurons (i.e. not organised into neat sets of layers), and they are trained differently. Instead of feeding input and back-propagating the error, we feed the input, forward it and update the neurons for a while, and observe the output over time. The input and the output layers have a slightly unconventional role as the input layer is used to prime the network and the output layer acts as an observer of the activation patterns that unfold over time. During training, only the connections between the observer and the (soup of) hidden units are changed.</p>
+<p><i>Jaeger, Herbert, and Harald Haas. &#8220;Harnessing nonlinearity: Predicting chaotic systems and saving energy in wireless communication.&#8221; science 304.5667 (2004): 78-80.</i><br />
+<a style="color:#06c" href="https://pdfs.semanticscholar.org/8922/17bb82c11e6e2263178ed20ac23db6279c7a.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/elm.png" width="300" /></p>
+<p><strong>Extreme learning machines (ELM)</strong> are basically FFNNs but with random connections. They look very similar to LSMs and ESNs, but they are not recurrent nor spiking. They also do not use backpropagation. Instead, they start with random weights and train the weights in a single step according to the least-squares fit (lowest error across all functions). This results in a much less expressive network but it&#8217;s also much faster than backpropagation.</p>
+<p><i>Cambria, Erik, et al. &#8220;Extreme learning machines [trends &#038; controversies].&#8221; IEEE Intelligent Systems 28.6 (2013): 30-59.</i><br />
+<a style="color:#06c" href="http://www.ntu.edu.sg/home/egbhuang/pdf/ieee-is-elm.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/lsm.png" width="300" /></p>
+<p><strong>Liquid state machines (LSM)</strong> are similar soups, looking a lot like ESNs. The real difference is that LSMs are a type of spiking neural networks: sigmoid activations are replaced with threshold functions and each neuron is also an accumulating memory cell. So when updating a neuron, the value is not set to the sum of the neighbours, but rather added to itself. Once the threshold is reached, it releases its&#8217; energy to other neurons. This creates a spiking like pattern, where nothing happens for a while until a threshold is suddenly reached.</p>
+<p><i>Maass, Wolfgang, Thomas Natschläger, and Henry Markram. &#8220;Real-time computing without stable states: A new framework for neural computation based on perturbations.&#8221; Neural computation 14.11 (2002): 2531-2560.</i><br />
+<a style="color:#06c" href="https://web.archive.org/web/20120222154641/http://ramsesii.upf.es/seminar/Maass_et_al_2002.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/svm.png" width="300" /></p>
+<p><strong>Support vector machines (SVM)</strong> find optimal solutions for classification problems. Classically they were only capable of categorising linearly separable data; say finding which images are of Garfield and which of Snoopy, with any other outcome not being possible. During training, SVMs can be thought of as plotting all the data (Garfields and Snoopys) on a graph (2D) and figuring out how to draw a line between the data points. This line would separate the data, so that all Snoopys are on one side and the Garfields on the other. This line moves to an optimal line in such a way that the margins between the data points and the line are maximised on both sides. Classifying new data would be done by plotting a point on this graph and simply looking on which side of the line it is (Snoopy side or Garfield side). Using the kernel trick, they can be taught to classify n-dimensional data. This entails plotting points in a 3D plot, allowing it to distinguish between Snoopy, Garfield AND Simon&#8217;s cat, or even higher dimensions distinguishing even more cartoon characters. SVMs are not always considered neural networks.</p>
+<p><i>Cortes, Corinna, and Vladimir Vapnik. &#8220;Support-vector networks.&#8221; Machine learning 20.3 (1995): 273-297.</i><br />
+<a style="color:#06c" href="http://image.diku.dk/imagecanon/material/cortes_vapnik95.pdf">Original Paper PDF</a></p>
+<hr />
+<p><img class="alignnone size-full wp-image-198" src="http://www.asimovinstitute.org/wp-content/uploads/2016/09/kn.png" width="300" /></p>
+<p>And finally, <strong>Kohonen networks (KN, also self organising (feature) map, SOM, SOFM)</strong> &#8220;complete&#8221; our zoo. KNs utilise competitive learning to classify data without supervision. Input is presented to the network, after which the network assesses which of its neurons most closely match that input. These neurons are then adjusted to match the input even better, dragging along their neighbours in the process. How much the neighbours are moved depends on the distance of the neighbours to the best matching units. KNs are sometimes not considered neural networks either.</p>
+<p><i>Kohonen, Teuvo. &#8220;Self-organized formation of topologically correct feature maps.&#8221; Biological cybernetics 43.1 (1982): 59-69.</i><br />
+<a style="color:#06c" href="http://cioslab.vcu.edu/alg/Visualize/kohonen-82.pdf">Original Paper PDF</a></p>
+<hr />
+<p>Any feedback and criticism is welcome. At the Asimov Institute we do deep learning research and development, so be sure to follow us on <a style="color: #06c;" href="http://www.twitter.com/asimovinstitute" target="_blank">twitter</a> for future updates and posts! Thank you for reading!</p>
+<p><span style="color: #666;">[UPDATE 15 sept 2016] I would like to thank everybody for their insights and corrections, all feedback is hugely appreciated. I will add links and a couple more suggested networks in a future update, stay tuned.</span></p>
+<p><span style="color: #666;">[UPDATE 29 sept 2016] Added links and citations to all the original papers. A follow up post is planned, since I found at least 9 more architectures. I will not include them in this post for better consistency in terms of content.</span></p>
+<p><a href="http://www.asimovinstitute.org/wp-content/uploads/2016/09/networkZooPoster.png">Click here for a high res version of the full image.</a></p>
+<div class="addtoany_share_save_container addtoany_content_bottom"><div class="a2a_kit a2a_kit_size_32 addtoany_list" data-a2a-url="http://www.asimovinstitute.org/neural-network-zoo/" data-a2a-title="The Neural Network Zoo"><a class="a2a_button_facebook" href="https://www.addtoany.com/add_to/facebook?linkurl=http%3A%2F%2Fwww.asimovinstitute.org%2Fneural-network-zoo%2F&amp;linkname=The%20Neural%20Network%20Zoo" title="Facebook" rel="nofollow noopener" target="_blank"></a><a class="a2a_button_twitter" href="https://www.addtoany.com/add_to/twitter?linkurl=http%3A%2F%2Fwww.asimovinstitute.org%2Fneural-network-zoo%2F&amp;linkname=The%20Neural%20Network%20Zoo" title="Twitter" rel="nofollow noopener" target="_blank"></a><a class="a2a_button_google_plus" href="https://www.addtoany.com/add_to/google_plus?linkurl=http%3A%2F%2Fwww.asimovinstitute.org%2Fneural-network-zoo%2F&amp;linkname=The%20Neural%20Network%20Zoo" title="Google+" rel="nofollow noopener" target="_blank"></a><a class="a2a_button_reddit" href="https://www.addtoany.com/add_to/reddit?linkurl=http%3A%2F%2Fwww.asimovinstitute.org%2Fneural-network-zoo%2F&amp;linkname=The%20Neural%20Network%20Zoo" title="Reddit" rel="nofollow noopener" target="_blank"></a><a class="a2a_button_linkedin" href="https://www.addtoany.com/add_to/linkedin?linkurl=http%3A%2F%2Fwww.asimovinstitute.org%2Fneural-network-zoo%2F&amp;linkname=The%20Neural%20Network%20Zoo" title="LinkedIn" rel="nofollow noopener" target="_blank"></a></div></div>					</div><!-- .entry-content -->
+
+		<footer class="entry-footer">
+							<div class="entry-meta">
+					<span class="cat-links"><a href="http://www.asimovinstitute.org/category/deep-learning/" rel="category tag">Deep learning</a></span>				</div><!-- .entry-meta -->
+					</footer><!-- .entry-footer -->
+
+	</div>
+
+</article><!-- #post-## -->
+			
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="http://www.asimovinstitute.org/artistic-style-transfer-blending/" rel="prev">Artistic Style Transfer Blending</a></div><div class="nav-next"><a href="http://www.asimovinstitute.org/analyzing-deep-learning-tools-music/" rel="next">Analyzing Six Deep Learning Tools for Music Generation</a></div></div>
+	</nav>
+			<div id="comments-open-anchor"></div>
+
+
+<div id="comments" class="commentwrap">
+	<div class="comments-wrapper">
+		
+			<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"> <small><a rel="nofollow" id="cancel-comment-reply-link" href="/neural-network-zoo/#respond" style="display:none;"><span id="cancel-comment-reply"></span></a></small></h3>			<form action="http://www.asimovinstitute.org/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+				<div id="comment-wrapper"><textarea name="comment" id="comment" cols="45" rows="10" tabindex="1" placeholder="Type your comment here..."></textarea></div><div id="cancel-comment"><i class="icon_close"></i></div><div id="commentform-fields"><div id="author-wrapper"><input type="text" name="author" id="author" value="" placeholder="Name" size="22" tabindex="2" /></div>
+<div id="email-wrapper"><input type="text" name="email" id="email" value="" placeholder="Email (hidden)" size="22" tabindex="3" /></div></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post comment" /> <input type='hidden' name='comment_post_ID' value='197' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="1fa30eab84" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="215"/></p>			</form>
+			</div><!-- #respond -->
+			
+	
+					
+						
+			<ol class="commentlist">
+				
+	<li id="comment-2" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/4a83fc72df2da463844de54d0a2abeb0?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/4a83fc72df2da463844de54d0a2abeb0?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Volkan Cirik</div>
+	<div class="comment-time">Sep 14, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>how about recursive neural networks?</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=2#respond' onclick='return addComment.moveForm( "comment-2", "2", "respond", "197" )' aria-label='Reply to Volkan Cirik'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-3" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 14, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Interesting, another branch of networks. Will definitely incorporate them in a potential follow up post!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=3#respond' onclick='return addComment.moveForm( "comment-3", "3", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-5" class="comment even thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/c7e9a25741952f65d158aa3a096d17d0?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/c7e9a25741952f65d158aa3a096d17d0?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Colin Morris</div>
+	<div class="comment-time">Sep 14, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Awesome. Minor correction regarding Boltzmann machines. &#8220;Compared to a HN, the neurons also sometimes have binary activation patterns but at other times they are stochastic&#8221;. The units are always stochastic, and usually also binary. But there are variations where units are instead Gaussian, binomial, etc.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=5#respond' onclick='return addComment.moveForm( "comment-5", "5", "respond", "197" )' aria-label='Reply to Colin Morris'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-7" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 14, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Good stuff. Thank you for your feedback!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=7#respond' onclick='return addComment.moveForm( "comment-7", "7", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-9" class="comment even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/942c0b902d78f665a8ceb74d9df2580f?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/942c0b902d78f665a8ceb74d9df2580f?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">B@rmaley.e&gt;</div>
+	<div class="comment-time">Sep 14, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>I don&#8217;t understand why in Markov chains you have a fully-connected graph. It should be either a chain, or a generalized &#8220;chain&#8221; where previous m nodes have edges to current node (if we&#8217;re talking about m-order markov chains)</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=9#respond' onclick='return addComment.moveForm( "comment-9", "9", "respond", "197" )' aria-label='Reply to B@rmaley.e&gt;'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-11" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-3">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 14, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Thank you for your feedback! When you say chain, you mean something like this? <a href="http://blogs.canisius.edu/mathblog/wp-content/uploads/sites/31/2013/02/markovchainpic3.png" rel="nofollow">http://blogs.canisius.edu/mathblog/wp-content/uploads/sites/31/2013/02/markovchainpic3.png</a><br />
+Or more like this? <a href="http://1.bp.blogspot.com/-uLVbBbNTDTI/TbWSnEa4ZpI/AAAAAAAAABY/XYrTCXRhSkQ/s1600/markovchain.png" rel="nofollow">http://1.bp.blogspot.com/-uLVbBbNTDTI/TbWSnEa4ZpI/AAAAAAAAABY/XYrTCXRhSkQ/s1600/markovchain.png</a><br />
+Note that all architectures have a rather finite representation here. As pointed out elsewhere, the DAEs often have a complete or overcomplete hidden layer, but not always. Most examples I can find are either arbitrary chains or fully connected graphs.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=11#respond' onclick='return addComment.moveForm( "comment-11", "11", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-15" class="comment even depth-4">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/92fed247b20d2a68a298c7d7d235ae82?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/92fed247b20d2a68a298c7d7d235ae82?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">B@rmaley.exe</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Yes, something like this but without loops. Basically a bunch of probabilistic cells (if you make them hidden, you get a HMM) chained in a linear way.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=15#respond' onclick='return addComment.moveForm( "comment-15", "15", "respond", "197" )' aria-label='Reply to B@rmaley.exe'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-23" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-5">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Hmm, will take that into consideration. The cells themselves are not probabilistic though, the connections between them are. I&#8217;m considering giving a few example networks for some architectures, especially the ones that vary greatly like this one.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+			
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-6" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/858e6a979427bfd34b8bfc571959dbfe?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/858e6a979427bfd34b8bfc571959dbfe?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Daniel Fay</div>
+	<div class="comment-time">Sep 14, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Cool! I think you could give the denoising autoencoder a higher-dimensional hidden layer since it doesn&#8217;t need a bottleneck.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=6#respond' onclick='return addComment.moveForm( "comment-6", "6", "respond", "197" )' aria-label='Reply to Daniel Fay'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-8" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 14, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>From what I understand, DAEs are simply AEs but used differently, which themselves are just symmetric FFNNs used differently. It is true that DAEs are often either complete or overcomplete, since overcomplete AEs usually learn identity; this is what DAEs are trying to prevent. The size restrictions are rarely explicitly defined though. Thank you for reading!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=8#respond' onclick='return addComment.moveForm( "comment-8", "8", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-16" class="comment even depth-3">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/3c48af19e67b67b7fc73c15e3a3d4e53?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/3c48af19e67b67b7fc73c15e3a3d4e53?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Jim</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>This reply is a hidden layer</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=16#respond' onclick='return addComment.moveForm( "comment-16", "16", "respond", "197" )' aria-label='Reply to Jim'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-29" class="comment odd alt depth-4">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/d4354b3e926d30e98b6f9886c4628100?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/d4354b3e926d30e98b6f9886c4628100?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">STYLIANOS IORDANIS</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Excellent work!<br />
+Could you please enhance the article by  adding and presenting the Hidden Markov models using exactly the same  approach ? That would be very enlightening, and I am very curious to read your explanation. Thank you</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=29#respond' onclick='return addComment.moveForm( "comment-29", "29", "respond", "197" )' aria-label='Reply to STYLIANOS IORDANIS'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-30" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-5">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Working on it [:</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+			
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-13" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/f9ad57d8114e7650fe87a5be52f173e9?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/f9ad57d8114e7650fe87a5be52f173e9?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Muhong Guo</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Awesome! Could you also add some references for each network?</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=13#respond' onclick='return addComment.moveForm( "comment-13", "13", "respond", "197" )' aria-label='Reply to Muhong Guo'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-21" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>I&#8217;d love to, if I can find the time [:</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=21#respond' onclick='return addComment.moveForm( "comment-21", "21", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-14" class="comment odd alt thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/1eeab08a41d5264756d60661eb88afa5?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/1eeab08a41d5264756d60661eb88afa5?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Summit Suen</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Awesome work! Btw, should the middle neurons in the Deep convolutional inverse graphics networks (DCIGN) be probabilistic hidden cells?</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=14#respond' onclick='return addComment.moveForm( "comment-14", "14", "respond", "197" )' aria-label='Reply to Summit Suen'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-22" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Yes. Good observation, will correct!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=22#respond' onclick='return addComment.moveForm( "comment-22", "22", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-17" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/d10ca8d11301c2f4993ac2279ce4b930?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/d10ca8d11301c2f4993ac2279ce4b930?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Kristofer</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Very nice summary!</p>
+<p>From the pictures of the denoising autoencoder and the variational autoencoder, it looks like they also have to compress the data (since the hidden layer has fewer elements than the input and output layers), just the ordinary autoencoder. Is that the case?</p>
+<p>Also, is there some specific name for the ordinary autoencoder to let people know that you are talking about an autoencoder that compresses the data? Perhaps &#8220;compressive autoencoder&#8221;? To me, the term &#8220;autoencoder&#8221; includes all kinds of autoencoders, i.e. also denoising, variational and sparse autoencoders, not just &#8220;compressive&#8221; (?) autoencoders. (So to me it feels a bit wrong to talk about &#8220;autoencoders&#8221; like all of them compress the data.)</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=17#respond' onclick='return addComment.moveForm( "comment-17", "17", "respond", "197" )' aria-label='Reply to Kristofer'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-19" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>A common problem with the networks. RNN stands for either recurrent NN or recursive NN. Worse yet, people use RNN to indicate LSTM, GRU, BiGRU and BiLSTM. And no, there is no name for that.</p>
+<p>And yes, a problem with this &#8220;one shot&#8221; representation is that you cannot capture all uses. AE, VAE, SAE and DAE are all autoencoders, each of which somehow tries to reconstruct their input. Only SAEs almost always have an overcomplete code (more hidden neurons than input / output), but the others can have compressed, complete or overcomplete codes.</p>
+<p>Thank you for your feedback!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=19#respond' onclick='return addComment.moveForm( "comment-19", "19", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-18" class="comment odd alt thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/7c8cd56e1537b31dacb464eb1957253b?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/7c8cd56e1537b31dacb464eb1957253b?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Djeb</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Amazing. What software did you used to plot these figures ? Cheers !</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=18#respond' onclick='return addComment.moveForm( "comment-18", "18", "respond", "197" )' aria-label='Reply to Djeb'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-20" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>I drew them in Adobe Animate, they&#8217;re not plots. Yes it was a lot of work to draw the lines.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=20#respond' onclick='return addComment.moveForm( "comment-20", "20", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-228" class="comment odd alt depth-3">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/f3c8ba0d1d07963047a8d637acc5fbc4?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/f3c8ba0d1d07963047a8d637acc5fbc4?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Vitali</div>
+	<div class="comment-time">Sep 28, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Therefore they look really amazing! Would it be possible to publish the images as vector? Maybe in SVG or some other format? I would like to use them in my Master thesis. Of course I would cite you 🙂</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=228#respond' onclick='return addComment.moveForm( "comment-228", "228", "respond", "197" )' aria-label='Reply to Vitali'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-232" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-4">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 29, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Thanks, please do! I have a poster link of the whole thing which is 8k resolution, best I can do for now sorry.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=232#respond' onclick='return addComment.moveForm( "comment-232", "232", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-25" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/b8aab69c1221b330a9b4d84b74d2de8b?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/b8aab69c1221b330a9b4d84b74d2de8b?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Rob</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Never thought of SVMs as a network, though they can be used that way. This seems to be a different take on SVMs than I&#8217;ve heard before.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=25#respond' onclick='return addComment.moveForm( "comment-25", "25", "respond", "197" )' aria-label='Reply to Rob'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-26" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/73f712b53a59151568f8423c27815a1e?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/73f712b53a59151568f8423c27815a1e?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Philip Regenie</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Absolutely the best article and classification I have read in 10 years.  Clearly written,  easily understood.  Points anyone reading to research those areas applicable to their problem set.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=26#respond' onclick='return addComment.moveForm( "comment-26", "26", "respond", "197" )' aria-label='Reply to Philip Regenie'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-27" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/2da1c23d5964a6eacffc6eac9684e51d?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/2da1c23d5964a6eacffc6eac9684e51d?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Jagannath Rajagopal</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>One of the most useful and comprehensive posts I&#8217;ve seen in a while. Very nicely done 🙂 </p>
+<p>I&#8217;m the creator of Deeplearning.TV on YouTube. If you would like to follow this up with a series of videos explaining this, I would be honored to collaborate with you 🙂</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=27#respond' onclick='return addComment.moveForm( "comment-27", "27", "respond", "197" )' aria-label='Reply to Jagannath Rajagopal'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-32" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/7b2506f925da8f6e2ffa9d619e15e279?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/7b2506f925da8f6e2ffa9d619e15e279?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">York Fun</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Very nice work！<br />
+I have a question，why svm  could be seen as as a 3 level network，and the input cells are not full connected to the first hiden level, what&#8217;s that mean?</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=32#respond' onclick='return addComment.moveForm( "comment-32", "32", "respond", "197" )' aria-label='Reply to York Fun'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-35" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>The idea behind deeper SVMs is that they allow for classification tasks more complex than binary. Usually it would just be the directly one-to-one connected stuff as seen in the first layer. It&#8217;s set up like that because each neuron in the input represents a point in the possibility space, and the network tries to separate the inputs with a margin as large as possible.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=35#respond' onclick='return addComment.moveForm( "comment-35", "35", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-45" class="comment even depth-3">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/7b2506f925da8f6e2ffa9d619e15e279?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/7b2506f925da8f6e2ffa9d619e15e279?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">York Fun</div>
+	<div class="comment-time">Sep 16, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Thanks for your quick reply！<br />
+Could you please give me some reference papers about<br />
+ svm-network,  i &#8216;m interested in this research how neural network could union these algorthims.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=45#respond' onclick='return addComment.moveForm( "comment-45", "45", "respond", "197" )' aria-label='Reply to York Fun'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-33" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/09a1cc029d7e010dca35f03579999245?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/09a1cc029d7e010dca35f03579999245?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Conic</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Can you eventually give a link to a high resolution image of these networks? I was thinking about getting a poster printed for myself.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=33#respond' onclick='return addComment.moveForm( "comment-33", "33", "respond", "197" )' aria-label='Reply to Conic'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-34" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Cool! See the bottom of the post.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=34#respond' onclick='return addComment.moveForm( "comment-34", "34", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-36" class="comment odd alt thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/4e1309f503d198c759471f49fafcd92a?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/4e1309f503d198c759471f49fafcd92a?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Abatesins</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Nice job, summarizing and representing all of these! One observation regarding GANs is that the discriminator, as originally conceived, has only two output neurons (whether the sample passed to it came from the true distribution or from the generated one). The corresponding  graphic shows three.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=36#respond' onclick='return addComment.moveForm( "comment-36", "36", "respond", "197" )' aria-label='Reply to Abatesins'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-40" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Yes. On it. Although you could also make do with one, I think I&#8217;ll draw it with two. Thank you!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=40#respond' onclick='return addComment.moveForm( "comment-40", "40", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-42" class="comment odd alt depth-3">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/4e1309f503d198c759471f49fafcd92a?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/4e1309f503d198c759471f49fafcd92a?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Abatesins</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>You&#8217;re right!  The discriminator does actually a regression on that one decision so one output is indeed more precise (although having two neurons drawn looks more representative to me)</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=42#respond' onclick='return addComment.moveForm( "comment-42", "42", "respond", "197" )' aria-label='Reply to Abatesins'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-41" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Fixed it.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=41#respond' onclick='return addComment.moveForm( "comment-41", "41", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-37" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/ddda1029aeffc36aa668b6c826be6a7a?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/ddda1029aeffc36aa668b6c826be6a7a?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Danijar Hafner</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Hi, thanks for the very nice visualization! A common mistake with RNNs is to not connect neurons within the same layer. While each LSTM neuron has its own hidden state, its output feeds back to all neurons in the current layer. The mistake also appears here.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=37#respond' onclick='return addComment.moveForm( "comment-37", "37", "respond", "197" )' aria-label='Reply to Danijar Hafner'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-39" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Keen eye! Forgot to draw the lines, but very aware of the fine workings. It will make it a spiderweb of lines, but eh [:<br />
+[UPDATE] fixed</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=39#respond' onclick='return addComment.moveForm( "comment-39", "39", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-43" class="comment odd alt thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/2ac313a47fa106223700d4099d9fdf52?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/2ac313a47fa106223700d4099d9fdf52?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Garrett Smith</div>
+	<div class="comment-time">Sep 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Are you excellent images available for reuse under a particular license? Do you have an attribution policy?</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=43#respond' onclick='return addComment.moveForm( "comment-43", "43", "respond", "197" )' aria-label='Reply to Garrett Smith'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-46" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 16, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>As long as you mention the author and link to the Asimov Institute, use them however and wherever you like!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=46#respond' onclick='return addComment.moveForm( "comment-46", "46", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-48" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 16, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>If you look closely, you&#8217;ll find only completely blind people will not be able to read the image. There are slight lines on the circle edges with unique patterns for each of the five different colours.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=48#respond' onclick='return addComment.moveForm( "comment-48", "48", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-49" class="comment even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/aeceb3fd3e9bb1fb098b49b12d1f8313?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/aeceb3fd3e9bb1fb098b49b12d1f8313?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">John M Danskin</div>
+	<div class="comment-time">Sep 16, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>If I turn off color blind enhancement, I can technically tell input and hidden cells apart, especially if they are adjacent. In practice, I was using a program which tells me the color under the cursor to be sure. In the normal view, it&#8217;s as if you used coins differing only in the date minted, instead of gold and green. I don&#8217;t want to give you a hard time, I just noticed that you probably spent a lot of time on the graphics, and I thought I&#8217;d share what I can actually see. No reply necessary.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=49#respond' onclick='return addComment.moveForm( "comment-49", "49", "respond", "197" )' aria-label='Reply to John M Danskin'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-50" class="comment odd alt thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/6ff8aaeb3bd80ef2daf3307f5a7f1305?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/6ff8aaeb3bd80ef2daf3307f5a7f1305?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Rohit Ghosh</div>
+	<div class="comment-time">Sep 16, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Hey , nice coverage ! Even wasn&#8217;t aware of a couple of architectures myself. BTW, you can integrate Fully Convolutional Nets (like FCN, U-Net, V-Nets ) etc. Also  Deep Recurrent Convolutional Nets (DRCNs) might be a good idea to give an idea of merging of RNNs &amp; CNNs</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=50#respond' onclick='return addComment.moveForm( "comment-50", "50", "respond", "197" )' aria-label='Reply to Rohit Ghosh'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-51" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 16, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Will look into those. May have a to draw a line at some point, I cannot add all the possible permutations of all different cells. At some point someone may find a use for deep residual convolutional long short term memory echo state networks [:<br />
+Thank you for pointing them out though!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=51#respond' onclick='return addComment.moveForm( "comment-51", "51", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-52" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/b26898ac3a099361d43f256877331ce4?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/b26898ac3a099361d43f256877331ce4?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Vivek Menon</div>
+	<div class="comment-time">Sep 16, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>This is beautiful. Thank you so much.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=52#respond' onclick='return addComment.moveForm( "comment-52", "52", "respond", "197" )' aria-label='Reply to Vivek Menon'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-53" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/e4184b5164063356d7d6665046273201?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/e4184b5164063356d7d6665046273201?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Aditya</div>
+	<div class="comment-time">Sep 17, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Hi, could you add horizontal line between each explanation please. I get confused easily.<br />
+Thanks for the wonderful explanation</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=53#respond' onclick='return addComment.moveForm( "comment-53", "53", "respond", "197" )' aria-label='Reply to Aditya'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-57" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 17, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Good idea, thank you!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=57#respond' onclick='return addComment.moveForm( "comment-57", "57", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-54" class="comment even thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/407fcb235170b7746f3f28dbc5523e61?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/407fcb235170b7746f3f28dbc5523e61?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Amir</div>
+	<div class="comment-time">Sep 17, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Good job! Thanks a lot.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=54#respond' onclick='return addComment.moveForm( "comment-54", "54", "respond", "197" )' aria-label='Reply to Amir'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-55" class="comment odd alt thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/e1ab7a30b7eba849ab12cf5dbf70db2a?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/e1ab7a30b7eba849ab12cf5dbf70db2a?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Soroor</div>
+	<div class="comment-time">Sep 17, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Hi<br />
+that&#8217;s very nice<br />
+Thank you  so much<br />
+if I want to use some of these information in my paper, how can cited?</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=55#respond' onclick='return addComment.moveForm( "comment-55", "55", "respond", "197" )' aria-label='Reply to Soroor'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-56" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 17, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>I&#8217;d strongly recommend citing original papers, but feel free to use the images depicted here. Conventional citation methods should suffice just fine. Thank you for your interest!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=56#respond' onclick='return addComment.moveForm( "comment-56", "56", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-58" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/b61d43955bb9cc19e51f0da1406eac09?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/b61d43955bb9cc19e51f0da1406eac09?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Aaron C Sanchez</div>
+	<div class="comment-time">Sep 18, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Hi, great post, just a question. Doesn&#8217;t the number of outputs in a Kohonen Network should be 2 and the input N? Because those networks help you mapping multidimensional data into (x,y) coordinates for visualization, if I&#8217;m wrong, please correct me. And Kohonen networks help in dimensionality reduction, your input data should be multidimensional and it&#8217;s mapped to one or two dimensions. </p>
+<p><a href="https://www.cs.bham.ac.uk/~jlw/sem2a2/Web/Kohonen.htm" rel="nofollow">https://www.cs.bham.ac.uk/~jlw/sem2a2/Web/Kohonen.htm</a></p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=58#respond' onclick='return addComment.moveForm( "comment-58", "58", "respond", "197" )' aria-label='Reply to Aaron C Sanchez'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-59" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 18, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>I think it&#8217;s a matter of choice, I see both representations frequently. As far as I understand it, the output you get is just one of the inputs. <a href="https://www.google.nl/search?q=kohonen+network&#038;source=lnms&#038;tbm=isch&#038;sa=X&#038;ved=0ahUKEwjUkrn9wJnPAhWiQJoKHZKwDZ4Q_AUICCgB&#038;biw=1345&#038;bih=1099&#038;dpr=2#imgrc=_" rel="nofollow">https://www.google.nl/search?q=kohonen+network&#038;source=lnms&#038;tbm=isch&#038;sa=X&#038;ved=0ahUKEwjUkrn9wJnPAhWiQJoKHZKwDZ4Q_AUICCgB&#038;biw=1345&#038;bih=1099&#038;dpr=2#imgrc=_</a></p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=59#respond' onclick='return addComment.moveForm( "comment-59", "59", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-823" class="comment odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/1c0441c356fd50aa3e41665c08525bb7?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/1c0441c356fd50aa3e41665c08525bb7?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">CH</div>
+	<div class="comment-time">Feb 07, 2017</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Traditional Kohonen nets has k inputs and j processing nodes (outputs). It is a Competitive learning type of network with one layer (if we ignore the input vector). The output nodes (processing nodes) are traditionally mapped in 2D to reflect the topology in the input data (say, pixels in an image).</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=823#respond' onclick='return addComment.moveForm( "comment-823", "823", "respond", "197" )' aria-label='Reply to CH'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-61" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/d10ca8d11301c2f4993ac2279ce4b930?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/d10ca8d11301c2f4993ac2279ce4b930?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">a</div>
+	<div class="comment-time">Sep 19, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>SVM is not implemented using neural networks. This is a beast from another zoo&#8230;</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=61#respond' onclick='return addComment.moveForm( "comment-61", "61", "respond", "197" )' aria-label='Reply to a'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-65" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 19, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>I know, that&#8217;s why I made a note of it. I included them because you can represent them as a network and they are used in machine learning applications [:</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=65#respond' onclick='return addComment.moveForm( "comment-65", "65", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-64" class="comment even thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/8c18398130239b8bccbbaace9e95447a?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/8c18398130239b8bccbbaace9e95447a?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Vivek</div>
+	<div class="comment-time">Sep 19, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Hey there,</p>
+<p>Thanks for the post. I&#8217;ve attempted to convert this into flashcards. It&#8217;s incredibly rough and wordy at the moment, but I will refine this over time. I am also still searching for definitions for your cell structures (backfed input cell, memory cell, etc.)</p>
+<p>It&#8217;s available here: <a href="https://quizlet.com/152146730/neural-network-zoo-flash-cards/" rel="nofollow">https://quizlet.com/152146730/neural-network-zoo-flash-cards/</a></p>
+<p>My objectives are twofold:<br />
+1) I wanted to make sure you were okay with me retrofitting your work like this.<br />
+2) I was hoping you&#8217;d be able to help me fill in some of the blanks (literally and figuratively). I have tried to copy your blog post, but as I refine and explore, I&#8217;d love to have your input and notes to help inform its direction. </p>
+<p>If you&#8217;re interested / want me to take it down, please let me know on here or via email.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=64#respond' onclick='return addComment.moveForm( "comment-64", "64", "respond", "197" )' aria-label='Reply to Vivek'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-66" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 19, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Sure thing, cool project! Leave a note somewhere to the Asimov Institute and my name and I&#8217;m happy [:</p>
+<p>I may do a follow up post explaining the different cells. They&#8217;re not official names, I just made them up. If you want to move forward quickly I&#8217;d recommend looking up the original papers; I&#8217;m confident you&#8217;ll be able to figure out why I gave the cells their names if you completely understand the networks and their uses. If you think of better names for the different cells, let me know!</p>
+<p>If you have very specific questions, feel free to mail them to me, I can probably answer them relatively quickly.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=66#respond' onclick='return addComment.moveForm( "comment-66", "66", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-72" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/20471356ad7cb30e57ead81e035595b9?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/20471356ad7cb30e57ead81e035595b9?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Auro Tripathy</div>
+	<div class="comment-time">Sep 22, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Curious why there;&#8217;s no mention of network-in-network, the basis for GoogLeNet Inception</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=72#respond' onclick='return addComment.moveForm( "comment-72", "72", "respond", "197" )' aria-label='Reply to Auro Tripathy'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-75" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 22, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>I would argue it;&#8217;s not curious at all, I simply overlooked it like some others! Thank you for pointing it out though, I will include it in the update!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=75#respond' onclick='return addComment.moveForm( "comment-75", "75", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-169" class="comment even thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/adf23e2a602733b0899b713c3cc46405?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/adf23e2a602733b0899b713c3cc46405?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Chris Greene</div>
+	<div class="comment-time">Sep 26, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>This is pretty awesome. 🙂 I think that a great educational enhancement to this would be cite the original papers that introduced the associated network. Be a great way to introduce people learning to both the higher order concepts and the literature.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=169#respond' onclick='return addComment.moveForm( "comment-169", "169", "respond", "197" )' aria-label='Reply to Chris Greene'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-233" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Sep 29, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Coming soon&#8230; And thank you very much!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=233#respond' onclick='return addComment.moveForm( "comment-233", "233", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-234" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/f61f6cd8c739cdae37d8d825dd9ebb9f?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/f61f6cd8c739cdae37d8d825dd9ebb9f?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Artem</div>
+	<div class="comment-time">Sep 29, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Extremely cool review. Short, simple, informative, contains references to original papers. Thank you very much!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=234#respond' onclick='return addComment.moveForm( "comment-234", "234", "respond", "197" )' aria-label='Reply to Artem'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-243" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/3a81bf6f33d0433c5777592990ca50b0?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/3a81bf6f33d0433c5777592990ca50b0?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Guy Fortabat</div>
+	<div class="comment-time">Sep 29, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>I am stuned by all thé possibilités offered by ANN. I started to learn just few months ago and I am 60 ! So many thanks to you to have written superb articles ! Guy from Paris</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=243#respond' onclick='return addComment.moveForm( "comment-243", "243", "respond", "197" )' aria-label='Reply to Guy Fortabat'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-253" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/6029be6a3744ce6914fb0797f524d470?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/6029be6a3744ce6914fb0797f524d470?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Gida</div>
+	<div class="comment-time">Sep 30, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Hello! would you please clarify, are the coloured discs cells within a neuron, and their network is an architecture within a neuron or how is it organised exactly? Thank you very much.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=253#respond' onclick='return addComment.moveForm( "comment-253", "253", "respond", "197" )' aria-label='Reply to Gida'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-259" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Oct 02, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Each &#8220;disc&#8221; or circle represents a singular artificial neurone, the architecture is mostly the types of neurones used and how they&#8217;re connected. It&#8217;s also a little bit how they&#8217;re used, as some different neurones are really the same neurones but used in a different way (take noisy inputs and backfed outputs). Each connection represents a connection between two cells, simulating a neurite in a way.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=259#respond' onclick='return addComment.moveForm( "comment-259", "259", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-258" class="comment even thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/bfcf085b7de517c0dcf8ae9509d4abe0?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/bfcf085b7de517c0dcf8ae9509d4abe0?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Andrej W.</div>
+	<div class="comment-time">Oct 02, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Hey,<br />
+really nice post ! I&#8217;ve yet another suggestion for an additional network^^ :<br />
+It&#8217;s kind of an improved version of the echo state network where the crucial point is that they feed back the erroneous output back into the network. The first paper is this here: <a href="http://neurotheory.columbia.edu/Larry/SussilloNeuron09.pdf" rel="nofollow">http://neurotheory.columbia.edu/Larry/SussilloNeuron09.pdf</a><br />
+They also managed to make the training work by changing the weights IN the network. Maybe you can just add it as more information for the echo state networks. There are several follow up papers on Larry Abbotts webpage where the link is from but I don&#8217;t know them (yet).</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=258#respond' onclick='return addComment.moveForm( "comment-258", "258", "respond", "197" )' aria-label='Reply to Andrej W.'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-260" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Oct 02, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Thank you for your comment, cool findings. I will look into those; I may add them to the follow up post.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=260#respond' onclick='return addComment.moveForm( "comment-260", "260", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-270" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/0274b65d4c1514613c7b3f73828ff42e?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/0274b65d4c1514613c7b3f73828ff42e?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Shuichi Shigeno</div>
+	<div class="comment-time">Oct 07, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>This is very good job. I would suggest where is the origin (perceptron) and make simple phylogenetic tree. Because here is Zoo.<br />
+Many thanks for this site.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=270#respond' onclick='return addComment.moveForm( "comment-270", "270", "respond", "197" )' aria-label='Reply to Shuichi Shigeno'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-284" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/f082fa7c5e35e82477cd7a132aa59162?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/f082fa7c5e35e82477cd7a132aa59162?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Mehran</div>
+	<div class="comment-time">Oct 11, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Excellent work..Thank you so much. When we will see the other architectures?</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=284#respond' onclick='return addComment.moveForm( "comment-284", "284", "respond", "197" )' aria-label='Reply to Mehran'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-292" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/83d3fec7ee060b503fc81edd7e5654ea?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/83d3fec7ee060b503fc81edd7e5654ea?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Manu</div>
+	<div class="comment-time">Oct 14, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Extreme Learning Machines don&#8217;t use backpropagation, they are random projections + a linear model.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=292#respond' onclick='return addComment.moveForm( "comment-292", "292", "respond", "197" )' aria-label='Reply to Manu'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-308" class="comment byuser comment-author-fjodorvanveen bypostauthor odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Oct 21, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Will look into it. Thanks for pointing it out!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=308#respond' onclick='return addComment.moveForm( "comment-308", "308", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-297" class="comment even thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/8793dbc17f64a30385b7b3e7299a4bd4?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/8793dbc17f64a30385b7b3e7299a4bd4?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Sirius Fuenmayor</div>
+	<div class="comment-time">Oct 15, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>It would be great if you could add the dynamics of each type of cell.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=297#respond' onclick='return addComment.moveForm( "comment-297", "297", "respond", "197" )' aria-label='Reply to Sirius Fuenmayor'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-300" class="comment odd alt thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/be4356bd28d6b57e315fb4f8459e021a?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/be4356bd28d6b57e315fb4f8459e021a?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Sebastian</div>
+	<div class="comment-time">Oct 17, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>You should think about selling the summary figure as a poster.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=300#respond' onclick='return addComment.moveForm( "comment-300", "300", "respond", "197" )' aria-label='Reply to Sebastian'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-324" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Oct 28, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Thanks for the suggestion, but I prefer to keep it as informative. If I end the post with a link to a webshop people will might see the whole thing as an ad.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=324#respond' onclick='return addComment.moveForm( "comment-324", "324", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-306" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/9050f8ea6abf7524e8ca40107fc8b00c?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/9050f8ea6abf7524e8ca40107fc8b00c?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">pinouchon</div>
+	<div class="comment-time">Oct 20, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Would love to see Contractive AEs in here</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=306#respond' onclick='return addComment.moveForm( "comment-306", "306", "respond", "197" )' aria-label='Reply to pinouchon'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-309" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/af7b2136f106a172a45990d1f9894571?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/af7b2136f106a172a45990d1f9894571?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Roman</div>
+	<div class="comment-time">Oct 21, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>I have never seen SVMs classified as neural networks. The paper does call them support vector _networks_ and does compare/contrast them to perceptrons, but I still think it&#8217;s a fundamentally different approach to learning. It&#8217;s not connectivist.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=309#respond' onclick='return addComment.moveForm( "comment-309", "309", "respond", "197" )' aria-label='Reply to Roman'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-314" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/95f6932453a8ec156674ff40b5be120a?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/95f6932453a8ec156674ff40b5be120a?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">machiner_ps</div>
+	<div class="comment-time">Oct 24, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Where is Helmholtz machine ?</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=314#respond' onclick='return addComment.moveForm( "comment-314", "314", "respond", "197" )' aria-label='Reply to machiner_ps'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-374" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/6fdb59a302b3dccfbad27d709e169689?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/6fdb59a302b3dccfbad27d709e169689?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Arif Jahangir</div>
+	<div class="comment-time">Nov 10, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Your Zoo is very beautiful and it is difficult to make it more beautiful. I was wondering whether  we can add two more information to each network. One is weight constraints on each network and other is learning algorithm of each algorithm. I think your Zoo will become a little more beautiful. For learning algorithm,  we may add another legend and place bars of different color under each network depicting what kind of learning algorithms may be used in each network. I could not figure out how the weight constrained information can be fitted artistically into this scheme. Maybe others can pitch in.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=374#respond' onclick='return addComment.moveForm( "comment-374", "374", "respond", "197" )' aria-label='Reply to Arif Jahangir'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-497" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/5658ffccee7f0ebfda2b226238b1eb6e?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/5658ffccee7f0ebfda2b226238b1eb6e?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Mike</div>
+	<div class="comment-time">Dec 04, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Just another question out of curiosity: which one of the neural networks presented here is nearest to an NMDA receptor?<br />
+Just asking because of this article:<br />
+<a href="http://journal.frontiersin.org/article/10.3389/fnsys.2016.00095/full" rel="nofollow">http://journal.frontiersin.org/article/10.3389/fnsys.2016.00095/full</a></p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=497#respond' onclick='return addComment.moveForm( "comment-497", "497", "respond", "197" )' aria-label='Reply to Mike'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-519" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Dec 06, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>I reckon a combination of FF and possibly ELM. Sounds like a large deep FF network but with permanent learned dropout in the deeper layers. Interesting!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=519#respond' onclick='return addComment.moveForm( "comment-519", "519", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-531" class="comment odd alt thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/7233e8aa214135670ea38519311c77d2?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/7233e8aa214135670ea38519311c77d2?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Ilya</div>
+	<div class="comment-time">Dec 07, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Great article, I keep sharing it with friends and colleagues, looking forward to follow-up post with the new architectures. </p>
+<p>You mention demos of DCIGNs using more complex transformations, any way to get a link to one or at least the name of the researcher who did it.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=531#respond' onclick='return addComment.moveForm( "comment-531", "531", "respond", "197" )' aria-label='Reply to Ilya'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-609" class="comment byuser comment-author-fjodorvanveen bypostauthor even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/409ae9ef60558d0b6a5061f583699aa1?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Fjodor van Veen</div>
+	<div class="comment-time">Dec 22, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Thank you! The original paper includes examples of rotation I believe.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=609#respond' onclick='return addComment.moveForm( "comment-609", "609", "respond", "197" )' aria-label='Reply to Fjodor van Veen'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-595" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/07dde2a90586d2edeb022429c8a3182f?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/07dde2a90586d2edeb022429c8a3182f?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Massimo De Gregorio</div>
+	<div class="comment-time">Dec 12, 2016</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Unfortunately, you forgot to mention all the family of Weightless Neural Systems.<br />
+Have a look at them, they are really interesting and powerful.</p>
+<p>Massimo</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=595#respond' onclick='return addComment.moveForm( "comment-595", "595", "respond", "197" )' aria-label='Reply to Massimo De Gregorio'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-967" class="comment even depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/334b3063a86b6b1b9542628c02189907?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/334b3063a86b6b1b9542628c02189907?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Peter_M</div>
+	<div class="comment-time">Mar 06, 2017</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Amazing, thank you.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=967#respond' onclick='return addComment.moveForm( "comment-967", "967", "respond", "197" )' aria-label='Reply to Peter_M'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-678" class="comment odd alt thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/66da249be7ec9f12cd11d6b211323f7a?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/66da249be7ec9f12cd11d6b211323f7a?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Sylvain Pronovost</div>
+	<div class="comment-time">Jan 03, 2017</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Wonderful work! I would add &#8220;cascade correlation&#8221; ANNs, by Fahlman and Lebiere (1989). The cascade correlation learning architecture is:</p>
+<p>&#8220;&#8221;&#8221;<br />
+Cascade-Correlation begins with a minimal network, then automatically trains and adds new hidden units one by one, creating a multi-layer structure. Once a new hidden unit has been added to the network, its input-side weights are frozen. This unit then becomes a permanent feature-detector in the network, available for producing outputs or for creating other, more complex feature detectors.<br />
+&#8220;&#8221;&#8221;</p>
+<p>You could say that is a meta-algorithm, and a generative architecture. It adds hidden neurons as required by the task at hand. I know of two versions, Cascade-Correlation and recurrent Cascade-Correlation.</p>
+<p>Primary source: Fahlman, S. E., &amp; Lebiere, C. (1989). The cascade-correlation learning architecture.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=678#respond' onclick='return addComment.moveForm( "comment-678", "678", "respond", "197" )' aria-label='Reply to Sylvain Pronovost'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-679" class="comment even thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/1c0441c356fd50aa3e41665c08525bb7?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/1c0441c356fd50aa3e41665c08525bb7?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Neocognitron</div>
+	<div class="comment-time">Jan 03, 2017</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Really great article. I just finished this semester&#8217;s course in Neural Nets and feel this NN Zoo perhaps lacks a few networks;</p>
+<p>In competitive learning; Standard Competitive network and Lateral Inhibition Net. You included Kohonen SOM, so that&#8217;s nice. Further we have the Growing Hiearchical SOM (GHSOM) &amp; variations of it.<br />
+Further; the Counter-propagation network is nice; a combo of Competitive/Kohonen layer &amp; a feed forward layer, iirc, very practical (supervised learning on top of self-organized learning).</p>
+<p>In associative memory nets there is also the Associatron and Bi-directional Associative Memory net (BAM), and nummerus modifications (IEEE has some articles, i.e. for PBHAM).</p>
+<p>We also have the Cognitron and Neocognitron which were developed for rotation-invariant recognition of visual patterns.</p>
+<p>Lastly there are the Generative Advisarial Networks, meant more for generating data than classifying, iirc (there is also the patented &#8220;Creativity machine&#8221;/&#8221;Imagination Engine&#8221; by Stephen Thaler).</p>
+<p>Thanks again. 🙂</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=679#respond' onclick='return addComment.moveForm( "comment-679", "679", "respond", "197" )' aria-label='Reply to Neocognitron'>Reply</a>	
+	</div>
+
+	<ul class="children">
+
+	<li id="comment-680" class="comment odd alt depth-2">
+
+	<div class="comment-avatar"><img alt='' src='http://1.gravatar.com/avatar/1c0441c356fd50aa3e41665c08525bb7?s=60&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/1c0441c356fd50aa3e41665c08525bb7?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Neocognitron</div>
+	<div class="comment-time">Jan 03, 2017</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Forgot to say I like comprehensive overviews or lists, that is mostly why I mentioned these networks here.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=680#respond' onclick='return addComment.moveForm( "comment-680", "680", "respond", "197" )' aria-label='Reply to Neocognitron'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li id="comment-686" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/015fd3e9dda768f0309b984c4f451d97?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/015fd3e9dda768f0309b984c4f451d97?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Ahmed</div>
+	<div class="comment-time">Jan 05, 2017</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Haven&#8217;t read the whole thing, but the graphics used are so aesthetically pleasing, that I simply fell in love with it. Thanks mate</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=686#respond' onclick='return addComment.moveForm( "comment-686", "686", "respond", "197" )' aria-label='Reply to Ahmed'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-706" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/ba81040e728534ce2b54251e1c226b4c?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/ba81040e728534ce2b54251e1c226b4c?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Hrushikesh</div>
+	<div class="comment-time">Jan 11, 2017</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Great post. Thanks</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=706#respond' onclick='return addComment.moveForm( "comment-706", "706", "respond", "197" )' aria-label='Reply to Hrushikesh'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-728" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/f1e564869f8fdf3ef2c3920cc113423b?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/f1e564869f8fdf3ef2c3920cc113423b?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Santiago</div>
+	<div class="comment-time">Jan 20, 2017</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Great resource 🙂</p>
+<p>Small comment: LSTM paper&#8217;s link does not work anymore 🙁</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=728#respond' onclick='return addComment.moveForm( "comment-728", "728", "respond", "197" )' aria-label='Reply to Santiago'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-813" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/5be0de064c348ea7c1cc558e276f3aaf?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/5be0de064c348ea7c1cc558e276f3aaf?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Cap</div>
+	<div class="comment-time">Feb 03, 2017</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Are there any semi supervised NN? If it would be nice to add info on them.</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=813#respond' onclick='return addComment.moveForm( "comment-813", "813", "respond", "197" )' aria-label='Reply to Cap'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-824" class="comment even thread-even depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://2.gravatar.com/avatar/5bc9f7aa44411415dd3c96d4625131ad?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/5bc9f7aa44411415dd3c96d4625131ad?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">JS</div>
+	<div class="comment-time">Feb 08, 2017</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>It would be very convenient to make the keys/legend remain close to each graphical explanation !</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=824#respond' onclick='return addComment.moveForm( "comment-824", "824", "respond", "197" )' aria-label='Reply to JS'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+
+	<li id="comment-924" class="comment odd alt thread-odd thread-alt depth-1">
+
+	<div class="comment-avatar"><img alt='' src='http://0.gravatar.com/avatar/cab330ea0605f63b428167e85dc053bc?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/cab330ea0605f63b428167e85dc053bc?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></div>
+	<div class="comment-author">Alexander Jarvis</div>
+	<div class="comment-time">Feb 22, 2017</div>
+	<div class="clear"></div>
+
+	<div class="comment-container">
+		<div class="comment-entry">
+
+				
+		<p>Wow&#8230; you are a boss!</p>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<a rel='nofollow' class='comment-reply-link' href='http://www.asimovinstitute.org/neural-network-zoo/?replytocom=924#respond' onclick='return addComment.moveForm( "comment-924", "924", "respond", "197" )' aria-label='Reply to Alexander Jarvis'>Reply</a>	
+	</div>
+
+	</li><!-- #comment-## -->
+			</ol>
+			
+						
+			
+	</div>
+</div>
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+	</div><!-- #content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+
+	  <div class="footer-branding">
+	  		    	<h3 class="site-title">The Asimov Institute</h3>
+				<h4 class="site-description">for Artificial Creativity &amp; Constraint</h4>
+				  </div>
+
+	  	  <div class="footer-links">
+	  			<aside id="recent-posts-3" class="widget widget_recent_entries">		<h3 class="widget-title">Blog</h3>		<ul>
+					<li>
+				<a href="http://www.asimovinstitute.org/neural-network-zoo-prequel-cells-layers/">Neural Network Zoo Prequel: Cells and Layers</a>
+							<span class="post-date">March 31, 2017</span>
+						</li>
+					<li>
+				<a href="http://www.asimovinstitute.org/analyzing-deep-learning-tools-music/">Analyzing Six Deep Learning Tools for Music Generation</a>
+							<span class="post-date">October 5, 2016</span>
+						</li>
+					<li>
+				<a href="http://www.asimovinstitute.org/neural-network-zoo/">The Neural Network Zoo</a>
+							<span class="post-date">September 14, 2016</span>
+						</li>
+					<li>
+				<a href="http://www.asimovinstitute.org/artistic-style-transfer-blending/">Artistic Style Transfer Blending</a>
+							<span class="post-date">July 31, 2016</span>
+						</li>
+					<li>
+				<a href="http://www.asimovinstitute.org/a-quick-guide-to-installing-tensorflow-on-mac-os/">A Quick Guide to Installing TensorFlow on mac OS</a>
+							<span class="post-date">June 15, 2016</span>
+						</li>
+				</ul>
+		</aside>		<aside id="nav_menu-2" class="widget widget_nav_menu"><h3 class="widget-title">Links</h3><div class="menu-links-container"><ul id="menu-links" class="menu"><li id="menu-item-72" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-72"><a href="https://github.com/asimovinstitute">GitHub</a></li>
+<li id="menu-item-141" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-141"><a href="https://bitbucket.org/asimovinstitute/">Bitbucket</a></li>
+<li id="menu-item-71" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71"><a href="https://twitter.com/asimovinstitute">Twitter</a></li>
+<li id="menu-item-73" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-73"><a href="https://www.linkedin.com/company/the-asimov-institute">LinkedIn</a></li>
+</ul></div></aside><aside id="meta-3" class="widget widget_meta"><h3 class="widget-title">Admin</h3>			<ul>
+						<li><a rel="nofollow" href="http://www.asimovinstitute.org/wp-login.php">Log in</a></li>
+			<li><a href="http://www.asimovinstitute.org/feed/">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://www.asimovinstitute.org/comments/feed/">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>			</ul>
+			</aside><aside id="search-3" class="widget widget_search"><h3 class="widget-title">Search</h3><form role="search" method="get" class="search-form" action="http://www.asimovinstitute.org/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit" value="Search" />
+			</form></aside>	  </div>
+	  
+	  <hr>
+
+	  <p class="colophon">
+	  	&copy; 2017, The Asimov Institute<br />
+	  	<a href="http://wordpress.org/">Proudly powered by WordPress</a><br />
+			Theme: Yuuta by <a href="http://felixdorner.de" rel="designer">Felix Dorner</a>	  </p>
+
+	</footer>
+
+</div><!-- #page -->
+
+<script type='text/javascript' src='http://www.asimovinstitute.org/wp-content/themes/yuuta/assets/js/imagelightbox.min.js?ver=1'></script>
+<script type='text/javascript' src='http://www.asimovinstitute.org/wp-includes/js/imagesloaded.min.js?ver=3.2.0'></script>
+<script type='text/javascript' src='http://www.asimovinstitute.org/wp-includes/js/masonry.min.js?ver=3.3.2'></script>
+<script type='text/javascript' src='http://www.asimovinstitute.org/wp-content/themes/yuuta/assets/js/theme.js?ver=20150327'></script>
+<script type='text/javascript' src='http://www.asimovinstitute.org/wp-includes/js/comment-reply.min.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://www.asimovinstitute.org/wp-content/themes/yuuta/assets/js/jquery.autogrow-textarea.js?ver=1'></script>
+<script type='text/javascript' src='http://www.asimovinstitute.org/wp-content/themes/yuuta/assets/js/comment-form.js?ver=20150308'></script>
+<script type='text/javascript' src='http://www.asimovinstitute.org/wp-includes/js/wp-embed.min.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://www.asimovinstitute.org/wp-content/plugins/akismet/_inc/form.js?ver=3.3.4'></script>
+
+</body>
+</html>

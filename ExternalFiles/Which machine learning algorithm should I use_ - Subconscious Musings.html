@@ -1,0 +1,788 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Which machine learning algorithm should I use? - Subconscious Musings</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="pingback" href="http://blogs.sas.com/content/subconsciousmusings/xmlrpc.php" />
+<meta property="og:title" content="Which machine learning algorithm should I use?"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/"/>
+<meta property="og:site_name" content="Subconscious Musings"/>
+<meta property="og:description" content="This resource is designed primarily for beginner to intermediate data scientists or analysts who are interested in identifying and applying machine learning algorithms to address the problems of their interest."/>
+<meta property="fb:app_id" content="129959910415506"/>
+<meta property="og:image" content="https://blogs.sas.com/content/subconsciousmusings/files/2017/04/machine-learning-cheet-sheet-110x96.png"/>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PWTVHH');</script>
+<script type="text/javascript" src="//assets.adobedtm.com/a4a4268256930a29de311efab04f43cf44db167b/satelliteLib-392eedeb8633e1cc249f4de8df2bb2cfb4073228.js"></script>
+
+
+<link rel="canonical" href="http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="This resource is designed primarily for beginner to intermediate data scientists or analysts who are interested in identifying and applying machine learning algorithms to address the problems of their interest. A typical question asked by a beginner, when facing a wide variety of machine learning algorithms, is “which algorithm should" />
+<meta name="twitter:title" content="Which machine learning algorithm should I use? - Subconscious Musings" />
+<meta name="twitter:site" content="@sassoftware" />
+<meta name="twitter:image" content="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/machine-learning-cheet-sheet.png" />
+<meta name="twitter:creator" content="@sassoftware" />
+
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='bcct_style-css'  href='http://blogs.sas.com/content/subconsciousmusings/wp-content/plugins/better-click-to-tweet/assets/css/styles.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-syntax-css-css'  href='http://blogs.sas.com/content/subconsciousmusings/wp-content/plugins/wp-syntax/css/wp-syntax.css' type='text/css' media='all' />
+<link rel='stylesheet' id='smartmag-fonts-css'  href='http://fonts.googleapis.com/css?family=Open+Sans:400,400Italic,600,700|Roboto+Slab|Merriweather:300italic&#038;subset' type='text/css' media='all' />
+<link rel='stylesheet' id='pretty-photo-css'  href='http://blogs.sas.com/content/subconsciousmusings/wp-content/themes/smart-mag/css/prettyPhoto.css' type='text/css' media='all' />
+<link rel='stylesheet' id='smartmag-font-awesome-css'  href='http://blogs.sas.com/content/subconsciousmusings/wp-content/themes/smart-mag/css/fontawesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='smartmag-core-css'  href='http://blogs.sas.com/content/subconsciousmusings/wp-content/themes/smart-mag-child/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='custom-css-css'  href='http://blogs.sas.com/content/subconsciousmusings/?bunyad_custom_css=1' type='text/css' media='all' />
+<script type='text/javascript' src='http://blogs.sas.com/content/subconsciousmusings/wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='http://blogs.sas.com/content/subconsciousmusings/wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='http://blogs.sas.com/content/subconsciousmusings/wp-content/themes/smart-mag/js/jquery.prettyPhoto.js'></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-1022528-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+</head>
+<body class="post-template-default single single-post postid-1820 single-format-standard page-builder no-sidebar full has-nav-light has-nav-full has-mobile-head">
+<script type="text/javascript" src="//www.sas.com/en_us.pheader.html?csslib=sasheadercss&jslib=modernizr"></script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWTVHH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="main-wrap">
+	
+	
+	<div class="top-bar hidden">
+	
+		
+		<div class="search">
+			<form role="search" action="/content/" method="get">
+				<input type="text" name="s" class="query" value="" placeholder="Search..."/>
+				<button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+			</form>
+		</div>	
+	</div>
+	
+	<div id="main-head" class="main-head">
+		
+		<div class="wrap">
+			
+							<div class="mobile-head">
+				
+					<div class="menu-icon"><a href="#"><i class="fa fa-bars"></i></a></div>
+					<div class="title">
+								<a href="/content/" rel="home">
+		
+							<h1>Blogs</h1>						
+		</a>					</div>
+					<div class="search-overlay">
+						<a href="#" title="Search" class="search-icon"><i class="fa fa-search"></i></a>
+					</div>
+					
+				</div>
+			
+			<header class="default">
+			
+				<div class="title">
+							<a href="/content/" rel="home">
+		
+							<h1>Blogs</h1>						
+		</a>				</div>
+				
+									
+					<div class="right">
+										</div>
+					
+								
+			</header>
+				
+							
+		</div>
+		
+		
+<div class="navigation-wrap cf">
+
+	<nav class="navigation cf nav-full nav-light has-search">
+	
+		<div class="wrap">
+		
+			<div class="mobile" data-type="off-canvas" data-search="1">
+				<a href="#" class="selected">
+					<span class="text">Navigate</span><span class="current"></span> <i class="hamburger fa fa-bars"></i>
+				</a>
+			</div>
+			            <div class="menu-main-menu-container"><ul id="menu-main-menu" class="menu"><li class="nav-item-1 menu-item menu-item-type-custom menu-item-object-custom"><a href="#">Business</a></li><li class="nav-item-2 menu-item menu-item-type-custom menu-item-object-custom"><a href="#">Technology</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/content/blog-directory/">Blog Directory</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/content/subscribe/">Subscribe</a></li></ul></div><div id="nav-blog-menu-1" class="ddpanel blog-menu"><button id="nav-blog-menu-1-close" class="close foobar" aria-label="Close"></button><div class="menu-business-menu-container"><ul id="menu-business-menu" class="globalnavmenu"><li id="menu-item-27002" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27002"><a href="http://blogs.sas.com/content/topic/analytics/">Analytics</a></li>
+<li id="menu-item-26999" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-26999"><a href="http://blogs.sas.com/content/topic/customer-intelligence/">Customer Intelligence</a></li>
+<li id="menu-item-27005" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27005"><a href="http://blogs.sas.com/content/topic/data-for-good/">Data for Good</a></li>
+<li id="menu-item-27004" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27004"><a href="http://blogs.sas.com/content/topic/data-management/">Data Management</a></li>
+<li id="menu-item-27000" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27000"><a href="http://blogs.sas.com/content/topic/data-visualization/">Data Visualization</a></li>
+<li id="menu-item-27006" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27006"><a href="http://blogs.sas.com/content/topic/fraud-security/">Fraud &#038; Security Intelligence</a></li>
+<li id="menu-item-27007" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27007"><a href="http://blogs.sas.com/content/topic/iot/">Internet of Things</a></li>
+<li id="menu-item-27008" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27008"><a href="http://blogs.sas.com/content/topic/machine-learning/">Machine Learning</a></li>
+<li id="menu-item-27009" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27009"><a href="http://blogs.sas.com/content/topic/risk-management/">Risk Management</a></li>
+<li id="menu-item-27001" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27001"><a href="http://blogs.sas.com/content/topic/sas-events/">SAS Events</a></li>
+<li id="menu-item-27003" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27003"><a href="http://blogs.sas.com/content/topic/students-educators/">Students &#038; Educators</a></li>
+<li id="menu-item-27010" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27010"><a href="http://blogs.sas.com/content/topic/sas-culture/">Work &#038; Life at SAS</a></li>
+<li id="menu-item-29344" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29344"><a href="http://blogs.sas.com/content/all-topics/">Browse All Topics</a></li>
+</ul></div></div><div id="nav-blog-menu-2" class="ddpanel blog-menu"><button id="nav-blog-menu-2-close" class="close foobar" aria-label="Close"></button><div class="menu-technology-menu-container"><ul id="menu-technology-menu" class="globalnavmenu"><li id="menu-item-27011" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27011"><a href="http://blogs.sas.com/content/topic/advanced-analytics/">Advanced Analytics</a></li>
+<li id="menu-item-27012" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27012"><a href="http://blogs.sas.com/content/topic/data-visualization/">Data Visualization</a></li>
+<li id="menu-item-27013" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27013"><a href="http://blogs.sas.com/content/topic/learn-sas/">Learn SAS</a></li>
+<li id="menu-item-27014" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27014"><a href="http://blogs.sas.com/content/topic/programming-tips/">Programming Tips</a></li>
+<li id="menu-item-27015" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27015"><a href="http://blogs.sas.com/content/topic/sas-administrators/">SAS Administrators</a></li>
+<li id="menu-item-27016" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27016"><a href="http://blogs.sas.com/content/topic/sas-events/">SAS Events</a></li>
+<li id="menu-item-27017" class="menu-item menu-item-type-taxonomy menu-item-object-topic menu-item-27017"><a href="http://blogs.sas.com/content/topic/students-educators/">Students &#038; Educators</a></li>
+<li id="menu-item-29345" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29345"><a href="http://blogs.sas.com/content/all-topics/">Browse All Topics</a></li>
+</ul></div></div>				
+		</div>
+		
+	</nav>
+
+		
+	<div class="nav-search nav-light-search wrap">
+				
+		<div class="search-overlay">
+			<a href="#" title="Search" class="search-icon"><i class="fa fa-search"></i></a>
+			
+		<div class="search">
+			<form role="search" action="/content/" method="get">
+				<input type="text" name="s" class="query" value="" placeholder="Search..."/>
+				<button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+			</form>
+		</div>		</div>
+	</div>
+	
+		
+</div>		
+	</div>	
+
+
+<div class="main wrap cf">
+
+		
+	<div class="row">
+	
+		<div class="col-8 main-content">
+		
+				
+				
+<article id="post-1820" class="post-1820 post type-post status-publish format-standard has-post-thumbnail category-uncategorized tag-classification tag-clustering tag-data-science tag-data-science-basics tag-tag-machine-learning tag-machine-learning-algorithms tag-regression language-en topic-advanced-analytics topic-machine-learning" itemscope itemtype="http://schema.org/Article">
+	
+	<header class="post-header cf">
+	
+			
+
+		
+		
+				<div class="heading cf">
+				
+			<h1 class="post-title item fn" itemprop="name headline">
+			Which machine learning algorithm should I use?			</h1>
+			
+			<a href="http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/#comments" class="comments"><i class="fa fa-comments-o"></i> 8</a>
+		
+		</div>
+
+		<div class="post-meta cf">
+			<span class="posted-by">By 
+				<span class="reviewer" itemprop="author"><a href="/content/author/huili/" title="Posts by Hui Li" rel="author">Hui Li</a> on <a href="http://blogs.sas.com/content/subconsciousmusings/">Subconscious Musings</a></span>
+			</span>
+			
+			<span class="posted-on">
+				<span class="dtreviewed">
+					<time class="value-title" datetime="2017-04-12T14:58:58-04:00" title="2017-04-12" itemprop="datePublished">April 12, 2017</time>
+				</span>
+			</span>
+			
+			<span class="cats"><a href="/content/topic/advanced-analytics/" title="Advanced Analytics">Advanced Analytics</a> | <a href="/content/topic/machine-learning/" title="Machine Learning">Machine Learning</a></span>
+				
+		</div>		
+			
+	</header>
+
+	
+
+	<div class="post-container cf">
+	
+		<div class="post-content-right">
+			<div class="post-content description " itemprop="articleBody">
+	
+					
+				
+		<p>This resource is designed primarily for beginner to intermediate data scientists or analysts who are interested in identifying and applying <a href="https://www.sas.com/en_us/insights/analytics/machine-learning.html">machine learning</a> algorithms to address the problems of their interest.</p>
+<p>A typical question asked by a beginner, when facing a wide variety of machine learning algorithms, is “which algorithm should I use?” The answer to the question varies depending on many factors, including:</p>
+<ul>
+<li>The size, quality, and nature of data.</li>
+<li>The available computational time.</li>
+<li>The urgency of the task.</li>
+<li>What you want to do with the data.</li>
+</ul>
+<p>Even an experienced data scientist cannot tell which algorithm will perform the best before trying different algorithms. We are not advocating a one and done approach, but we do hope to provide some guidance on which algorithms to try first depending on some clear factors.</p>
+<h2>The machine learning algorithm cheat sheet</h2>
+<p><a href="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/machine-learning-cheet-sheet.png"><img class="alignnone size-full wp-image-1872" src="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/machine-learning-cheet-sheet.png" alt="Flow chart shows which algorithms to use when" width="1152" height="648" srcset="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/machine-learning-cheet-sheet.png 1152w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/machine-learning-cheet-sheet-300x169.png 300w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/machine-learning-cheet-sheet-1024x576.png 1024w" sizes="(max-width: 1152px) 100vw, 1152px" /></a></p>
+<p>The <strong>machine learning algorithm cheat sheet</strong> helps you to choose from a variety of machine learning algorithms to find the appropriate algorithm for your specific problems. This article walks you through the process of how to use the sheet.</p>
+<p>Since the cheat sheet is designed for beginner data scientists and analysts, we will make some simplified assumptions when talking about the algorithms.</p>
+<p>The algorithms recommended here result from compiled feedback and tips from several data scientists and machine learning experts and developers. There are several issues on which we have not reached an agreement and for these issues we try to highlight the commonality and reconcile the difference.</p>
+<p>Additional algorithms will be added in later as our library grows to encompass a more complete set of available methods.</p>
+<h3><strong>How to use the cheat sheet</strong></h3>
+<p>Read the path and algorithm labels on the chart as "If <em>&lt;path label&gt;</em> then use <em>&lt;algorithm&gt;</em>." For example:</p>
+<ul>
+<li>If you want to perform dimension reduction then use principal component analysis.</li>
+<li>If you need a numeric prediction quickly, use decision trees or logistic regression.</li>
+<li>If you need a hierarchical result, use hierarchical clustering.</li>
+</ul>
+<p>Sometimes more than one branch will apply, and other times none of them will be a perfect match. It’s important to remember these paths are intended to be rule-of-thumb recommendations, so some of the recommendations are not exact. Several data scientists I talked with said that the only sure way to find the very best algorithm is to try all of them.</p>
+<h2><strong>Types of machine learning algorithms</strong></h2>
+<p>This section provides an overview of the most popular types of machine learning. If you’re familiar with these categories and want to move on to discussing specific algorithms, you can skip this section and go to “When to use specific algorithms” below.</p>
+<h3><strong>Supervised learning</strong></h3>
+<p>Supervised learning algorithms make predictions based on a set of examples. For example, historical sales can be used to estimate the future prices. With supervised learning, you have an input variable that consists of labeled training data and a desired output variable. You use an algorithm to analyze the training data to learn the function that maps the input to the output. This inferred function maps new, unknown examples by generalizing from the training data to anticipate results in unseen situations.</p>
+<ul>
+<li><strong>Classification: </strong>When the data are being used to predict a categorical variable, supervised learning is also called classification. This is the case when assigning a label or indicator, either dog or cat to an image. When there are only two labels, this is called binary classification. When there are more than two categories, the problems are called multi-class classification.</li>
+<li><strong>Regression: </strong>When predicting continuous values, the problems become a regression problem.</li>
+<li><strong>Forecasting: </strong>This is the process of making predictions about the future based on the past and present data. It is most commonly used to analyze trends. A common example might be estimation of the next year sales based on the sales of the current year and previous years.</li>
+</ul>
+<h3><strong>Semi-supervised learning </strong></h3>
+<p>The challenge with supervised learning is that labeling data can be expensive and time consuming. If labels are limited, you can use unlabeled examples to enhance supervised learning. Because the machine is not fully supervised in this case, we say the machine is semi-supervised. With semi-supervised learning, you use unlabeled examples with a small amount of labeled data to improve the learning accuracy.</p>
+<h3><strong>Unsupervised learning</strong></h3>
+<p>When performing unsupervised learning, the machine is presented with totally unlabeled data. It is asked to discover the intrinsic patterns that underlies the data, such as a clustering structure, a low-dimensional manifold, or a sparse tree and graph.</p>
+<ul>
+<li><strong>Clustering: </strong>Grouping a set of data examples so that examples in one group (or one cluster) are more similar (according to some criteria) than those in other groups. This is often used to segment the whole dataset into several groups. Analysis can be performed in each group to help users to find intrinsic patterns.</li>
+<li><strong>Dimension reduction: </strong>Reducing the number of variables under consideration. In many applications, the raw data have very high dimensional features and some features are redundant or irrelevant to the task. Reducing the dimensionality helps to find the true, latent relationship.</li>
+</ul>
+<h3><strong> </strong><strong>Reinforcement learning </strong></h3>
+<p>Reinforcement learning analyzes and optimizes the behavior of an agent based on the feedback from the environment.  Machines try different scenarios to discover which actions yield the greatest reward, rather than being told which actions to take. Trial-and-error and delayed reward distinguishes reinforcement learning from other techniques.</p>
+<h2><strong>Considerations when choosing an algorithm</strong></h2>
+<p>When choosing an algorithm, always take these aspects into account: accuracy, training time and ease of use. Many users put the accuracy first, while beginners tend to focus on algorithms they know best.</p>
+<p>When presented with a dataset, the first thing to consider is how to obtain results, no matter what those results might look like. Beginners tend to choose algorithms that are easy to implement and can obtain results quickly. This works fine, as long as it is just the first step in the process. Once you obtain some results and become familiar with the data, you may spend more time using more sophisticated algorithms to strengthen your understanding of the data, hence further improving the results.</p>
+<p>Even in this stage, the best algorithms might not be the methods that have achieved the highest reported accuracy, as an algorithm usually requires careful tuning and extensive training to obtain its best achievable performance.</p>
+<h2><strong>When to use specific algorithms</strong></h2>
+<p>Looking more closely at individual algorithms can help you understand what they provide and how they are used. These descriptions provide more details and give additional tips for when to use specific algorithms, in alignment with the cheat sheet.</p>
+<h3><strong>Linear regression and Logistic regression</strong><strong>    </strong></h3>
+
+		<style type='text/css'>
+			#gallery-4 {
+				margin: auto;
+			}
+			#gallery-4 .gallery-item {
+				float: left;
+				margin-top: 10px;
+				text-align: center;
+				width: 33%;
+			}
+			#gallery-4 img {
+				border: 2px solid #cfcfcf;
+			}
+			#gallery-4 .gallery-caption {
+				margin-left: 0;
+			}
+			/* see gallery_shortcode() in wp-includes/media.php */
+		</style>
+		<div id='gallery-4' class='gallery galleryid-1820 gallery-columns-3 gallery-size-full'><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/linearregression-2/'><img width="640" height="480" src="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/linearregression.png" class="attachment-full size-full" alt="" aria-describedby="gallery-4-1886" srcset="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/linearregression.png 640w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/linearregression-300x225.png 300w" sizes="(max-width: 640px) 100vw, 640px" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-4-1886'>
+				Linear regression
+				</dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/logisticregresion-2/'><img width="640" height="480" src="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/logisticregresion.png" class="attachment-full size-full" alt="" aria-describedby="gallery-4-1887" srcset="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/logisticregresion.png 640w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/logisticregresion-300x225.png 300w" sizes="(max-width: 640px) 100vw, 640px" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-4-1887'>
+				Logistic regression
+				</dd></dl>
+			<br style='clear: both' />
+		</div>
+<p>Linear regression is an approach for modeling the relationship between a continuous dependent variable <span class='MathJax_Preview'>\(y\)</span><script type='math/tex'>y</script> and one or more predictors <span class='MathJax_Preview'>\(X\)</span><script type='math/tex'>X</script>. The relationship between <span class='MathJax_Preview'>\(y\)</span><script type='math/tex'>y</script> and <span class='MathJax_Preview'>\(X\)</span><script type='math/tex'>X</script> can be linearly modeled as <span class='MathJax_Preview'>\(y=\beta^TX+\epsilon\)</span><script type='math/tex'>y=\beta^TX+\epsilon</script> Given the training examples <span class='MathJax_Preview'>\(\{x_i,y_i\}_{i=1}^N\)</span><script type='math/tex'>\{x_i,y_i\}_{i=1}^N</script>, the parameter vector <span class='MathJax_Preview'>\(\beta\)</span><script type='math/tex'>\beta</script> can be learnt.</p>
+<p>If the dependent variable is not continuous but categorical, linear regression can be transformed to logistic regression using a logit link function. Logistic regression is a simple, fast yet powerful classification algorithm. Here we discuss the binary case where the dependent variable <span class='MathJax_Preview'>\(y\)</span><script type='math/tex'>y</script> only takes binary values <span class='MathJax_Preview'>\(\{y_i\in(-1,1)\}_{i=1}^N\)</span><script type='math/tex'>\{y_i\in(-1,1)\}_{i=1}^N</script> (it which can be easily extended to multi-class classification problems).</p>
+<p>In logistic regression we use a different hypothesis class to try to predict the probability that a given example belongs to the "1" class versus the probability that it belongs to the "-1" class. Specifically, we will try to learn a function of the form:<span class='MathJax_Preview'>\(p(y_i=1|x_i )=\sigma(\beta^T x_i )\)</span><script type='math/tex'>p(y_i=1|x_i )=\sigma(\beta^T x_i )</script> and <span class='MathJax_Preview'>\(p(y_i=-1|x_i )=1-\sigma(\beta^T x_i )\)</span><script type='math/tex'>p(y_i=-1|x_i )=1-\sigma(\beta^T x_i )</script>. Here <span class='MathJax_Preview'>\(\sigma(x)=\frac{1}{1+exp(-x)}\)</span><script type='math/tex'>\sigma(x)=\frac{1}{1+exp(-x)}</script> is a sigmoid function. Given the training examples<span class='MathJax_Preview'>\(\{x_i,y_i\}_{i=1}^N\)</span><script type='math/tex'>\{x_i,y_i\}_{i=1}^N</script>, the parameter vector <span class='MathJax_Preview'>\(\beta\)</span><script type='math/tex'>\beta</script> can be learnt by maximizing the log-likelihood of <span class='MathJax_Preview'>\(\beta\)</span><script type='math/tex'>\beta</script> given the data set.</p>
+
+		<style type='text/css'>
+			#gallery-5 {
+				margin: auto;
+			}
+			#gallery-5 .gallery-item {
+				float: left;
+				margin-top: 10px;
+				text-align: center;
+				width: 50%;
+			}
+			#gallery-5 img {
+				border: 2px solid #cfcfcf;
+			}
+			#gallery-5 .gallery-caption {
+				margin-left: 0;
+			}
+			/* see gallery_shortcode() in wp-includes/media.php */
+		</style>
+		<div id='gallery-5' class='gallery galleryid-1820 gallery-columns-2 gallery-size-medium'><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/group-by-linear-regression/'><img width="300" height="188" src="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/Group-By-Linear-Regression-300x188.jpg" class="attachment-medium size-medium" alt="" aria-describedby="gallery-5-1858" srcset="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/Group-By-Linear-Regression-300x188.jpg 300w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/Group-By-Linear-Regression-1024x640.jpg 1024w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/Group-By-Linear-Regression-343x215.jpg 343w" sizes="(max-width: 300px) 100vw, 300px" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-5-1858'>
+				Group By Linear Regression 
+				</dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/logistic-regression-sas/'><img width="300" height="188" src="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/Logistic-Regression-SAS-300x188.jpg" class="attachment-medium size-medium" alt="" aria-describedby="gallery-5-1861" srcset="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/Logistic-Regression-SAS-300x188.jpg 300w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/Logistic-Regression-SAS-1024x640.jpg 1024w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/Logistic-Regression-SAS-343x215.jpg 343w" sizes="(max-width: 300px) 100vw, 300px" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-5-1861'>
+				Logistic Regression in SAS Visual Analytics
+				</dd></dl><br style="clear: both" />
+		</div>
+<h3></h3>
+<h3><strong>Linear SVM and kernel SVM</strong></h3>
+<p>Kernel tricks are used to map a non-linearly separable functions into a higher dimension linearly separable function. A support vector machine (SVM) training algorithm finds the classifier represented by the normal vector <span class='MathJax_Preview'>\(w\)</span><script type='math/tex'>w</script> and bias <span class='MathJax_Preview'>\(b\)</span><script type='math/tex'>b</script> of the hyperplane. This hyperplane (boundary) separates different classes by as wide a margin as possible. The problem can be converted into a constrained optimization problem:<br />
+\begin{equation*}<br />
+\begin{aligned}<br />
+&amp; \underset{w}{\text{minimize}}<br />
+&amp; &amp; ||w|| \\<br />
+&amp; \text{subject to}<br />
+&amp; &amp; y_i(w^T X_i-b) \geq 1, \; i = 1, \ldots, n.<br />
+\end{aligned}<br />
+\end{equation*}</p>
+<p>A support vector machine (SVM) training algorithm finds the classifier represented by the normal vector  and bias  of the hyperplane. This hyperplane (boundary) separates different classes by as wide a margin as possible. The problem can be converted into a constrained optimization problem:</p>
+<div id="attachment_1831" style="width: 522px" class="wp-caption aligncenter"><a href="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/kernalSVM.png"><img class="wp-image-1831 size-full" src="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/kernalSVM.png" alt="Linear and kernel SVM charts" width="512" height="232" srcset="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/kernalSVM.png 512w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/kernalSVM-300x136.png 300w" sizes="(max-width: 512px) 100vw, 512px" /></a><p class="wp-caption-text">Kernel tricks are used to map a non-linearly separable functions into a higher dimension linearly separable function.</p></div>
+<p>When the classes are not linearly separable, a kernel trick can be used to map a non-linearly separable space into a higher dimension linearly separable space.</p>
+<p>When most dependent variables are numeric, logistic regression and SVM should be the first try for classification. These models are easy to implement, their parameters easy to tune, and the performances are also pretty good. So these models are appropriate for beginners.</p>
+<h3><strong>Trees and ensemble trees</strong></h3>
+<div id="attachment_1833" style="width: 368px" class="wp-caption alignnone"><a href="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/decisiontree.png"><img class="size-full wp-image-1833" src="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/decisiontree.png" alt="A decision tree for prediction model." width="358" height="423" srcset="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/decisiontree.png 358w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/decisiontree-254x300.png 254w" sizes="(max-width: 358px) 100vw, 358px" /></a><p class="wp-caption-text">A decision tree for prediction model</p></div>
+<p>Decision trees, random forest and gradient boosting are all algorithms based on decision trees.  There are many variants of decision trees, but they all do the same thing – subdivide the feature space into regions with mostly the same label. Decision trees are easy to understand and implement. However, they tend to over fit data when we exhaust the branches and go very deep with the trees. Random Forrest and gradient boosting are two popular ways to use tree algorithms to achieve good accuracy as well as overcoming the over-fitting problem.</p>
+<h3><strong>Neural networks and deep learning</strong></h3>
+<div id="attachment_1894" style="width: 712px" class="wp-caption alignnone"><a href="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/cnn.jpg"><img class="size-large wp-image-1894" src="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/cnn-1024x315.jpg" alt="" width="702" height="216" srcset="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/cnn-1024x315.jpg 1024w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/cnn-300x92.jpg 300w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/cnn.jpg 1040w" sizes="(max-width: 702px) 100vw, 702px" /></a><p class="wp-caption-text">A convolution neural network architecture <span style="color: #999999;">(image source: <a style="color: #999999;" href="https://commons.wikimedia.org/wiki/File:Typical_cnn.png">wikipedia creative commons</a>)</span></p></div>
+<p>Neural networks flourished in the mid-1980s due to their parallel and distributed processing ability.  But research in this field was impeded by the ineffectiveness of the back-propagation training algorithm that is widely used to optimize the parameters of neural networks. Support vector machines (SVM) and other simpler models, which can be easily trained by solving convex optimization problems, gradually replaced neural networks in machine learning.</p>
+<p>In recent years, new and improved training techniques such as unsupervised pre-training and layer-wise greedy training have led to a resurgence of interest in neural networks. Increasingly powerful computational capabilities, such as graphical processing unit (GPU) and massively parallel processing (MPP), have also spurred the revived adoption of neural networks. The resurgent research in neural networks has given rise to the invention of models with thousands of layers.</p>
+<div id="attachment_1856" style="width: 410px" class="wp-caption alignright"><a href="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/vdmml_neural.png"><img class="wp-image-1856" src="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/vdmml_neural.png" alt="A neural network" width="400" height="220" srcset="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/vdmml_neural.png 1805w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/vdmml_neural-300x165.png 300w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/vdmml_neural-1024x562.png 1024w" sizes="(max-width: 400px) 100vw, 400px" /></a><p class="wp-caption-text">A neural network in SAS Visual Analytics</p></div>
+<p>In other words, shallow neural networks have evolved into <a href="https://www.sas.com/en_us/insights/analytics/deep-learning.html">deep learning</a> neural networks. Deep neural networks have been very successful for supervised learning.  When used for speech and image recognition, deep learning performs as well as, or even better than, humans. Applied to unsupervised learning tasks, such as <a href="http://blogs.sas.com/content/subconsciousmusings/2015/10/26/principal-component-analysis-for-dimensionality-reduction/">feature extraction</a>, deep learning also extracts features from raw images or speech with much less human intervention.</p>
+<p>A neural network consists of three parts: input layer, hidden layers and output layer.  The training samples define the input and output layers. When the output layer is a categorical variable, then the neural network is a way to address classification problems. When the output layer is a continuous variable, then the network can be used to do regression. When the output layer is the same as the input layer, the network can be used to extract intrinsic features. The number of hidden layers defines the model complexity and modeling capacity.</p>
+<h3><strong>k-means/k-modes, GMM (Gaussian mixture model) clustering</strong></h3>
+
+		<style type='text/css'>
+			#gallery-6 {
+				margin: auto;
+			}
+			#gallery-6 .gallery-item {
+				float: left;
+				margin-top: 10px;
+				text-align: center;
+				width: 50%;
+			}
+			#gallery-6 img {
+				border: 2px solid #cfcfcf;
+			}
+			#gallery-6 .gallery-caption {
+				margin-left: 0;
+			}
+			/* see gallery_shortcode() in wp-includes/media.php */
+		</style>
+		<div id='gallery-6' class='gallery galleryid-1820 gallery-columns-2 gallery-size-medium'><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/kmeansclustering-2/'><img width="300" height="225" src="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/kmeansclustering-1-300x225.png" class="attachment-medium size-medium" alt="" aria-describedby="gallery-6-1888" srcset="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/kmeansclustering-1-300x225.png 300w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/kmeansclustering-1.png 640w" sizes="(max-width: 300px) 100vw, 300px" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-6-1888'>
+				K Means Clustering
+				</dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a href='http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/gaussianmixturemodel-2/'><img width="300" height="225" src="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/gaussianmixturemodel-1-300x225.png" class="attachment-medium size-medium" alt="" aria-describedby="gallery-6-1889" srcset="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/gaussianmixturemodel-1-300x225.png 300w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/gaussianmixturemodel-1.png 640w" sizes="(max-width: 300px) 100vw, 300px" /></a>
+			</dt>
+				<dd class='wp-caption-text gallery-caption' id='gallery-6-1889'>
+				Gaussian Mixture Model
+				</dd></dl><br style="clear: both" />
+		</div>
+<p>Kmeans/k-modes, GMM clustering aims to partition n observations into k clusters. K-means define hard assignment: the samples are to be and only to be associated to one cluster. GMM, however define a soft assignment for each sample. Each sample has a probability to be associated with each cluster. Both algorithms are simple and fast enough for clustering when the number of clusters k is given.</p>
+<h3><strong>DBSCAN</strong></h3>
+<p><strong> </strong></p>
+<div id="attachment_1837" style="width: 392px" class="wp-caption alignnone"><a href="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/dbscan.jpg"><img class="size-full wp-image-1837" src="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/dbscan.jpg" alt="A DBSCAN illustration" width="382" height="276" srcset="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/dbscan.jpg 382w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/dbscan-300x217.jpg 300w" sizes="(max-width: 382px) 100vw, 382px" /></a><p class="wp-caption-text">A DBSCAN illustration (image source: <a href="https://en.wikipedia.org/wiki/DBSCAN">Wikipedia</a>)</p></div>
+<p>When the number of clusters k is not given, DBSCAN (density-based spatial clustering) can be used by connecting samples through density diffusion.</p>
+<h3><strong>Hierarchical clustering</strong></h3>
+<p><a href="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/418px-Hierarchical_clustering_simple_diagram.svg_.png"><img class="alignnone size-medium wp-image-1891" src="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/418px-Hierarchical_clustering_simple_diagram.svg_-300x239.png" alt="" width="300" height="239" srcset="http://blogs.sas.com/content/subconsciousmusings/files/2017/04/418px-Hierarchical_clustering_simple_diagram.svg_-300x239.png 300w, http://blogs.sas.com/content/subconsciousmusings/files/2017/04/418px-Hierarchical_clustering_simple_diagram.svg_.png 418w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+<p>Hierarchical partitions can be visualized using a tree structure (a dendrogram). It does not need the number of clusters as an input and the partitions can be viewed at different levels of granularities (i.e., can refine/coarsen clusters) using different K.</p>
+<h3><strong>PCA, SVD and LDA</strong></h3>
+<p>We generally do not want to feed a large number of features directly into a machine learning algorithm since some features may be irrelevant or the “intrinsic” dimensionality may be smaller than the number of features. Principal component analysis (PCA), singular value decomposition (SVD), and<em> </em>latent Dirichlet allocation (<em>LDA</em>) all can be used to perform dimension reduction.</p>
+<p>PCA is an unsupervised clustering method which maps the original data space into a lower dimensional space while preserving as much information as possible. The PCA basically finds a subspace that most preserves the data variance, with the subspace defined by the dominant eigenvectors of the data’s covariance matrix.</p>
+<p>The SVD is related to PCA in the sense that SVD of the centered data matrix (features versus samples) provides the dominant left singular vectors that define the same subspace as found by PCA. However, SVD is a more versatile technique as it can also do things that PCA may not do. For example, the SVD of a user-versus-movie matrix is able to extract the user profiles and movie profiles which can be used in a recommendation system. In addition, SVD is also widely used as a topic modeling tool, known as latent semantic analysis, in natural language processing (NLP).</p>
+<p>A related technique in NLP is latent Dirichlet allocation (LDA). LDA is probabilistic topic model and it decomposes documents into topics in a similar way as a Gaussian mixture model (GMM) decomposes continuous data into Gaussian densities. Differently from the GMM, an LDA models discrete data (words in documents) and it constrains that the topics are <em>a priori</em> distributed according to a Dirichlet distribution.</p>
+<h2><strong> </strong><strong>Conclusion</strong><strong>s</strong></h2>
+<p>This is the work flow which is easy to follow. The takeaway messages when trying to solve a new problem are:</p>
+<ul>
+<li>Define the problem. What problems do you want to solve?</li>
+<li>Start simple. Be familiar with the data and the baseline results.</li>
+<li>Then try something more complicated.</li>
+</ul>
+<p><a href="https://support.sas.com/documentation/prod-p/vdmml/index.html">SAS Visual Data Mining and Machine Learning</a> provides a  good platform for beginners to learn machine learning and apply machine learning methods to their problems. <a href="https://www.sas.com/en_us/trials/software/data-mining-machine-learning/ep-form.html">Sign up for a free trial today!</a></p>
+		
+				
+					<div class="tagcloud"><span class="text">Tags </span><a href="/content/tag/classification/">classification</a> <a href="/content/tag/clustering/">clustering</a> <a href="/content/tag/data-science/">data science</a> <a href="/content/tag/data-science-basics/">data science basics</a> <a href="/content/tag/tag-machine-learning/">machine learning</a> <a href="/content/tag/machine-learning-algorithms/">machine learning algorithms</a> <a href="/content/tag/regression/">regression</a> </div>
+				
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	
+	
+	<div class="post-share">
+		<span class="text">Share</span>
+		
+		<span class="share-links">
+
+			<a href="https://twitter.com/share?url=http%3A%2F%2Fblogs.sas.com%2Fcontent%2Fsubconsciousmusings%2F2017%2F04%2F12%2Fmachine-learning-algorithm-use%2F&amp;text=Which%20machine%20learning%20algorithm%20should%20I%20use%3F" 
+               class="fa fa-twitter" title="Tweet It" target="_blank">
+				<span class="visuallyhidden">Twitter</span></a>
+				
+			<a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fblogs.sas.com%2Fcontent%2Fsubconsciousmusings%2F2017%2F04%2F12%2Fmachine-learning-algorithm-use%2F" 
+               class="fa fa-facebook" title="Share on Facebook" target="_blank">
+				<span class="visuallyhidden">Facebook</span></a>
+				
+			<a href="https://plus.google.com/share?url=http%3A%2F%2Fblogs.sas.com%2Fcontent%2Fsubconsciousmusings%2F2017%2F04%2F12%2Fmachine-learning-algorithm-use%2F" 
+               class="fa fa-google-plus" title="Share on Google+" target="_blank">
+				<span class="visuallyhidden">Google+</span></a>
+				
+			<a href="https://pinterest.com/pin/create/button/?url=http%3A%2F%2Fblogs.sas.com%2Fcontent%2Fsubconsciousmusings%2F2017%2F04%2F12%2Fmachine-learning-algorithm-use%2F&amp;media=http%3A%2F%2Fblogs.sas.com%2Fcontent%2Fsubconsciousmusings%2Ffiles%2F2017%2F04%2Fmachine-learning-cheet-sheet.png" 
+               class="fa fa-pinterest" title="Share on Pinterest" target="_blank">
+				<span class="visuallyhidden">Pinterest</span></a>
+				
+			<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fblogs.sas.com%2Fcontent%2Fsubconsciousmusings%2F2017%2F04%2F12%2Fmachine-learning-algorithm-use%2F" 
+               class="fa fa-linkedin" title="Share on LinkedIn" target="_blank">
+				<span class="visuallyhidden">LinkedIn</span></a>
+				
+			<a href="mailto:?subject=Which%20machine%20learning%20algorithm%20should%20I%20use%3F&amp;body=http%3A%2F%2Fblogs.sas.com%2Fcontent%2Fsubconsciousmusings%2F2017%2F04%2F12%2Fmachine-learning-algorithm-use%2F" 
+               class="fa fa-envelope-o" title="Share via Email">
+				<span class="visuallyhidden">Email</span></a>
+			
+            <a href="https://www.xing.com/spi/shares/new?url=http%3A%2F%2Fblogs.sas.com%2Fcontent%2Fsubconsciousmusings%2F2017%2F04%2F12%2Fmachine-learning-algorithm-use%2F" 
+               style="background-color: #cfdc00"  target="_blank" 
+               class="fa fa-xing" title="Share on XING"><span class="visuallyhidden">XING</span></a>
+		</span>
+	</div>
+	
+		
+</article>
+
+
+
+
+		<h3 class="section-head">About Author</h3>
+
+				<section class="author-info">
+		
+			<img src="//blogs.sas.com/content/subconsciousmusings/files/userphoto/1421.jpg" alt="Hui Li" data-width="148" data-height="150" class="photo" />			
+			<div class="description">
+                <a href="/content/author/huili/" title="Posts by Hui Li" rel="author">Hui Li</a><br>Principal Staff Scientist, Data Science				
+				<ul class="social-icons">
+								</ul>
+				
+				<p class="bio">Dr. Hui Li is a Principal Staff Scientist of Data Science Technologies at SAS. Her current work focuses on Deep Learning, Cognitive Computing and SAS recommendation systems in SAS Viya. She received her PhD degree and Master’s degree in Electrical and Computer Engineering from Duke University. Before joining SAS, she worked at Duke University as a research scientist and at Signal Innovation Group, Inc. as a research engineer. Her research interests include machine learning for big, heterogeneous data, collaborative filtering recommendations, Bayesian statistical modeling and reinforcement learning.</p>
+			</div>
+			
+		</section>
+
+	
+				<div class="comments">
+				
+	
+	<div id="comments">
+
+			<h3 class="section-head">
+			8 Comments		</h3>
+
+		<ol class="comments-list">
+					
+			<li class="comment even thread-even depth-1" id="li-comment-646">
+				<article id="comment-646" class="comment">
+				
+					<div class="comment-avatar">
+					<img src="//blogs.sas.com/content/subconsciousmusings/wp-content/themes/smart-mag-child/library/images/mystery-man-thumb.png" alt="" class="photo"/>					</div>
+					
+					<div class="comment-meta">					
+						<span class="comment-author">Daymond Ling</span> on 
+						<a href="http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/#comment-646" class="comment-time" title="April 12, 2017 at 7:58 pm">
+							<time pubdate datetime="2017-04-12T19:58:11+00:00">April 12, 2017 7:58 pm</time>
+						</a>
+		
+											</div> 
+		
+					<div class="comment-content">
+						<p>Thank you for the cheat-sheet, it provides a nice taxonomy for people to understand the relationship between algorithms.  I will use it in my machine learning class to help students round out their world view.</p>
+						
+												
+			
+						<div class="reply">
+														
+						</div>
+						
+					</div>
+				</article>
+	
+		</li>
+		
+			<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-650">
+				<article id="comment-650" class="comment">
+				
+					<div class="comment-avatar">
+					<img src="//blogs.sas.com/content/subconsciousmusings/files/userphoto/1421.thumbnail.jpg" alt="Hui Li" width="148" height="150" class="photo" />					</div>
+					
+					<div class="comment-meta">					
+						<span class="comment-author">Hui Li</span> on 
+						<a href="http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/#comment-650" class="comment-time" title="April 17, 2017 at 9:54 am">
+							<time pubdate datetime="2017-04-17T09:54:28+00:00">April 17, 2017 9:54 am</time>
+						</a>
+		
+											</div> 
+		
+					<div class="comment-content">
+						<p>Thank Daymond.</p>
+<p>Let us know if you have any questions when teaching the students using the information.</p>
+						
+												
+			
+						<div class="reply">
+														
+						</div>
+						
+					</div>
+				</article>
+	
+		</li>
+		
+			<li class="comment even thread-even depth-1" id="li-comment-656">
+				<article id="comment-656" class="comment">
+				
+					<div class="comment-avatar">
+					<img src="//blogs.sas.com/content/subconsciousmusings/wp-content/themes/smart-mag-child/library/images/mystery-man-thumb.png" alt="" class="photo"/>					</div>
+					
+					<div class="comment-meta">					
+						<span class="comment-author"><a href='http://www.arqmain.net' rel='external nofollow' class='url'>Hector Alvaro Rojas</a></span> on 
+						<a href="http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/#comment-656" class="comment-time" title="April 21, 2017 at 11:12 am">
+							<time pubdate datetime="2017-04-21T11:12:00+00:00">April 21, 2017 11:12 am</time>
+						</a>
+		
+											</div> 
+		
+					<div class="comment-content">
+						<p>This is a great cheat-sheet to understand and remember the relationship between the most usual machine learning algorithms. I have not seen something similar like this published online yet.</p>
+<p>I think it could be nice to incorporate the "cost" variable, the principal’s reasons why each selection has been made and some examples of applications for each one.  I know that this suggestion means a lot of work and scape from a cheat-sheet idea.  Anyway, it could be a nice new project to be done, don’t you think so?</p>
+<p>Congratulations for the work already done anyway!</p>
+						
+												
+			
+						<div class="reply">
+														
+						</div>
+						
+					</div>
+				</article>
+	
+		<ul class="children">
+		
+			<li class="comment byuser comment-author-huili bypostauthor odd alt depth-2" id="li-comment-659">
+				<article id="comment-659" class="comment">
+				
+					<div class="comment-avatar">
+					<img src="//blogs.sas.com/content/subconsciousmusings/files/userphoto/1421.thumbnail.jpg" alt="Hui Li" width="148" height="150" class="photo" />					</div>
+					
+					<div class="comment-meta">					
+						<span class="comment-author">Hui Li</span> on 
+						<a href="http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/#comment-659" class="comment-time" title="April 24, 2017 at 11:29 am">
+							<time pubdate datetime="2017-04-24T11:29:51+00:00">April 24, 2017 11:29 am</time>
+						</a>
+		
+											</div> 
+		
+					<div class="comment-content">
+						<p>Thanks, Hector. Incorporating the "cost" variable is a pretty wider area in machine learning. Actually it can be considered as a subfield of reinforcement learning -- based on the cost (reward), the agent determines the actions that he/she wants to take. I considered this problem for a while and haven't found a good example (or real user case) for it. If I have a time, I will write a blog specifically for the reinforcement learning.</p>
+						
+												
+			
+						<div class="reply">
+														
+						</div>
+						
+					</div>
+				</article>
+	
+		</li>
+</ul>
+</li>
+		
+			<li class="comment even thread-odd thread-alt depth-1" id="li-comment-658">
+				<article id="comment-658" class="comment">
+				
+					<div class="comment-avatar">
+					<img src="//blogs.sas.com/content/subconsciousmusings/wp-content/themes/smart-mag-child/library/images/mystery-man-thumb.png" alt="" class="photo"/>					</div>
+					
+					<div class="comment-meta">					
+						<span class="comment-author">charles</span> on 
+						<a href="http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/#comment-658" class="comment-time" title="April 24, 2017 at 9:54 am">
+							<time pubdate datetime="2017-04-24T09:54:01+00:00">April 24, 2017 9:54 am</time>
+						</a>
+		
+											</div> 
+		
+					<div class="comment-content">
+						<p>An excellent blog. Thank you</p>
+						
+												
+			
+						<div class="reply">
+														
+						</div>
+						
+					</div>
+				</article>
+	
+		<ul class="children">
+		
+			<li class="comment byuser comment-author-huili bypostauthor odd alt depth-2" id="li-comment-660">
+				<article id="comment-660" class="comment">
+				
+					<div class="comment-avatar">
+					<img src="//blogs.sas.com/content/subconsciousmusings/files/userphoto/1421.thumbnail.jpg" alt="Hui Li" width="148" height="150" class="photo" />					</div>
+					
+					<div class="comment-meta">					
+						<span class="comment-author">Hui Li</span> on 
+						<a href="http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/#comment-660" class="comment-time" title="April 24, 2017 at 11:30 am">
+							<time pubdate datetime="2017-04-24T11:30:14+00:00">April 24, 2017 11:30 am</time>
+						</a>
+		
+											</div> 
+		
+					<div class="comment-content">
+						<p>Thank you.</p>
+						
+												
+			
+						<div class="reply">
+														
+						</div>
+						
+					</div>
+				</article>
+	
+		</li>
+</ul>
+</li>
+		
+			<li class="comment even thread-even depth-1" id="li-comment-662">
+				<article id="comment-662" class="comment">
+				
+					<div class="comment-avatar">
+					<img src="//blogs.sas.com/content/subconsciousmusings/wp-content/themes/smart-mag-child/library/images/mystery-man-thumb.png" alt="" class="photo"/>					</div>
+					
+					<div class="comment-meta">					
+						<span class="comment-author">Don Maclean</span> on 
+						<a href="http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/#comment-662" class="comment-time" title="April 25, 2017 at 11:34 am">
+							<time pubdate datetime="2017-04-25T11:34:22+00:00">April 25, 2017 11:34 am</time>
+						</a>
+		
+											</div> 
+		
+					<div class="comment-content">
+						<p>Excellent summary but I think the target audience is a few steps beyond "beginner".  I showed this to some folks just starting to study machine learning, and they were overwhelmed.</p>
+						
+												
+			
+						<div class="reply">
+														
+						</div>
+						
+					</div>
+				</article>
+	
+		</li>
+		
+			<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-664">
+				<article id="comment-664" class="comment">
+				
+					<div class="comment-avatar">
+					<img src="//blogs.sas.com/content/subconsciousmusings/wp-content/themes/smart-mag-child/library/images/mystery-man-thumb.png" alt="" class="photo"/>					</div>
+					
+					<div class="comment-meta">					
+						<span class="comment-author">Anastassia Dr Lauterbach</span> on 
+						<a href="http://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/#comment-664" class="comment-time" title="April 26, 2017 at 6:31 am">
+							<time pubdate datetime="2017-04-26T06:31:41+00:00">April 26, 2017 6:31 am</time>
+						</a>
+		
+											</div> 
+		
+					<div class="comment-content">
+						<p>Great blog, thank you. I will use it when talking to non tech companies about starting doing ML and DL with their data sets.</p>
+						
+												
+			
+						<div class="reply">
+														
+						</div>
+						
+					</div>
+				</article>
+	
+		</li>
+		</ol>
+
+		
+		
+	
+	
+	</div>
+				</div>
+	
+				
+		</div>
+		
+			
+	</div> 
+		
+	
+</div> 
+
+
+		
+	<footer class="main-footer">
+	
+		
+	
+		
+	</footer>
+	
+</div>
+
+<p id="back-top">
+    <a href="#" class="topbutton">Back to Top</a>
+</p>
+
+<script type="text/x-mathjax-config"> 
+        MathJax.Hub.Config({ 
+                TeX: {equationNumbers: {autoNumber: ["AMS"], useLabelIds: true}}, 
+                "HTML-CSS": {linebreaks: {automatic: true}}, 
+                SVG: {linebreaks: {automatic: true}}
+        }); 
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML.js"></script>
+<script type='text/javascript' src='http://blogs.sas.com/content/subconsciousmusings/wp-includes/js/comment-reply.min.js'></script>
+<script type='text/javascript' src='http://blogs.sas.com/content/subconsciousmusings/wp-content/themes/smart-mag/js/bunyad-theme.js'></script>
+<script type='text/javascript' src='http://blogs.sas.com/content/subconsciousmusings/wp-content/themes/smart-mag/js/jquery.flexslider-min.js'></script>
+<script type='text/javascript' src='http://blogs.sas.com/content/subconsciousmusings/wp-content/themes/smart-mag/js/jquery.sticky-sidebar.min.js'></script>
+
+<script src="//www.sas.com/en_us.pfooter.html?jslib=0"></script>
+
+<script src="/content/wp-content/themes/smart-mag-child/library/scripts/sas.js"></script>
+
+<script src="//px.onespot.com/px/t/os-99-0.js"></script>
+
+<script>
+if (typeof _satellite !== 'undefined') {
+    _satellite.pageBottom();
+}
+</script>
+</body>
+</html>

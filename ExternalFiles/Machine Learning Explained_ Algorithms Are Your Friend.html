@@ -1,0 +1,822 @@
+<!doctype html><!-- start coded_template: id:4697239613 path:generated_layouts/4697239608.html --><!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" > <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en" >        <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en" >               <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Robert Kelley">
+    <meta name="description" content="An intro to predictive machine learning algorithms. Linear regression, logistic regression, random forest, gradient boosting, deep learning, neural networks.">
+    <meta name="generator" content="HubSpot">
+    <title>Machine Learning Explained: Algorithms Are Your Friend</title>
+    <link rel="shortcut icon" href="//blog.dataiku.com/hubfs/Dataikuapril2016_Theme/Images/favicon.png?t=1502825608051">
+    
+
+    <script src="https://static.hsstatic.net/jquery-libs/static-1.4/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript">hsjQuery = window['jQuery']</script>
+    <link href="https://static.hsstatic.net/content_shared_assets/static-1.4043/css/public_common.css" rel="stylesheet">
+    <meta property="og:description" content="An intro to predictive machine learning algorithms. Linear regression, logistic regression, random forest, gradient boosting, deep learning, neural networks.">
+    <meta property="og:title" content="Machine Learning Explained: Algorithms Are Your Friend">
+    <meta name="twitter:description" content="An intro to predictive machine learning algorithms. Linear regression, logistic regression, random forest, gradient boosting, deep learning, neural networks.">
+    <meta name="twitter:title" content="Machine Learning Explained: Algorithms Are Your Friend">
+
+
+    
+    
+
+    
+    
+
+
+    <!--[if lt IE 9]>
+    <script src="https://static.hsstatic.net/content_shared_assets/static-1.4043/js/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript">
+    var _wt1Q = _wt1Q || [];
+    _wt1Q.push(["trackPage"]);
+   (function() {
+        var script = document.createElement('script');
+        script.src = "//tracker.dataiku.com/js/track.js";
+        script.type = 'text/javascript';
+        script.async = "true";
+        var script0 = document.getElementsByTagName("script")[0];
+        script0.parentNode.insertBefore(script, script0);
+    })();
+</script>
+<!-- Segment -->
+<script type="text/javascript">
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+analytics.load("y3D5tHZSopRkXkwih64CTaWSfrHCkuzT");
+analytics.page("hubspot");
+}}();
+</script>
+<meta property="og:image" content="https://pages.dataiku.com/hubfs/algorithms.jpg#keepProtocol">
+<meta property="og:image:width" content="252">
+<meta property="og:image:height" content="236">
+<meta name="twitter:image" content="https://pages.dataiku.com/hubfs/algorithms.jpg#keepProtocol">
+
+<meta property="og:url" content="https://blog.dataiku.com/machine-learning-explained-algorithms-are-your-friend">
+
+<link rel="canonical" href="https://blog.dataiku.com/machine-learning-explained-algorithms-are-your-friend">
+
+<meta property="og:type" content="article">
+<link rel="alternate" type="application/rss+xml" href="https://blog.dataiku.com/rss.xml">
+<meta name="twitter:domain" content="blog.dataiku.com">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@dataiku">
+<script src="//platform.linkedin.com/in.js" type="text/javascript">
+    lang: en_US
+</script>
+
+<link href="//cdn2.hubspot.net/hub/-1/hub_generated/template_assets/1495141902003/hubspot_default/shared/responsive/layout.min.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://blog.dataiku.com/hs-fs/hub/2123903/hub_generated/template_assets/1496343943432/custom/page/Dataiku_Dec_2016-theme/Dataiku_Dec_2016-style.min.css">
+
+
+    <!-- The style tag has been deprecated. Attached stylesheets are included in the required_head_tags page variable. -->
+
+</head>
+<body class="blog   hs-content-id-4622395186 hs-blog-post hs-blog-id-4001435428" style="">
+    <div class="header-container-wrapper">
+    <div class="header-container container-fluid">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-1 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-global_group " style="" data-widget-type="global_group" data-x="0" data-w="12">
+<!-- start coded_template: id:4679300692 path:generated_global_groups/4679300687.html -->
+<div class="" data-global-widget-path="generated_global_groups/4679300687.html"><div class="row-fluid-wrapper row-depth-1 row-number-1 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-cell custom-header" style="" data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-2 ">
+<div class="row-fluid ">
+<div class="span2 widget-span widget-type-rich_text custom-logo" style="" data-widget-type="rich_text" data-x="0" data-w="2">
+<div class="cell-wrapper layout-widget-wrapper">
+<span id="hs_cos_wrapper_module_14606270769004037" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text"><a href="http://www.dataiku.com/"><img src="https://blog.dataiku.com/hubfs/Dataikuapril2016_Theme/Images/page.png?t=1502825608051" alt="Dataiku"></a></span>
+</div><!--end layout-widget-wrapper -->
+</div><!--end widget-span -->
+<div class="span10 widget-span widget-type-menu custom-menu-primary" style="" data-widget-type="menu" data-x="2" data-w="10">
+<div class="cell-wrapper layout-widget-wrapper">
+<span id="hs_cos_wrapper_module_14606273732455214" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_menu" style="" data-hs-cos-general-type="widget" data-hs-cos-type="menu"><div id="hs_menu_wrapper_module_14606273732455214" class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal" role="navigation" data-sitemap-name="Dataiku Dec 2016 Sitemap">
+ <ul class="active-branch">
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children"><a href="http://www.dataiku.com/dss">Product</a>
+   <ul class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/dss/">Overview</a></li>
+    <li class="hs-menu-item hs-menu-depth-2 hs-item-has-children"><a href="http://www.dataiku.com/dss/features/connectivity">Features</a>
+     <ul class="hs-menu-children-wrapper">
+      <li class="hs-menu-item hs-menu-depth-3"><a href="http://www.dataiku.com/dss/features/connectivity/">Connectivity</a></li>
+      <li class="hs-menu-item hs-menu-depth-3"><a href="http://www.dataiku.com/dss/features/data-wrangling/">Data Wrangling</a></li>
+      <li class="hs-menu-item hs-menu-depth-3"><a href="http://www.dataiku.com/dss/features/machine-learning/">Machine Learning</a></li>
+      <li class="hs-menu-item hs-menu-depth-3"><a href="http://www.dataiku.com/dss/features/data-mining/">Data Mining</a></li>
+      <li class="hs-menu-item hs-menu-depth-3"><a href="http://www.dataiku.com/dss/features/data-visualization/">Data Visualization</a></li>
+      <li class="hs-menu-item hs-menu-depth-3"><a href="http://www.dataiku.com/dss/features/data-workflow/">Data Workflow</a></li>
+      <li class="hs-menu-item hs-menu-depth-3"><a href="http://www.dataiku.com/dss/features/realtime-scoring/">Realtime Scoring</a></li>
+      <li class="hs-menu-item hs-menu-depth-3"><a href="http://www.dataiku.com/dss/features/code-click/">Code or Click</a></li>
+      <li class="hs-menu-item hs-menu-depth-3"><a href="http://www.dataiku.com/dss/features/collaboration/">Collaboration</a></li>
+      <li class="hs-menu-item hs-menu-depth-3"><a href="http://www.dataiku.com/dss/features/deployment/">Deployment</a></li>
+      <li class="hs-menu-item hs-menu-depth-3"><a href="http://www.dataiku.com/dss/features/enterprise-readiness/">Enterprise Readiness</a></li>
+     </ul></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/dss/plugins/">Plugins</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/dss/samples/">Samples</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/dss/technology/">Technology</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/dss/editions/">Editions</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children"><a href="http://www.dataiku.com/solutions/">Solutions</a>
+   <ul class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/solutions/#use-cases">Use cases</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/solutions/#industries">Industries</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/solutions/#departments">Departments</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/solutions/#customers">Customers</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children"><a href="http://www.dataiku.com/learn/">Learn</a>
+   <ul class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/learn/">Overview</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/learn/guide">User Guide</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://doc.dataiku.com/" target="_blank">Reference Doc.</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://answers.dataiku.com/" target="_blank">Q &amp; A</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/learn/whatsnew">What's new</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://support.dataiku.com/" target="_blank">Support</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children"><a href="http://www.dataiku.com/resources/">Resources</a>
+   <ul class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/resources/">Overview</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/resources/whitepapers/">White Papers</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://doc.dataiku.com/" target="_blank">Reference Doc.</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/resources/webinars/">Webinars</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/resources/success-stories/">Success Stories</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children"><a href="http://www.dataiku.com/company/">Company</a>
+   <ul class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/">Overview</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/our-story/">Our Story</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/team/">Team</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/careers/">Careers</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/news/">News</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/events/">Events</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/customers/">Customers</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/partners/">Partners</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 active hs-item-has-children active-branch"><a href="https://blog.dataiku.com">Blog</a>
+   <ul class="hs-menu-children-wrapper active-branch">
+    <li class="hs-menu-item hs-menu-depth-2 active active-branch"><a href="https://blog.dataiku.com">All</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/big-data">Big Data</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/business">Business</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/corporate">Corporate</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/data">Data</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/data-preparation">Data Preparation</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/data-science">Data Science</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/data-visualisation">Data Visualisation</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/data-visualisation">Data Visualization</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/events">Event</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/events">Events</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/interview">Interview</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/machine-learning">Machine Learning</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/opinion">Opinion</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/technology">Technology</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://dataiku-2123903.hs-sites.com/blog/topic/visual-data-analysis">Visual Data Analysis</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1"><a href="http://www.dataiku.com/dss/contact/">Contact us</a></li>
+  <li class="hs-menu-item hs-menu-depth-1"><a href="http://www.dataiku.com/dss/trynow/">Get Started</a></li>
+ </ul>
+</div></span></div><!--end layout-widget-wrapper -->
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+</div><!-- end coded_template: id:4679300692 path:generated_global_groups/4679300687.html -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+    </div><!--end header -->
+</div><!--end header wrapper -->
+
+<div class="body-container-wrapper">
+    <div class="body-container container-fluid">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-1 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-cell page-center content-wrapper" style="" data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-2 ">
+<div class="row-fluid ">
+<div class="span8 widget-span widget-type-cell blog-content" style="" data-widget-type="cell" data-x="0" data-w="8">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-3 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-blog_content " style="" data-widget-type="blog_content" data-x="0" data-w="12">
+<div class="blog-section">
+    <div class="blog-post-wrapper cell-wrapper">
+        <div class="section post-header">
+            <h1><span id="hs_cos_wrapper_name" class="hs_cos_wrapper hs_cos_wrapper_meta_field hs_cos_wrapper_type_text" style="" data-hs-cos-general-type="meta_field" data-hs-cos-type="text">Machine Learning Explained: Algorithms Are Your Friend</span></h1>
+            <div id="hubspot-author_data" class="hubspot-editable" data-hubspot-form-id="author_data" data-hubspot-name="Blog Author">
+                    
+                        <span id="hubspot-topic_data">
+                            
+                                Data Science Basics<span class="custom-bylone-seprater">|</span>
+                            
+                                machine learning<span class="custom-bylone-seprater">|</span>
+                            
+                                Data analysis
+                            
+                        </span>
+                        <span class="custom-bylone-seprater">|</span>
+                        <span class="custom-post-date">
+                            January
+                            19,
+                            2017
+                        </span>
+                        <span class="custom-bylone-seprater">|</span>
+                        <span class="custom-author-link"><a href="https://blog.dataiku.com/author/robert-kelley">Robert Kelley</a></span>
+                    
+            </div>
+        </div>
+            <span id="hs_cos_wrapper_blog_social_sharing" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_blog_social_sharing" style="" data-hs-cos-general-type="widget" data-hs-cos-type="blog_social_sharing">
+<div class="hs-blog-social-share">
+    <ul class="hs-blog-social-share-list">
+        
+        <li class="hs-blog-social-share-item hs-blog-social-share-item-twitter">
+            <!-- Twitter social share -->
+            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="https://blog.dataiku.com/machine-learning-explained-algorithms-are-your-friend" data-size="medium" data-text="Machine Learning Explained: Algorithms Are Your Friend">Tweet</a>
+        </li>
+        
+
+        
+        <li class="hs-blog-social-share-item hs-blog-social-share-item-linkedin">
+            <!-- LinkedIn social share -->
+            <script type="IN/Share" data-url="https://blog.dataiku.com/machine-learning-explained-algorithms-are-your-friend" data-showzero="true" data-counter="right"></script>
+        </li>
+        
+
+        
+        <li class="hs-blog-social-share-item hs-blog-social-share-item-facebook">
+            <!-- Facebook share -->
+            <div class="fb-like" data-href="https://blog.dataiku.com/machine-learning-explained-algorithms-are-your-friend" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true" data-width="120"></div>
+        </li>
+        
+
+        
+    </ul>
+ </div>
+
+</span>
+        <div class="section post-body">
+            <span id="hs_cos_wrapper_post_body" class="hs_cos_wrapper hs_cos_wrapper_meta_field hs_cos_wrapper_type_rich_text" style="" data-hs-cos-general-type="meta_field" data-hs-cos-type="rich_text"><p>We hear the term “machine learning” a lot these days, usually in the context of predictive analysis and artificial intelligence. Machine learning is, more or less, a way for computers to learn things without being specifically programmed. But how does that actually happen?<em><br></em><!--more--></p>
+<p>The answer is, in one word, algorithms. Algorithms are sets of rules that a computer is able to follow. Think about how you learned to do long division -- maybe you learned to take the denominator and divide it into the first digits of the numerator, then subtracting the subtotal and continuing with the next digits until you were left with a remainder. Well, that’s an algorithm, and it’s the sort of thing we can program into a computer, which can perform these sorts of calculations much, much faster than we can.</p>
+<p><span>We've put together a brief summary of the top algorithms used in predictive analysis, which you can see just below. Read on for more detail on these algorithms.</span></p>
+<p><a href="//pages.dataiku.com/hubfs/Top%20Prediction%20Algorithms.jpg?t=1502825608051" target="_blank" data-mce-target="_blank"><img src="//blog.dataiku.com/hs-fs/hubfs/Top%20Prediction%20Algorithms.jpg?t=1502825608051&amp;width=684&amp;height=968&amp;name=Top%20Prediction%20Algorithms.jpg" alt="Top Prediction Algorithms.jpg" height="968" width="684" srcset="//blog.dataiku.com/hs-fs/hubfs/Top%20Prediction%20Algorithms.jpg?t=1502825608051&amp;width=342&amp;height=484&amp;name=Top%20Prediction%20Algorithms.jpg 342w, //blog.dataiku.com/hs-fs/hubfs/Top%20Prediction%20Algorithms.jpg?t=1502825608051&amp;width=684&amp;height=968&amp;name=Top%20Prediction%20Algorithms.jpg 684w, //blog.dataiku.com/hs-fs/hubfs/Top%20Prediction%20Algorithms.jpg?t=1502825608051&amp;width=1026&amp;height=1452&amp;name=Top%20Prediction%20Algorithms.jpg 1026w, //blog.dataiku.com/hs-fs/hubfs/Top%20Prediction%20Algorithms.jpg?t=1502825608051&amp;width=1368&amp;height=1936&amp;name=Top%20Prediction%20Algorithms.jpg 1368w, //blog.dataiku.com/hs-fs/hubfs/Top%20Prediction%20Algorithms.jpg?t=1502825608051&amp;width=1710&amp;height=2420&amp;name=Top%20Prediction%20Algorithms.jpg 1710w, //blog.dataiku.com/hs-fs/hubfs/Top%20Prediction%20Algorithms.jpg?t=1502825608051&amp;width=2052&amp;height=2904&amp;name=Top%20Prediction%20Algorithms.jpg 2052w" sizes="(max-width: 684px) 100vw, 684px"></a></p>
+<h2>What does machine learning look like?</h2>
+<p>In machine learning, our goal is either prediction or clustering. Today, we’re going to focus on prediction (we’ll cover clustering in a future article). Prediction is a process where, from a set of input variables, we estimate the value of an output variable. For example, using a set of characteristics of a house, we can predict its sale price.Prediction problems are divided into two main categories:&nbsp;</p>
+<ul>
+<li><strong>Regression</strong>&nbsp;problems, where the variable to predict is numerical (e.g., the price of a house)</li>
+<li><strong>Classification</strong>&nbsp;problems, where the variable to predict is part of one of some number of pre-defined categories, which can be as simple as "yes" or "no." (for example, predict whether a certain piece of equipment will experience a mechanical failure)</li>
+</ul>
+<p>With that in mind, today we’re not going to reveal a secret to do prediction better than the computers, or even how to be a data scientist! What we are going to do is introduce the most prominent and common algorithms used in machine learning historically and today.</p>
+<p>These algorithms come in three groups: linear models, tree-based models, and neural networks.</p>
+<h1>Linear Model Approach</h1>
+<p>A <strong>linear model</strong> uses a simple formula to find the “best fit” line through a set of data points. This methodology dates back over 200 years, and it has been used widely throughout statistics and machine learning. It is useful for statistics because of its simplicity -- the variable you want to predict (the dependent variable) is represented as an equation of variables you know (independent variables), and so prediction is just a matter of inputting the independent variables and having the equation spit out the answer.</p>
+<p>For example, you might want to know how long it will take to bake a cake, and your regression analysis might yield an equation t = 0.5x + 0.25y, where t is the baking time in hours, x is the weight of the cake batter in kg, and y is a variable which is 1 if it is chocolate and 0 if it is not. If you have 1 kg of chocolate cake batter (we love cake), then you plug your variables into our equation, and you get t = (0.5 x 1) + (0.25 x 1) = 0.75 hours, or 45 minutes.</p>
+<h3><em>Linear Regression<br></em></h3>
+<p><strong>Linear regression</strong>, or more specifically “least squares regression,” is the most standard form of linear model. For regression problems, linear regression is <strong>the most simple linear model</strong>. Its drawback is that there is a tendency for the model to “overfit” -- that is, for the model to adapt too exactly to the data on which it has been trained at the expense of the ability to generalize to previously unseen data. For this reason, linear regression (along with logistic regression, which we’ll get to in a second) in machine learning is often “regularized,” which means the model has certain penalties to prevent overfit.</p>
+<p>Another drawback of linear models is that, since they’re so simple, they tend to have trouble predicting more complex behaviors when the input variables are not independent.</p>
+<h3><em>Logistic Regression</em></h3>
+<p><strong>Logistic regression</strong> is simply the adaptation of linear regression to classification problems (once again, discussed above). The drawbacks of logistic regression are the same as those of linear regression.<br>Because it maps values between 0 and 1, it is suited for classification problems as it can represent the probabilities of being in each class.</p>
+<h2>Tree-Based Model Approach</h2>
+<p>When you hear tree-based, think decision trees, i.e., a sequence of branching operations.</p>
+<h3><em>Decision Tree</em></h3>
+<p>A <strong>decision tree</strong> is a graph that uses a branching method to show each possible outcome of a decision. Like if you’re ordering a salad, you first decide the type of lettuce, then the toppings, then the dressing. We can represent all possible outcomes in a decision tree. In machine learning, the branches used are binary yes/no answers.</p>
+<p>To train a decision tree, we take the train data set (that is, the data set that we use to train the model) and <strong>find which attribute best “splits” the train set</strong> with regards to the target. For example, in a fraud detection case, we could find that the attribute which best predicts the risk of fraud is the country. After this first split, we have two subsets which are the best at predicting if we only know that first attribute. Then we can iterate on the second-best attribute for each subset and resplit each subset, continuing until we have used enough of the attributes to satisfy our needs.</p>
+<h3><em>Random Forest</em></h3>
+<p>A <strong>random forest</strong> is the average of many decision trees, each of which is trained with a random sample of the data. Each single tree in the forest is weaker than a full decision tree, but by putting them all together, we get better overall performance thanks to diversity.</p>
+<p>Random forest is a very popular algorithm in machine learning today. <strong>It is very easy to train, and it tends to perform quite well.</strong> Its downside is that it can be slow to output predictions relative to other algorithms, so you might not use it when you need lightning-fast predictions.</p>
+<h3><em>Gradient Boosting</em></h3>
+<p><strong>Gradient boosting</strong>, like random forest, is also made from “weak” decision trees. The big difference is that in gradient boosting, the trees are trained one after another. Each subsequent tree is trained primarily with data that had been incorrectly predicted by previous trees. This allows gradient boost to gradually focus less on the easy-to-predict cases and more on difficult cases.</p>
+<p>Gradient boosting <strong>performs very well</strong>. However, small changes in the training data set can create radical changes in the model, so it may not produce the most explainable results.</p>
+<h2>Neural Networks</h2>
+<p><strong>Neural networks</strong> refer to a biological phenomenon comprised of interconnected neurons that exchange messages with each other. This idea has now been adapted to the world of machine learning and is called ANN (Artificial Neural Networks). <strong>Deep learning</strong>, which you’ve heard a lot about, can be done with several layers of neural networks put one after the other.</p>
+<p>ANNs are a family of models that are taught to adopt cognitive skills. No other algorithms can handle <strong>extremely complex tasks</strong>, such as image recognition, as well as neural networks. However, just like the human brain, it takes a very long time to train the model, and it requires a lot of power (just think about how much we eat to keep our brains working!).</p>
+<p>We hope this has been helpful in shedding some light on machine learning. If you're interested in learning more, you can read about&nbsp;the <a href="http://www.dataiku.com/dss/features/machine-learning/" target="_blank">machine learning features within Dataiku DSS</a>, or even check out <a href="//blog.dataiku.com/predicting-london-crime-rates-using-machine-learning-in-dataiku-dss" target="_blank">a very cool application of machine learning to predict crime rates in London</a>. Enjoy, and keep in touch!</p></span>
+        </div>
+        
+
+    </div>
+</div>
+
+
+<!-- Optional: Blog Author Bio Box -->
+
+
+
+
+
+</div>
+
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-4 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-raw_jinja custom-related-post" style="" data-widget-type="raw_jinja" data-x="0" data-w="12">
+
+  <h3>Other Content You May Like</h3>
+  <!-- Set the max number of related posts to be output to the page here -->
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+      
+        
+          <div class="related-post-item">
+            <div class="related-image"><img src="https://blog.dataiku.com/hubfs/Blog/spaceship-loop.gif?t=1502825608051" alt="The 4 Trends That Are Upending the Analyst World"></div>
+             <div class="custom-related-content">
+            <div class="related-title"><a href="https://blog.dataiku.com/the-4-trends-that-are-upending-the-analyst-world">The 4 Trends That Are Upending the Analyst World</a></div>
+           <div id="hubspot-author_data" class="hubspot-editable" data-hubspot-form-id="author_data" data-hubspot-name="Blog Author">
+                                
+                                     <span id="hubspot-topic_data">
+                                        
+                                            Opinion,
+                                        
+                                            Data analysis,
+                                        
+                                            Team
+                                        
+                                     </span>
+                                
+                                |
+                                
+                                  August
+                                  14,
+                                   2017
+                                 |
+                                     
+                                        <a class="author-link" href="https://fr.linkedin.com/in/robertkelleya"><span class="custom-author">Robert Kelley</span></a>
+                                    
+                                                
+                                
+                            </div>
+          </div>
+          </div>
+                    
+        
+      
+        
+          <div class="related-post-item">
+            <div class="related-image"><img src="https://blog.dataiku.com/hubfs/Guidebooks/Analyst%20Choose%20Your%20Own%20Adventure/analyst%20illustrations.png?t=1502825608051" alt="How to Become the Analyst of the Future: Choose Your Own Adventure"></div>
+             <div class="custom-related-content">
+            <div class="related-title"><a href="https://blog.dataiku.com/become-the-analyst-of-the-future-choose-your-own-adventure">How to Become the Analyst of the Future: Choose Your Own Adventure</a></div>
+           <div id="hubspot-author_data" class="hubspot-editable" data-hubspot-form-id="author_data" data-hubspot-name="Blog Author">
+                                
+                                     <span id="hubspot-topic_data">
+                                        
+                                            Data Science Basics,
+                                        
+                                            Data Preparation,
+                                        
+                                            Data analysis
+                                        
+                                     </span>
+                                
+                                |
+                                
+                                  August
+                                  01,
+                                   2017
+                                 |
+                                     
+                                        <a class="author-link" href="https://fr.linkedin.com/in/robertkelleya"><span class="custom-author">Robert Kelley</span></a>
+                                    
+                                                
+                                
+                            </div>
+          </div>
+          </div>
+                    
+        
+      
+        
+          <div class="related-post-item">
+            <div class="related-image"><img src="https://blog.dataiku.com/hubfs/Blog/dart_resized.jpg?t=1502825608051" alt="Want a Robust Model? Try These Validation Strategies [Infographic]"></div>
+             <div class="custom-related-content">
+            <div class="related-title"><a href="https://blog.dataiku.com/want-a-robust-model-try-these-validation-strategies">Want a Robust Model? Try These Validation Strategies [Infographic]</a></div>
+           <div id="hubspot-author_data" class="hubspot-editable" data-hubspot-form-id="author_data" data-hubspot-name="Blog Author">
+                                
+                                     <span id="hubspot-topic_data">
+                                        
+                                            Data Science Basics,
+                                        
+                                            machine learning,
+                                        
+                                            Data analysis
+                                        
+                                     </span>
+                                
+                                |
+                                
+                                  July
+                                  12,
+                                   2017
+                                 |
+                                     
+                                        <a class="author-link" href="https://fr.linkedin.com/in/robertkelleya"><span class="custom-author">Robert Kelley</span></a>
+                                    
+                                                
+                                
+                            </div>
+          </div>
+          </div>
+                    
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+  
+</div><!--end widget-span -->
+
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-5 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-blog_comments " style="" data-widget-type="blog_comments" data-x="0" data-w="12">
+<div class="cell-wrapper layout-widget-wrapper">
+<span id="hs_cos_wrapper_blog_comments" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_blog_comments" style="" data-hs-cos-general-type="widget" data-hs-cos-type="blog_comments">
+<div class="section post-footer">
+    <div id="comments-listing" class="new-comments">
+    
+    </div>
+    
+</div>
+
+</span></div><!--end layout-widget-wrapper -->
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-6 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-raw_html " style="" data-widget-type="raw_html" data-x="0" data-w="12">
+<div class="cell-wrapper layout-widget-wrapper">
+<span id="hs_cos_wrapper_module_1482381729047106" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_raw_html" style="" data-hs-cos-general-type="widget" data-hs-cos-type="raw_html"></span>
+</div><!--end layout-widget-wrapper -->
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+<div class="span1 widget-span widget-type-space hidden-phone" style="" data-widget-type="space" data-x="8" data-w="1">
+<div class="cell-wrapper layout-widget-wrapper">
+<span id="hs_cos_wrapper_module_14822934178394949" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_space" style="" data-hs-cos-general-type="widget" data-hs-cos-type="space"></span></div><!--end layout-widget-wrapper -->
+</div><!--end widget-span -->
+<div class="span3 widget-span widget-type-cell blog-sidebar" style="" data-widget-type="cell" data-x="9" data-w="3">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-7 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-raw_html custom-post-contacts" style="" data-widget-type="raw_html" data-x="0" data-w="12">
+<div class="cell-wrapper layout-widget-wrapper">
+<span id="hs_cos_wrapper_module_148213727645859559" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_raw_html" style="" data-hs-cos-general-type="widget" data-hs-cos-type="raw_html"><div class="custom-solo-highlighted-link">
+<img src="https://blog.dataiku.com/hubfs/Dataiku%20Dec%202016/Image/newsletter_icon.png?t=1502825608051" alt="Newsletter Icon">
+<a href="http://www.dataiku.com/company/newsletter/">Sign up for our newsletter</a>
+</div>
+<ul>
+<li><a href="http://www.dataiku.com/dss/contact/">
+<div class="custom-img-wrapper"><img src="https://blog.dataiku.com/hubfs/Dataiku%20Dec%202016/Image/anne-sophie.png?t=1502825608051" alt="Anne Sophie"></div>
+<div class="custom-text-wrapper">
+<span>Contact Sales</span>
+We'd love to hear from you!
+</div>
+</a>
+</li>
+<li><a href="http://www.dataiku.com/dss/trynow/">
+<div class="custom-img-wrapper"><img src="https://blog.dataiku.com/hubfs/Dataiku%20Dec%202016/Image/try-community-edition.png?t=1502825608051" alt="DSS"></div>
+<div class="custom-text-wrapper">
+<span>Try DSS</span>
+Get a feel of DSS for free! 
+</div>
+</a>
+</li>
+<li class="custom-request-demo"><a>
+<div class="custom-img-wrapper"><img src="https://blog.dataiku.com/hubfs/Dataikuapril2016_Theme/Images/request-demo.png?t=1502825608051" alt="Request a demo"></div>
+<div class="custom-text-wrapper">
+<span>Request a demo</span>
+Our team will get back to you shortly
+</div>
+</a>
+</li>
+</ul></span>
+</div><!--end layout-widget-wrapper -->
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-8 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-raw_jinja content-offer" style="" data-widget-type="raw_jinja" data-x="0" data-w="12">
+
+
+    <span id="hs_cos_wrapper_offer_section" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text"><h4>Going Further</h4>
+<div class="sub-section"><a href="//pages.dataiku.com/from-small-to-big-data-adopting-the-advanced-analytics-mindset" target="_blank" data-mce-target="_blank"><img src="//blog.dataiku.com/hs-fs/hubfs/Recommended%20Content/small_to_big_data.jpg?t=1502825608051&amp;width=225&amp;height=123&amp;name=small_to_big_data.jpg" alt="small_to_big_data.jpg" width="225" height="123" style="margin: 0px 0px 0px -25px;" srcset="//blog.dataiku.com/hs-fs/hubfs/Recommended%20Content/small_to_big_data.jpg?t=1502825608051&amp;width=113&amp;height=62&amp;name=small_to_big_data.jpg 113w, //blog.dataiku.com/hs-fs/hubfs/Recommended%20Content/small_to_big_data.jpg?t=1502825608051&amp;width=225&amp;height=123&amp;name=small_to_big_data.jpg 225w, //blog.dataiku.com/hs-fs/hubfs/Recommended%20Content/small_to_big_data.jpg?t=1502825608051&amp;width=338&amp;height=185&amp;name=small_to_big_data.jpg 338w, //blog.dataiku.com/hs-fs/hubfs/Recommended%20Content/small_to_big_data.jpg?t=1502825608051&amp;width=450&amp;height=246&amp;name=small_to_big_data.jpg 450w, //blog.dataiku.com/hs-fs/hubfs/Recommended%20Content/small_to_big_data.jpg?t=1502825608051&amp;width=563&amp;height=308&amp;name=small_to_big_data.jpg 563w, //blog.dataiku.com/hs-fs/hubfs/Recommended%20Content/small_to_big_data.jpg?t=1502825608051&amp;width=675&amp;height=369&amp;name=small_to_big_data.jpg 675w" sizes="(max-width: 225px) 100vw, 225px"></a></div></span>
+</div><!--end widget-span -->
+
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+    </div><!--end body -->
+</div><!--end body wrapper -->
+
+<div class="footer-container-wrapper">
+    <div class="footer-container container-fluid">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-1 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-global_group " style="" data-widget-type="global_group" data-x="0" data-w="12">
+<!-- start coded_template: id:4679315642 path:generated_global_groups/4679315637.html -->
+<div class="" data-global-widget-path="generated_global_groups/4679315637.html"><div class="row-fluid-wrapper row-depth-1 row-number-1 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-cell custom-footer" style="" data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-2 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-cell custom-footer-top" style="" data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-3 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-cell page-center" style="" data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-4 ">
+<div class="row-fluid ">
+<div class="span9 widget-span widget-type-menu custom-footer-menu" style="" data-widget-type="menu" data-x="0" data-w="9">
+<div class="cell-wrapper layout-widget-wrapper">
+<span id="hs_cos_wrapper_module_146063283219625382" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_menu" style="" data-hs-cos-general-type="widget" data-hs-cos-type="menu"><div id="hs_menu_wrapper_module_146063283219625382" class="hs-menu-wrapper active-branch flyouts hs-menu-flow-vertical" role="navigation" data-sitemap-name="Dataiku Dec 2016 Footer Sitemap">
+ <ul>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children"><a href="javascript:;">Product</a>
+   <ul class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/dss/">Overview</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/dss/features/">Features</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/dss/plugins/">Plugins</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/dss/samples/">Samples</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/dss/technology/">Technology</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/dss/editions/">Editions</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children"><a href="javascript:;">Solutions</a>
+   <ul class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/solutions#use-cases">Use Cases</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/solutions#industries">Industries</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/solutions#departments">Departments</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/solutions#customers">Customers</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children"><a href="javascript:;">Learn</a>
+   <ul class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/learn/">Overview</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/learn/guide/">User Guide</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://doc.dataiku.com/" target="_blank">Reference Doc</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://answers.dataiku.com/" target="_blank">Q &amp; A</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/learn/whatsnew/">What's New</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://support.dataiku.com/" target="_blank">Support</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children"><a href="javascript:;">Resources</a>
+   <ul class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/resources/">Overview</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/resources/whitepapers/">White Papers</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="https://doc.dataiku.com/" target="_blank">Reference Doc</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/resources/webinars/">Webinars</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/resources/success-stories/">Success Stories</a></li>
+   </ul></li>
+  <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children"><a href="javascript:;">Company</a>
+   <ul class="hs-menu-children-wrapper">
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/">Overview</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/our-story/">Our Story</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/team/">Team</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/careers/">Career</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/news/">News</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/events/">Events</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/customers/">Customers</a></li>
+    <li class="hs-menu-item hs-menu-depth-2"><a href="http://www.dataiku.com/company/partners/">Partners</a></li>
+   </ul></li>
+ </ul>
+</div></span></div><!--end layout-widget-wrapper -->
+</div><!--end widget-span -->
+<div class="span3 widget-span widget-type-rich_text custom-contact" style="" data-widget-type="rich_text" data-x="9" data-w="3">
+<div class="cell-wrapper layout-widget-wrapper">
+<span id="hs_cos_wrapper_module_139575399545412" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text"><div class="custom-group1">
+<h3>Contact</h3>
+<p><a href="http://www.dataiku.com/dss/contact/">Contact us</a><br> <span>+1 646-568-7477</span></p>
+</div>
+<div class="custom-group2">
+<h3>Follow us</h3>
+<ul>
+<li><a href="http://twitter.com/dataiku" target="_blank"><span>Twitter</span></a></li>
+<li><a href="http://slideshare.net/Dataiku" target="_blank"><span>Slideshare</span></a></li>
+<li><a href="http://www.youtube.com/dataiku" target="_blank"><span>Youtube</span></a></li>
+<li><a href="#" target="_blank"><span>Linkedin</span></a></li>
+</ul>
+</div></span>
+</div><!--end layout-widget-wrapper -->
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-5 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-cell custom-footer-bottom" style="" data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-6 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-cell page-center" style="" data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-7 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-rich_text custom-footer-logo" style="" data-widget-type="rich_text" data-x="0" data-w="12">
+<div class="cell-wrapper layout-widget-wrapper">
+<span id="hs_cos_wrapper_module_146063044533520042" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text"><a href="http://www.dataiku.com/solutions/#"><img src="https://blog.dataiku.com/hubfs/Dataiku%20Dec%202016/Image/home_footer.png?t=1502825608051" alt="Dataiku"></a>
+<p>©Dataiku 2012-2017 - <a href="http://www.dataiku.com/legal-notice.html">Legal Notice</a></p></span>
+</div><!--end layout-widget-wrapper -->
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-8 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-raw_html " style="display:none !important;" data-widget-type="raw_html" data-x="0" data-w="12">
+<div class="cell-wrapper layout-widget-wrapper">
+<span id="hs_cos_wrapper_module_14606940951763860" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_raw_html" style="" data-hs-cos-general-type="widget" data-hs-cos-type="raw_html"><!-- start Main.js DO NOT REMOVE --> 
+<script src="https://blog.dataiku.com/hs-fs/hub/2123903/hub_generated/template_assets/1496431158890/custom/page/Dataiku_Dec_2016-theme/Dataiku_Dec_2016-main.min.js"></script>
+<!-- end Main.js --></span>
+</div><!--end layout-widget-wrapper -->
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+</div><!-- end coded_template: id:4679315642 path:generated_global_groups/4679315637.html -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+    </div><!--end footer -->
+</div><!--end footer wrapper -->
+
+    
+<script type="text/javascript" src="https://static.hsstatic.net/content_shared_assets/static-1.4043/js/public_common.js"></script>
+
+      <script>
+          var _hscLegacy = false;
+      </script>
+      <!--[if lte IE 8]>
+      <script>
+          _hscLegacy = true;
+      </script>
+      <![endif]-->
+      <script type="text/javascript">
+          (function($) {
+              var commentsEmbedContext = {
+                  portalId: 2123903,
+                  collectionId: 4001435428,
+                  contentId: 4622395186,
+                  target: '#comments-listing.new-comments',
+                  showComments: true,
+                  showForm: false,
+                  commentVerificationText: "Your comment has been received.",
+                  embedScriptEnv: "prod",
+                  apiEnv: "prod",
+                  isLegacyBrowser: _hscLegacy,
+                  contentTitle: "Machine Learning Explained: Algorithms Are Your Friend",
+                  contentCreatedAt: "1484838000000",
+                  contentPermalink: "https:\/\/blog.dataiku.com\/machine-learning-explained-algorithms-are-your-friend",
+                  contentAuthorEmail: "robert.kelley@dataiku.com",
+                  contentAuthorName: "Robert Kelley",
+                  captchaRequired: true,
+                  captchaKey: "6Lc3uMsSAAAAAMjk4NIvPQK9_-ZLk2wBokFCo5Qt",
+                  maxThreadDepth: 3,
+                  formId: "f1e6e895-b507-48d3-bc54-5345192b5605"
+              };
+              function loadComments() {
+                  if (window.hubspot && typeof window.hubspot.loadCommentsEmbed === 'function') {
+                      hubspot.loadCommentsEmbed(commentsEmbedContext.embedScriptEnv, function() {
+                          if (typeof window.hsEmbedComments === 'function') {
+                              window.hsEmbedComments(commentsEmbedContext);
+                          }
+                      }, _hscLegacy);
+                  } else {
+                    setTimeout(loadComments, 50);
+                  }
+              }
+              loadComments();
+          })(window.hsjQuery || jQuery);
+      </script>
+    
+
+<!-- Start of HubSpot Analytics Code -->
+<script type="text/javascript">
+var _hsq = _hsq || [];
+_hsq.push(["setContentType", "blog-post"]);
+_hsq.push(["setCanonicalUrl", "https:\/\/blog.dataiku.com\/machine-learning-explained-algorithms-are-your-friend"]);
+_hsq.push(["setPageId", "4622395186"]);
+_hsq.push(["setContentMetadata", {
+    "contentPageId": 4622395186,
+    "legacyPageId": "4622395186",
+    "contentGroupId": 4001435428,
+    "abTestId": null,
+    "languageVariantId": 4622395186,
+    "languageCode": null
+}]);
+_hsq.push(["setTargetedContentMetadata", []]);
+</script>
+
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2123903.js"></script>
+<!-- End of HubSpot Analytics Code -->
+
+
+<script type="text/javascript">
+var hsVars = {
+    ticks: 1502863016790,
+    page_id: 4622395186,
+    content_group_id: 4001435428,
+    portal_id: 2123903,
+    app_hs_base_url: "https://app.hubspot.com",
+    language: "en",
+    analytics_page_type: "blog-post"
+}
+</script>
+
+
+
+<!-- Azalead -->
+<script src="//b2btagmgr.azalead.com/tag?az=aWRTdWJzY3JpYmVyPTE4NzAmaWRTaXRlPTE5NjQmb3JpZ2luPWRhdGFpa3UuY29tJmN1c3RvbT1ub25l" type="application/javascript"> </script>
+
+<!-- Linkedin -->
+<script type="text/javascript">
+_linkedin_data_partner_id = "37536";
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=37536&amp;fmt=gif">
+</noscript>
+
+<div id="fb-root"></div>
+ <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&status=0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+ 
+
+
+    <!-- Generated by the HubSpot Template Builder - template version 1.03 -->
+
+<!-- end coded_template: id:4697239613 path:generated_layouts/4697239608.html -->
+</body></html>

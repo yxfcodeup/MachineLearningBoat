@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="no-js hasSidebar hasPageActions hasBreadcrumb " lang="en-us" dir="ltr" >
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta property="og:title" content="Machine learning algorithm cheat sheet" />
+	<meta property="og:image" content="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/images/microsoft-header.png" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@docsmsft" />
+	<meta name="twitter:title" content="Machine learning algorithm cheat sheet" />
+	<meta name="twitter:description" content="A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio." />
+	<meta name="twitter:image" content="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/images/microsoft-header.png" />
+	<meta name="twitter:image:alt" content="Microsoft Logo" />
+
+		<meta name="breadcrumb_path" content="/azure/bread/toc.json" />
+<meta name="ms.devlang" content="na" />
+<meta name="ms.tgt_pltfrm" content="na" />
+<meta name="ms.assetid" content="e1dc31ec-1acb-463f-ba77-de565d4ddf4d" />
+<meta name="author" content="garyericson" />
+<meta name="editor" content="cgronlun" />
+<meta name="description" content="A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio." />
+<meta name="ms.author" content="garye" />
+<meta name="manager" content="jhubbard" />
+<meta name="documentationcenter" content="" />
+<meta name="keywords" content="algorithm cheat sheet,cheat sheet,machine learning algorithm" />
+<meta name="ms.topic" content="article" />
+<meta name="services" content="machine-learning" />
+<meta name="ms.service" content="machine-learning" />
+<meta name="ms.date" content="03/14/2017" />
+<meta name="ms.workload" content="data-services" />
+<meta name="search.ms_sitename" content="Docs" />
+<meta name="search.ms_docsetname" content="azure-documents" />
+<meta name="version" content="0" />
+<meta name="locale" content="en-us" />
+<meta name="site_name" content="Docs" />
+<meta name="search.ms_product" content="Azure" />
+<meta name="depot_name" content="Azure.azure-documents" />
+<meta name="updated_at" content="2017-06-27 02:38 AM" />
+<meta name="gitcommit" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/0fdfff22995b0f9448284f73a2ffc7e0510cbcd8/articles/machine-learning/machine-learning-algorithm-cheat-sheet.md" />
+<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/machine-learning/machine-learning-algorithm-cheat-sheet.md" />
+<meta name="document_id" content="70784bbe-0466-10f3-cd36-b7d721851e81" />
+<meta name="pagetype" content="Conceptual" />
+<meta name="toc_rel" content="TOC.json" />
+<meta name="pdf_url_template" content="https://docs.microsoft.com/pdfstore/en-us/Azure.azure-documents/{branchName}{pdfName}" />
+<meta name="word_count" content="1112" />
+
+	<meta name="scope" content="Azure" />
+<link href="https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-algorithm-cheat-sheet" rel="canonical">
+	<title>Machine learning algorithm cheat sheet | Microsoft Docs</title>
+
+	<link rel="stylesheet" href="/_themes/docs.theme/master/en-us/_themes/css/e718ea302012d1b2b1ed.site.css ">
+	<link rel="stylesheet" href="/_themes/docs.theme/master/en-us/_themes/css/e718ea302012d1b2b1ed.conceptual.css ">
+
+	<link rel="stylesheet" href="/_themes/docs.theme/master/en-us/_themes/global/css/azureHeader.css?v=4">
+	<link rel="stylesheet" href="https://azure.microsoft.com/en-us/asset/menucss/">
+	<script>
+	var msDocs = {
+		data:{
+			contentLocale: 'en-us',
+			contentDir: 'ltr',
+			pathToTheme: '/_themes/docs.theme/master/en-us/_themes/',
+			pageTemplate: 'Conceptual',
+			brand : 'azure'
+,requestedLocale: 'en-us'		},
+		functions:{},
+		settings:{
+			extendBreadcrumb: false
+		}
+	};
+	if (!('Promise' in window && 'resolve' in window.Promise && 'reject' in window.Promise && 'all' in window.Promise && 'race' in window.Promise)) {
+		document.write('<script src="/_themes/docs.theme/master/en-us/_themes/global/js/bluebird.min.js"><\/script>');
+	}
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+		<script src="/_themes/docs.theme/master/en-us/_themes/global/js/polyfills/all.js"></script>
+<script src="/_themes/docs.theme/master/en-us/_themes/global/js/azureHeader/respond_and_ie8Setup_combine.js"></script>	<![endif]-->
+	<!--[if gte IE 9]><!-->
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.min.js"></script>
+	<!--<![endif]-->
+	<script>window.jQuery || document.write('<script src="/_themes/docs.theme/master/en-us/_themes/global/js/jquery/jquery-1.12.4.min.js"><\/script>')</script>	
+	<script src="/_themes/docs.theme/master/en-us/_themes/global/js/global.min.js?v=222"></script>
+	<script src="/_themes/docs.theme/master/en-us/_themes/global/js/azureHeader/loader.js?v=4"></script>
+</head>
+
+<body>
+	<div id="lca-cookie-notification" class="container cookieContainer shell-notification-holder" style="display:none;">
+		<div class="shell-notification cookieNotification">
+			<div class="shell-notification-grid-row shell-notification-clearfix">
+				<span id="cookie.consent.europe" class="notification-txt"></span>
+				<span class="notification-action">
+				<a id="privacystatement-link" tabindex="1" href="#"></a>
+				<a id="cookie-notification-close" tabindex="2">
+					<i class="shell-icon-close"></i>
+				</a>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<div id="headerAreaHolder" class="az_h default" ms.pgarea="header" data-bi-name="header">
+		<div class="azure-header_holder">	
+			<div class="azure-header">	
+				<header class="azure-header_temp">
+					<div class="row column">
+						<a href="https://azure.microsoft.com/en-us/" class="logo" title="Microsoft Azure">
+							<svg x="0px" y="0px" width="165px" height="20px" viewBox="0 0 165 20">
+							<path fill="#29A5DE" d="M18,19H16V7.1C16,6.2,16,5,16.1,3.7h0c-0.2,0.8-0.4,1.4-0.5,1.7L9.5,19h-1l-6-13.5c-0.2-0.4-0.3-1-0.5-1.8
+							h0C2,4.4,2,5.5,2,7.1V19H0V1.3h2.7l5.4,12.3c0.4,0.9,0.7,1.7,0.8,2.1H9c0.4-1,0.6-1.7,0.9-2.2l5.5-12.3H18V19z" />
+							<path fill="#29A5DE" d="M22.8,3.1c-0.4,0-0.7-0.1-0.9-0.4s-0.4-0.6-0.4-0.9s0.1-0.7,0.4-0.9c0.3-0.3,0.6-0.4,0.9-0.4
+							c0.4,0,0.7,0.1,0.9,0.4c0.3,0.3,0.4,0.6,0.4,0.9c0,0.4-0.1,0.7-0.4,0.9C23.5,3,23.2,3.1,22.8,3.1z M23.8,19h-2V6.3h2V19z" />
+							<path fill="#29A5DE" d="M35.8,18.4c-1,0.6-2.1,0.9-3.5,0.9c-1.8,0-3.3-0.6-4.4-1.8c-1.1-1.2-1.7-2.7-1.7-4.6c0-2.1,0.6-3.7,1.8-5
+							C29.4,6.7,30.9,6,32.9,6C34,6,35,6.2,35.9,6.7v2.1c-0.9-0.7-1.9-1-3-1c-1.3,0-2.3,0.5-3.2,1.4c-0.8,0.9-1.2,2.1-1.2,3.6
+							c0,1.5,0.4,2.6,1.2,3.5c0.8,0.9,1.8,1.3,3.1,1.3c1.1,0,2.1-0.4,3.1-1.1V18.4z" />
+							<path fill="#29A5DE" d="M44.9,8.4C44.5,8.1,44,8,43.3,8c-0.9,0-1.6,0.4-2.2,1.2c-0.6,0.8-0.9,1.9-0.9,3.3V19h-2V6.3h2v2.6h0
+							c0.3-0.9,0.7-1.6,1.3-2.1c0.6-0.5,1.3-0.7,2-0.7c0.5,0,0.9,0.1,1.2,0.2V8.4z" />
+							<path fill="#29A5DE" d="M51.4,19.3c-1.9,0-3.4-0.6-4.5-1.8c-1.1-1.2-1.7-2.7-1.7-4.7c0-2.1,0.6-3.8,1.7-5S49.7,6,51.7,6
+							c1.9,0,3.4,0.6,4.4,1.7c1.1,1.2,1.6,2.8,1.6,4.8c0,2-0.6,3.6-1.7,4.8C54.8,18.6,53.3,19.3,51.4,19.3z M51.5,7.7
+							c-1.3,0-2.3,0.4-3.1,1.3c-0.8,0.9-1.1,2.1-1.1,3.7c0,1.5,0.4,2.7,1.1,3.5c0.8,0.9,1.8,1.3,3.1,1.3c1.3,0,2.3-0.4,3-1.3
+							c0.7-0.8,1.1-2,1.1-3.6c0-1.6-0.4-2.8-1.1-3.6C53.8,8.2,52.8,7.7,51.5,7.7z" />
+							<path fill="#29A5DE" d="M59.5,18.5v-2.2c1.1,0.8,2.3,1.2,3.6,1.2c1.8,0,2.7-0.6,2.7-1.8c0-0.3-0.1-0.6-0.2-0.9
+							c-0.2-0.2-0.4-0.4-0.6-0.6c-0.3-0.2-0.6-0.3-0.9-0.5c-0.3-0.1-0.7-0.3-1.1-0.4c-0.6-0.2-1-0.4-1.5-0.7c-0.4-0.2-0.8-0.5-1.1-0.8
+							c-0.3-0.3-0.5-0.6-0.6-1c-0.1-0.4-0.2-0.8-0.2-1.3c0-0.6,0.1-1.1,0.4-1.6C60.2,7.7,60.5,7.3,61,7c0.5-0.3,1-0.5,1.5-0.7
+							C63.1,6.1,63.7,6,64.3,6c1.1,0,2.1,0.2,2.9,0.6v2c-0.9-0.6-2-0.9-3.2-0.9c-0.4,0-0.7,0-1,0.1c-0.3,0.1-0.6,0.2-0.8,0.4
+							c-0.2,0.2-0.4,0.3-0.5,0.6c-0.1,0.2-0.2,0.5-0.2,0.7c0,0.3,0.1,0.6,0.2,0.8c0.1,0.2,0.3,0.4,0.5,0.6c0.2,0.2,0.5,0.3,0.8,0.5
+							c0.3,0.1,0.7,0.3,1.1,0.5c0.6,0.2,1.1,0.4,1.5,0.7c0.4,0.2,0.8,0.5,1.1,0.8c0.3,0.3,0.6,0.6,0.7,1c0.2,0.4,0.3,0.8,0.3,1.3
+							c0,0.6-0.1,1.2-0.4,1.6c-0.3,0.5-0.6,0.8-1.1,1.1c-0.5,0.3-1,0.5-1.6,0.7c-0.6,0.1-1.2,0.2-1.9,0.2C61.6,19.3,60.4,19,59.5,18.5z" />
+							<path fill="#29A5DE" d="M75.6,19.3c-1.9,0-3.4-0.6-4.5-1.8c-1.1-1.2-1.7-2.7-1.7-4.7c0-2.1,0.6-3.8,1.7-5C72.4,6.6,73.9,6,75.9,6
+							c1.9,0,3.4,0.6,4.4,1.7c1.1,1.2,1.6,2.8,1.6,4.8c0,2-0.6,3.6-1.7,4.8C79,18.6,77.5,19.3,75.6,19.3z M75.7,7.7
+							c-1.3,0-2.3,0.4-3.1,1.3c-0.8,0.9-1.1,2.1-1.1,3.7c0,1.5,0.4,2.7,1.1,3.5c0.8,0.9,1.8,1.3,3.1,1.3c1.3,0,2.3-0.4,3-1.3
+							c0.7-0.8,1.1-2,1.1-3.6c0-1.6-0.4-2.8-1.1-3.6C78.1,8.2,77,7.7,75.7,7.7z" />
+							<path fill="#29A5DE" d="M97.6,8.1V6.3h-3.2V2.6l-2,0.7v3.1h-2.6h-1.5h-1.4V4.4c0-1.8,0.7-2.7,2.1-2.7c0.5,0,0.9,0.1,1.3,0.3V0.2
+							C89.9,0.1,89.4,0,88.8,0c-1.1,0-2.1,0.4-2.9,1.2c-0.8,0.8-1.1,1.8-1.1,3.1v2h-2.2v1.7h2.2V19h2V8.1h1.4h1.5h2.6v7.5
+							c0,2.5,1.1,3.7,3.3,3.7c0.8,0,1.4-0.1,1.9-0.4v-1.7c-0.4,0.3-0.8,0.4-1.3,0.4c-0.7,0-1.1-0.2-1.4-0.5c-0.3-0.4-0.4-1-0.4-1.8V8.1
+							H97.6z" />
+							<path fill="#29A5DE" d="M119.9,19h-2.3l-1.9-5h-7.5l-1.8,5h-2.3L111,1.3h2.1L119.9,19z M115.1,12.1l-2.8-7.5
+							c-0.1-0.2-0.2-0.6-0.3-1.2h0c-0.1,0.5-0.2,0.9-0.3,1.2l-2.7,7.5H115.1z" />
+							<path fill="#29A5DE" d="M130.4,6.9l-7.5,10.3h7.4V19H120v-0.6l7.5-10.3h-6.8V6.3h9.7V6.9z" />
+							<path fill="#29A5DE" d="M142.6,19h-2v-2h0c-0.8,1.5-2.1,2.3-3.9,2.3c-3,0-4.5-1.8-4.5-5.4V6.3h2v7.2c0,2.7,1,4,3.1,4
+							c1,0,1.8-0.4,2.4-1.1c0.6-0.7,1-1.7,1-2.9V6.3h2V19z" />
+							<path fill="#29A5DE" d="M152.6,8.4c-0.4-0.3-0.9-0.4-1.5-0.4c-0.9,0-1.6,0.4-2.2,1.2c-0.6,0.8-0.9,1.9-0.9,3.3V19h-2V6.3h2v2.6h0
+							c0.3-0.9,0.7-1.6,1.3-2.1c0.6-0.5,1.3-0.7,2-0.7c0.5,0,0.9,0.1,1.2,0.2V8.4z" />
+							<path fill="#29A5DE" d="M164,13.1h-8.9c0,1.4,0.4,2.5,1.1,3.3c0.7,0.8,1.7,1.1,3,1.1c1.4,0,2.7-0.5,3.9-1.4V18
+							c-1.1,0.8-2.6,1.2-4.4,1.2c-1.8,0-3.2-0.6-4.2-1.7c-1-1.1-1.5-2.8-1.5-4.8c0-2,0.6-3.6,1.7-4.8c1.1-1.2,2.5-1.9,4.1-1.9
+							s2.9,0.5,3.8,1.6s1.4,2.6,1.4,4.4V13.1z M161.9,11.4c0-1.2-0.3-2.1-0.8-2.7c-0.6-0.6-1.3-1-2.3-1c-1,0-1.8,0.3-2.4,1
+							c-0.7,0.7-1.1,1.6-1.2,2.7H161.9z" />
+							</svg>
+						</a>
+						<a href="#" class="small-search" onclick="return false"><span class="icon icon-search"></span></a>
+					</div>
+				</header>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mainContainer" lang="en-us" dir="ltr" ms.pgarea="body" data-bi-name="body">
+		<main role="main" ms.cmpgrp="content" data-bi-name="content">
+				<div id="main">
+
+						<h1 id="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio" sourcefile="articles/machine-learning/machine-learning-algorithm-cheat-sheet.md" sourcestartlinenumber="21" sourceendlinenumber="21">Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio</h1>
+						<div class="metadata loading" ms.cmpgrp="page info" data-bi-name="page info">
+							<div>
+								<time class="date" datetime="3/14/2017 12:00:00 AM">2017-3-14</time>
+								<span class="reading-time">5 min to read</span>
+									<span class="contributors-text">Contributors</span>
+									<ul class="contributors" ms.cmpgrp="contributors" data-bi-name="contributors">
+												<li><a href="https://github.com/garyericson" title="Gary Ericson" ms.cmpnm="contributorprofile" data-bi-name="contributorprofile"><img src="https://github.com/garyericson.png?size=16" alt="Gary Ericson"></a></li>
+												<li><a href="https://github.com/Blackmist" title="Larry Franks" ms.cmpnm="contributorprofile" data-bi-name="contributorprofile"><img src="https://github.com/Blackmist.png?size=16" alt="Larry Franks"></a></li>
+												<li><a href="https://github.com/cjgronlund" title="C.J. Gronlund" ms.cmpnm="contributorprofile" data-bi-name="contributorprofile"><img src="https://github.com/cjgronlund.png?size=16" alt="C.J. Gronlund"></a></li>
+												<li><a href="https://github.com/brohrer-ms" title="Brandon Rohrer" ms.cmpnm="contributorprofile" data-bi-name="contributorprofile"><img src="https://github.com/brohrer-ms.png?size=16" alt="Brandon Rohrer"></a></li>
+
+									</ul>
+							</div>
+
+
+							<nav id="center-doc-outline" class="doc-outline" ms.cmpgrp="intopic toc" data-bi-name="intopic toc" role="navigation" aria-label="On page navigation">
+								<h3>In this article</h3>
+							</nav>
+
+						</div>
+
+						<div><div class="content">
+<p>The <strong>Microsoft Azure Machine Learning Algorithm Cheat Sheet</strong> helps you choose the right algorithm for a predictive analytics model.</p>
+<p><a href="https://studio.azureml.net/" data-linktype="external">Azure Machine Learning Studio</a> has a large library of algorithms from the <strong><em>regression</em></strong>, <strong><em>classification</em></strong>, <strong><em>clustering</em></strong>, and <strong><em>anomaly detection</em></strong> families. Each is designed to address a different type of machine learning problem.</p>
+<h2 id="download-machine-learning-algorithm-cheat-sheet">Download: Machine learning algorithm cheat sheet</h2>
+<p><strong>Download the cheat sheet here: <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf" data-linktype="external">Machine Learning Algorithm Cheat Sheet (11x17 in.)</a></strong></p>
+<p><img src="media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png" alt="Machine Learning Algorithm cheat sheet: Learn how to choose a Machine Learning algorithm." data-linktype="relative-path"></p>
+<p>Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.</p>
+<div class="NOTE"><h5>Note</h5><p>See the article <a href="machine-learning-algorithm-choice" data-linktype="relative-path">How to choose algorithms for Microsoft Azure Machine Learning</a> for a detailed guide to using this cheat sheet.</p>
+</div>
+<h2 id="more-help-with-algorithms">More help with algorithms</h2>
+<ul>
+<li>For help in using this cheat sheet for choosing the right algorithm, plus a deeper discussion of the different types of machine learning algorithms and how they&#39;re used, see <a href="machine-learning-algorithm-choice" data-linktype="relative-path">How to choose algorithms for Microsoft Azure Machine Learning</a>.</li>
+<li>For a downloadable infographic that describes algorithms and provides examples, see <a href="machine-learning-basics-infographic-with-algorithm-examples" data-linktype="relative-path">Downloadable Infographic: Machine learning basics with algorithm examples</a>.</li>
+<li>For a list by category of all the machine learning algorithms available in Machine Learning Studio, see <a href="https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/" data-linktype="external">Initialize Model</a> in the Machine Learning Studio Algorithm and Module Help.</li>
+<li>For a complete alphabetical list of algorithms and modules in Machine Learning Studio, see <a href="https://msdn.microsoft.com/library/azure/dn906033.aspx" data-linktype="external">A-Z list of Machine Learning Studio modules</a> in Machine Learning Studio Algorithm and Module Help.</li>
+<li>To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see <a href="machine-learning-studio-overview-diagram" data-linktype="relative-path">Overview diagram of Azure Machine Learning Studio capabilities</a>.</li>
+</ul>
+<div class="NOTE"><h5>Note</h5><p><strong>Try Azure Machine Learning for free</strong></p>
+<p>No credit card or Azure subscription required. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank" data-linktype="external"><strong>Get started now</strong>.</a></p>
+</div>
+<h2 id="notes-and-terminology-definitions-for-the-machine-learning-algorithm-cheat-sheet">Notes and terminology definitions for the machine learning algorithm cheat sheet</h2>
+<ul>
+<li><p>The suggestions offered in this algorithm cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This is intended to suggest a starting point. Don’t be afraid to run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and understanding the system that generated your data.</p>
+</li>
+<li><p>Every machine learning algorithm has its own style or <em>inductive bias</em>. For a specific problem, several algorithms may be appropriate and one algorithm may be a better fit than others. But it&#39;s not always possible to know beforehand which is the best fit. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. Here’s an example from the <a href="http://gallery.cortanaintelligence.com/" data-linktype="external">Cortana Intelligence Gallery</a> of an experiment that tries several algorithms against the same data and compares the results: <a href="http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92" data-linktype="external">Compare Multi-class Classifiers: Letter recognition</a>.</p>
+</li>
+<li><p>There are three main categories of machine learning: <strong>supervised learning</strong>, <strong>unsupervised learning</strong>, and <strong>reinforcement learning</strong>.</p>
+<ul>
+<li><p>In <strong>supervised learning</strong>, each data point is labeled or associated with a category or value of interest.  An example of a categorical label is assigning an image as either a ‘cat’ or a ‘dog’.  An example of a value label is the sale price associated with a used car. The goal of supervised learning is to study many labeled examples like these, and then to be able to make predictions about future data points. For example, identifying new photos with the correct animal or assigning accurate sale prices to other used cars. This is a popular and useful type of machine learning. All of the modules in Azure Machine Learning are supervised learning algorithms except for <a href="https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/" data-linktype="external">K-Means Clustering</a>.</p>
+</li>
+<li><p>In <strong>unsupervised learning</strong>, data points have no labels associated with them. Instead, the goal of an unsupervised learning algorithm is to organize the data in some way or to describe its structure. This can mean grouping it into clusters, as K-means does, or finding different ways of looking at complex data so that it appears simpler.</p>
+</li>
+<li><p>In <strong>reinforcement learning</strong>, the algorithm gets to choose an action in response to each data point. It is a common approach in robotics, where the set of sensor readings at one point in time is a data point, and the algorithm must choose the robot’s next action. It&#39;s also a natural fit for Internet of Things applications. The learning algorithm also receives a reward signal a short time later, indicating how good the decision was. Based on this, the algorithm modifies its strategy in order to achieve the highest reward. Currently there are no reinforcement learning algorithm modules in Azure ML.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Bayesian methods</strong> make the assumption of statistically independent data points. This means that the unmodeled variability in one data point is uncorrelated with others, that is, it can’t be predicted. For example, if the data being recorded is the number of minutes until the next subway train arrives, two measurements taken a day apart are statistically independent. However, two measurements taken a minute apart are not statistically independent - the value of one is highly predictive of the value of the other.</p>
+</li>
+<li><p><strong>Boosted decision tree regression</strong> takes advantage of feature overlap or interaction among features. That means that, in any given data point, the value of one feature is somewhat predictive of the value of another. For example, in daily high/low temperature data, knowing the low temperature for the day allows you to make a reasonable guess at the high. The information contained in the two features is somewhat redundant.</p>
+</li>
+<li><p>Classifying data into more than two categories can be done by either using an inherently multi-class classifier, or by combining a set of two-class classifiers into an <strong>ensemble</strong>. In the ensemble approach, there is a separate two-class classifier for each class - each one separates the data into two categories:  “this class” and “not this class.” Then these classifiers vote on the correct assignment of the data point. This is the operational principle behind <a href="https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/" data-linktype="external">One-vs-All Multiclass</a>.</p>
+</li>
+<li><p>Several methods, including logistic regression and the Bayes point machine, assume <strong>linear class boundaries</strong>. That is, they assume that the boundaries between classes are approximately straight lines (or hyperplanes in the more general case). Often this is a characteristic of the data that you don’t know until after you’ve tried to separate it, but it’s something that typically can be learned by visualizing beforehand. If the class boundaries look very irregular, stick with decision trees, decision jungles, support vector machines, or neural networks.</p>
+</li>
+<li><p>Neural networks can be used with categorical variables by creating a <strong>dummy variable</strong> for each category, setting it to 1 in cases where the category applies, 0 where it doesn’t.</p>
+</li>
+</ul>
+<!-- This is how you can embed a link in an image in HTML. Don't know how to do this in markdown.
+<a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
+<img src="C:\Users\garye\azure-docs-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
+</a>
+-->
+<!-- Module References -->
+</div></div>
+
+
+						<div id="comments-container" ms.cmpgrp="comments" data-bi-name="comments" role="form"></div>
+				</div>
+		</main>
+
+		<div class="pageActions">
+			<div id="page-actions" ms.cmpgrp="pageactions" data-bi-name="pageactions" role="complementary">
+				<div id="page-actions-content">
+					<ul class="action-list">
+									<li>
+										<a href="#comments-container" id="comments-link" ms.cmpnm="comments" data-bi-name="comments">
+											<i class="icon icon-comments"></i>Comments										</a>
+									</li>
+
+									<li id="contenteditbtn">
+										<a href="https://github.com/Microsoft/azure-docs/blob/master/articles/machine-learning/machine-learning-algorithm-cheat-sheet.md" title="Edit This Document" ms.cmpnm="edit" data-bi-name="edit">
+											<i class="icon icon-editor"></i>Edit										</a>
+									</li>
+						<li>
+							<a href="#" class="sharebutton" title="Share This Document" ms.cmpnm="share" data-bi-name="share"><i class="icon icon-share"></i>Share</a>
+							<div class="share-container">
+								<div><a href="" class="share-twitter" ms.cmpnm="twitter" data-bi-name="twitter"><i class="icon icon-twitter"></i>Twitter</a></div>
+								<div><a href="" class="share-linkedin" ms.cmpnm="share-linkedin" data-bi-name="linkedin"><i class="icon icon-linkedin"></i>LinkedIn</a></div>
+								<div><a href="" class="share-facebook" ms.cmpnm="facebook" data-bi-name="facebook"><i class="icon icon-facebook"></i>Facebook</a></div>
+								<div><a href="" class="share-email" ms.cmpnm="email" data-bi-name="email"><i class="icon icon-email"></i>Email</a></div>
+							</div>
+						</li>
+						<li class="typeSep">|</li>
+						<li>
+							<label for="theme-selector">Theme</label>
+							<select id="theme-selector" data-bi-name="select-theme">
+								<option value="" class="removedOnload"></option>
+								<option value="">Light</option>
+								<option value="theme_night">Dark</option>
+							</select>
+						</li>
+					</ul>
+
+					<nav id="side-doc-outline" class="doc-outline" ms.cmpnm="intopic toc" data-bi-name="intopic toc" role="navigation" aria-label="On page navigation">
+						<h3>In this article</h3>
+					</nav>
+
+				</div>
+			</div>		
+		</div>
+
+		<ul class="breadcrumbs" ms.cmpgrp="breadcrumb" data-bi-name="breadcrumb" role="navigation" aria-label="breadcrumb"><li></li></ul>
+
+		<div class="sidebar" id="sidebar" ms.cmpgrp="left toc" data-bi-name="left toc" role="navigation" aria-label="main navigation" lang="en-us" dir="ltr">					
+			<div id="sidebarContent">
+				<div class="filterHolder">
+				</div>
+				<nav class="toc"></nav> 
+				<div class="pdfDownloadHolder"></div>
+			</div>
+			<div class="tocSpace"></div>
+		</div>
+
+		<div id="menu-nav" class="dropdown-container" lang="en-us" dir="ltr">
+			<div class="dropdown dropdown-full mobilenavi">
+					<select>
+					</select>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="openFeedbackContainer" class="openfeedback-container footer-layout"></div>
+	
+	<div class="container footerContainer" >
+
+<footer id="footer" ms.pgarea="footer" data-bi-name="footer" class="footer-layout">
+  <div class="container" role="contentinfo">
+
+    <a id="locale-selector-link" href="#" data-bi-name="select-locale" ms.cmpnm="select-locale"></a>
+
+    <ul class="links" ms.cmpgrp="footerlinks" data-bi-name="footerlinks">
+      <li><a id="footer-about-link" href="https://docs.microsoft.com/teamblog" ms.cmpnm="bloglink" data-bi-name="bloglink">Blog</a></li>
+      <li><a id="footer-privacy-link" href="//privacy.microsoft.com/en-US/" ms.cmpnm="privacy" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+      <li><a id="footer-term-of-use" href="/legal/termsofuse" ms.cmpnm="termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+      <li><a href="//aka.ms/sitefeedback" ms.cmpnm="feedback" data-bi-name="feedback">Feedback</a></li>
+      <li id="impressum-section"><a id="impressum-link" href="#" ms.cmpnm="impressum" data-bi-name="impressum">Impressum</a></li>
+      <li><a href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" ms.cmpnm="trademarks" data-bi-name="trademarks">Trademarks</a></li>
+    </ul>
+  </div>
+</footer>
+	</div>
+
+
+	<script src="/_themes/docs.theme/master/en-us/_themes/javascript/e718ea302012d1b2b1ed.conceptual.js"></script>
+</body>
+</html>
